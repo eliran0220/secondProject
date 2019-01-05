@@ -50,19 +50,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/eliran/Documents/CLion-2018.2.4/clion-2018.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/afik/Desktop/clion/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/eliran/Documents/CLion-2018.2.4/clion-2018.2.4/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/afik/Desktop/clion/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/eliran/CLionProjects/secondProject
+CMAKE_SOURCE_DIR = /home/afik/CLionProjects/secondProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/eliran/CLionProjects/secondProject/cmake-build-debug
+CMAKE_BINARY_DIR = /home/afik/CLionProjects/secondProject/cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/secondProject.dir
@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /home/eliran/CLionProjects/secondProject/cmake-build-debug
 CMakeFiles/secondProject.dir/all:
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/depend
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target secondProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target secondProject"
 .PHONY : CMakeFiles/secondProject.dir/all
 
 # Include target in all.
@@ -81,9 +81,9 @@ all: CMakeFiles/secondProject.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/secondProject.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/secondProject.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/secondProject.dir/rule
 
 # Convenience name for target.

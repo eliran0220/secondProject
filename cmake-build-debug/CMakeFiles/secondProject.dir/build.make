@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/eliran/Documents/CLion-2018.2.4/clion-2018.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/afik/Desktop/clion/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/eliran/Documents/CLion-2018.2.4/clion-2018.2.4/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/afik/Desktop/clion/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/eliran/CLionProjects/secondProject
+CMAKE_SOURCE_DIR = /home/afik/CLionProjects/secondProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/eliran/CLionProjects/secondProject/cmake-build-debug
+CMAKE_BINARY_DIR = /home/afik/CLionProjects/secondProject/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/secondProject.dir/depend.make
@@ -59,28 +59,43 @@ include CMakeFiles/secondProject.dir/flags.make
 
 CMakeFiles/secondProject.dir/main.cpp.o: CMakeFiles/secondProject.dir/flags.make
 CMakeFiles/secondProject.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/secondProject.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/main.cpp.o -c /home/eliran/CLionProjects/secondProject/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/secondProject.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/main.cpp.o -c /home/afik/CLionProjects/secondProject/main.cpp
 
 CMakeFiles/secondProject.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/secondProject.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eliran/CLionProjects/secondProject/main.cpp > CMakeFiles/secondProject.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/afik/CLionProjects/secondProject/main.cpp > CMakeFiles/secondProject.dir/main.cpp.i
 
 CMakeFiles/secondProject.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/secondProject.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eliran/CLionProjects/secondProject/main.cpp -o CMakeFiles/secondProject.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/afik/CLionProjects/secondProject/main.cpp -o CMakeFiles/secondProject.dir/main.cpp.s
+
+CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: CMakeFiles/secondProject.dir/flags.make
+CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../serverPackage/MySerialServer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o -c /home/afik/CLionProjects/secondProject/serverPackage/MySerialServer.cpp
+
+CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/afik/CLionProjects/secondProject/serverPackage/MySerialServer.cpp > CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.i
+
+CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/afik/CLionProjects/secondProject/serverPackage/MySerialServer.cpp -o CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.s
 
 # Object files for target secondProject
 secondProject_OBJECTS = \
-"CMakeFiles/secondProject.dir/main.cpp.o"
+"CMakeFiles/secondProject.dir/main.cpp.o" \
+"CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o"
 
 # External object files for target secondProject
 secondProject_EXTERNAL_OBJECTS =
 
 secondProject: CMakeFiles/secondProject.dir/main.cpp.o
+secondProject: CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o
 secondProject: CMakeFiles/secondProject.dir/build.make
 secondProject: CMakeFiles/secondProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable secondProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable secondProject"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/secondProject.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -93,6 +108,6 @@ CMakeFiles/secondProject.dir/clean:
 .PHONY : CMakeFiles/secondProject.dir/clean
 
 CMakeFiles/secondProject.dir/depend:
-	cd /home/eliran/CLionProjects/secondProject/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/eliran/CLionProjects/secondProject /home/eliran/CLionProjects/secondProject /home/eliran/CLionProjects/secondProject/cmake-build-debug /home/eliran/CLionProjects/secondProject/cmake-build-debug /home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/afik/CLionProjects/secondProject/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/afik/CLionProjects/secondProject /home/afik/CLionProjects/secondProject /home/afik/CLionProjects/secondProject/cmake-build-debug /home/afik/CLionProjects/secondProject/cmake-build-debug /home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/secondProject.dir/depend
 

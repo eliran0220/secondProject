@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/eliran/CLionProjects/secondProject/main.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/main.cpp.o"
+  "/home/afik/CLionProjects/secondProject/main.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/main.cpp.o"
+  "/home/afik/CLionProjects/secondProject/serverPackage/MySerialServer.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -3,4 +3,4 @@ project(secondProject)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(secondProject main.cpp)
+add_executable(secondProject main.cpp serverPackage/Server.h serverPackage/MySerialServer.cpp serverPackage/MySerialServer.h clienPackage/ClientHandler.h)
