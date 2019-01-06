@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/secondProject.dir/main.cpp.o CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o  -o secondProject 
+/usr/bin/c++  -g   CMakeFiles/secondProject.dir/main.cpp.o CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o  -o secondProject 

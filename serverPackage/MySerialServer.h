@@ -8,7 +8,7 @@
 
 #include "Server.h"
 
-class MySerialServer : public Server{
+class MySerialServer : public server_side::Server{
 
 };
 
