@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/eliran/CLionProjects/secondProject/clientPackage/MyTestClientHandler.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o"
   "/home/eliran/CLionProjects/secondProject/main.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/main.cpp.o"
   "/home/eliran/CLionProjects/secondProject/serverPackage/MySerialServer.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o"
+  "/home/eliran/CLionProjects/secondProject/solverPackage/StringReverser.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

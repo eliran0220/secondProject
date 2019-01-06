@@ -231,6 +231,33 @@ serverPackage/MySerialServer.cpp.s:
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.s
 .PHONY : serverPackage/MySerialServer.cpp.s
 
+solverPackage/StringReverser.o: solverPackage/StringReverser.cpp.o
+
+.PHONY : solverPackage/StringReverser.o
+
+# target to build an object file
+solverPackage/StringReverser.cpp.o:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o
+.PHONY : solverPackage/StringReverser.cpp.o
+
+solverPackage/StringReverser.i: solverPackage/StringReverser.cpp.i
+
+.PHONY : solverPackage/StringReverser.i
+
+# target to preprocess a source file
+solverPackage/StringReverser.cpp.i:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.i
+.PHONY : solverPackage/StringReverser.cpp.i
+
+solverPackage/StringReverser.s: solverPackage/StringReverser.cpp.s
+
+.PHONY : solverPackage/StringReverser.s
+
+# target to generate assembly for a file
+solverPackage/StringReverser.cpp.s:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.s
+.PHONY : solverPackage/StringReverser.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -252,6 +279,9 @@ help:
 	@echo "... serverPackage/MySerialServer.o"
 	@echo "... serverPackage/MySerialServer.i"
 	@echo "... serverPackage/MySerialServer.s"
+	@echo "... solverPackage/StringReverser.o"
+	@echo "... solverPackage/StringReverser.i"
+	@echo "... solverPackage/StringReverser.s"
 .PHONY : help
 
 

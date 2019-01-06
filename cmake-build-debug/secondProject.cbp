@@ -121,6 +121,12 @@
 		<Unit filename="/home/eliran/CLionProjects/secondProject/solverPackage/Solver.h">
 			<Option target="secondProject"/>
 		</Unit>
+		<Unit filename="/home/eliran/CLionProjects/secondProject/solverPackage/StringReverser.cpp">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/eliran/CLionProjects/secondProject/solverPackage/StringReverser.h">
+			<Option target="secondProject"/>
+		</Unit>
 		<Unit filename="/home/eliran/CLionProjects/secondProject/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
