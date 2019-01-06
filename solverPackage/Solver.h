@@ -5,9 +5,12 @@
 #ifndef SECONDPROJECT_SOLVER_H
 #define SECONDPROJECT_SOLVER_H
 
+#include <string>
+
+using namespace std;
+
 template<class P, class S>
 class Solver {
-
     virtual S solver(P problem) = 0;
 };
 
