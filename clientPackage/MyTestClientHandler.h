@@ -9,7 +9,7 @@
 #include "ClientHandler.h"
 #include "../solverPackage/Solver.h"
 
-class MyTestClientHandler : ClientHandler {
+class MyTestClientHandler : public ClientHandler {
 
 private:
     class Solver;

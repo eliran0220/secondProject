@@ -123,6 +123,33 @@ secondProject/fast:
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/build
 .PHONY : secondProject/fast
 
+cachePackage/FileCacheManager.o: cachePackage/FileCacheManager.cpp.o
+
+.PHONY : cachePackage/FileCacheManager.o
+
+# target to build an object file
+cachePackage/FileCacheManager.cpp.o:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o
+.PHONY : cachePackage/FileCacheManager.cpp.o
+
+cachePackage/FileCacheManager.i: cachePackage/FileCacheManager.cpp.i
+
+.PHONY : cachePackage/FileCacheManager.i
+
+# target to preprocess a source file
+cachePackage/FileCacheManager.cpp.i:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.i
+.PHONY : cachePackage/FileCacheManager.cpp.i
+
+cachePackage/FileCacheManager.s: cachePackage/FileCacheManager.cpp.s
+
+.PHONY : cachePackage/FileCacheManager.s
+
+# target to generate assembly for a file
+cachePackage/FileCacheManager.cpp.s:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.s
+.PHONY : cachePackage/FileCacheManager.cpp.s
+
 clientPackage/MyTestClientHandler.o: clientPackage/MyTestClientHandler.cpp.o
 
 .PHONY : clientPackage/MyTestClientHandler.o
@@ -213,6 +240,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... secondProject"
+	@echo "... cachePackage/FileCacheManager.o"
+	@echo "... cachePackage/FileCacheManager.i"
+	@echo "... cachePackage/FileCacheManager.s"
 	@echo "... clientPackage/MyTestClientHandler.o"
 	@echo "... clientPackage/MyTestClientHandler.i"
 	@echo "... clientPackage/MyTestClientHandler.s"

@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/eliran/CLionProjects/secondProject/cachePackage/FileCacheManager.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o"
   "/home/eliran/CLionProjects/secondProject/clientPackage/MyTestClientHandler.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o"
   "/home/eliran/CLionProjects/secondProject/main.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/main.cpp.o"
   "/home/eliran/CLionProjects/secondProject/serverPackage/MySerialServer.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o"

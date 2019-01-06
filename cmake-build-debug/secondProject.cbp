@@ -91,6 +91,12 @@
 		<Unit filename="/home/eliran/CLionProjects/secondProject/cachePackage/CacheManager.h">
 			<Option target="secondProject"/>
 		</Unit>
+		<Unit filename="/home/eliran/CLionProjects/secondProject/cachePackage/FileCacheManager.cpp">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/eliran/CLionProjects/secondProject/cachePackage/FileCacheManager.h">
+			<Option target="secondProject"/>
+		</Unit>
 		<Unit filename="/home/eliran/CLionProjects/secondProject/clientPackage/ClientHandler.h">
 			<Option target="secondProject"/>
 		</Unit>
