@@ -3,6 +3,10 @@
 #define SECONDPROJECT_MYTESTCLIENTHANDLER_H
 
 
+#include <zconf.h>
+#include <cstring>
+#include <iostream>
+
 #include "ClientHandler.h"
 #include "../solverPackage/Solver.h"
 #include "../solverPackage/StringReverser.h"
@@ -21,7 +25,7 @@ public:
         this->solver = solver;
         this->cacheManager = cacheManager;
     }
-    void handleClient(string input);
+    void handleClient(int socket) override;
 };
 
 

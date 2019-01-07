@@ -11,7 +11,7 @@ namespace server_side{
     class Server {
     virtual void open(int port, ClientHandler& clientHandler) = 0;
     virtual bool shouldStop() = 0;
-    virtual void setStop();
+    virtual void setStop() = 0;
     virtual void closeServer() = 0;
 
 };

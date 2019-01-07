@@ -10,6 +10,6 @@ using namespace std;
 
 class ClientHandler {
 public:
-    virtual void handleClient(string input) = 0;
+    virtual void handleClient(int socket) = 0;
 };
 #endif //SECONDPROJECT_CLIENTHANDLER_H
