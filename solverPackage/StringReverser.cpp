@@ -10,3 +10,12 @@ string StringReverser::solver(string problem) {
     reverse(solution.begin(), solution.end());
     return solution;
 }
+
+
+string StringReverser::solutionToString(string solution) {
+    return solution;
+}
+
+string StringReverser::stringToProblem(string problemString) {
+    return problemString;
+}

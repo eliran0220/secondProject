@@ -12,6 +12,8 @@ using namespace std;
 template<class P, class S>
 class Solver {
     virtual S solver(P problem) = 0;
+    virtual P stringToProblem(string problemString) = 0;
+    virtual string solutionToString(S solution) = 0;
 };
 
 #endif //SECONDPROJECT_SOLVER_H

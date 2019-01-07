@@ -8,6 +8,7 @@ void MyTestClientHandler<P,S>::handleClient(int socket) {
     string clientInput = "";
     P problem;
     S solution;
+    string solutionString;
     while (clientInput != "end") {
         n = read(socket, buffer, 1);
         while (strcmp(buffer, "\n") != 0) {
@@ -19,9 +20,10 @@ void MyTestClientHandler<P,S>::handleClient(int socket) {
             }
         }
         cout << "Server get: " + clientInput <<endl;
-        problem = clientInput;
+        problem = this->solver->stringToProblem(clientInput);
         solution = this->solver->solver(problem);
-        n = write(socket, solution,strlen(solution));
+        solutionString = this->solver->solutionToString(solution);
+        n = write(socket, solutionString.c_str(),solutionString.size());
         if(n < 0){
             perror("ERROR writing to socket");
             exit(1);
