@@ -8,8 +8,10 @@
 
 
 #include "Solver.h"
-template<class P, class S>
+
 class StringReverser : public Solver<string,string>{
+public:
+    StringReverser() {}
     string solver(string problem) override;
 };
 

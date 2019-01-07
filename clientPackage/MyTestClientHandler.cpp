@@ -4,9 +4,8 @@
 
 #include "MyTestClientHandler.h"
 
-
-void MyTestClientHandler::handleClient(istream input, ostream output) {
-
-
+template <class P, class S>
+void MyTestClientHandler<P,S>::handleClient(string input) {
 
 }
+

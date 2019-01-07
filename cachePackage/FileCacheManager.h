@@ -12,7 +12,7 @@ template<class P, class S>
 class FileCacheManager : public CacheManager<P, S> {
 
 public:
-
+    FileCacheManager() {}
     bool isSolutionExist(P problem);
 
     S popSolution(P problem);

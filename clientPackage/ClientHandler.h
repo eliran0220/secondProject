@@ -9,6 +9,7 @@ using namespace std;
 #include <istream>
 
 class ClientHandler {
-    virtual void handleClient(istream input, ostream output) = 0;
+public:
+    virtual void handleClient(string input) = 0;
 };
 #endif //SECONDPROJECT_CLIENTHANDLER_H
