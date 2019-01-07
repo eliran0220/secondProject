@@ -21,7 +21,7 @@ private:
     Solver<P, S>* solver;
 
 public:
-    MyTestClientHandler(Solver<P,S> &solver, CacheManager<P,S> &cacheManager) {
+    MyTestClientHandler(Solver<P,S> *solver, CacheManager<P,S> *cacheManager) {
         this->solver = solver;
         this->cacheManager = cacheManager;
     }

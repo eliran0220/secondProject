@@ -15,6 +15,7 @@
 #include <thread>
 #include "Server.h"
 
+
 class MySerialServer : public server_side::Server{
     bool stop;
     thread serverThread;

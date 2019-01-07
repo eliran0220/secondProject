@@ -20,9 +20,13 @@ void MyTestClientHandler<P,S>::handleClient(int socket) {
             }
         }
         cout << "Server get: " + clientInput <<endl;
-        problem = this->solver->stringToProblem(clientInput);
-        solution = this->solver->solver(problem);
-        solutionString = this->solver->solutionToString(solution);
+        if (this->cacheManager->isSolutionExist(clientInput)) {
+            solutionString = this->cacheManager->popSolution(clientInput);
+        } else {
+            problem = this->solver->stringToProblem(clientInput);
+            solution = this->solver->solver(problem);
+            solutionString = this->solver->solutionToString(solution);
+        }
         n = write(socket, solutionString.c_str(),solutionString.size());
         if(n < 0){
             perror("ERROR writing to socket");
