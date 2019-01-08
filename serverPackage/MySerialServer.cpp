@@ -16,10 +16,16 @@ void MySerialServer::open(int port, ClientHandler& clientHandler) {
 }
 
 void MySerialServer::runServer(int port, ClientHandler *clientHandler, MySerialServer* mySerialServer) {
+    // create a socket and listen for client
+    int sockfd, newsockfd, clilen;
+    struct sockaddr_in serv_addr, cli_addr;
+
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_addr.s_addr = INADDR_ANY;
+    serv_addr.sin_port = htons(port);
+
     while (!mySerialServer->shouldStop()) {
-        // create a socket and listen for client
-        int sockfd, newsockfd, clilen;
-        struct sockaddr_in serv_addr, cli_addr;
+
 
         /* First call to socket() function */
         sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -37,10 +43,6 @@ void MySerialServer::runServer(int port, ClientHandler *clientHandler, MySerialS
         /* Initialize socket structure */
         bzero((char *) &serv_addr, sizeof(serv_addr));
 
-        serv_addr.sin_family = AF_INET;
-        serv_addr.sin_addr.s_addr = INADDR_ANY;
-        serv_addr.sin_port = htons(port);
-
         /* Now bind the host address using bind() call.*/
         if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
             perror("ERROR on binding");
@@ -56,8 +58,9 @@ void MySerialServer::runServer(int port, ClientHandler *clientHandler, MySerialS
         newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr,
                            (socklen_t *) &clilen);
         if (newsockfd >= 0) {
-            clientHandler->handleClient(sockfd);
+            clientHandler->handleClient(newsockfd);
             close(newsockfd);
+            close(sockfd);
         }
     }
 }

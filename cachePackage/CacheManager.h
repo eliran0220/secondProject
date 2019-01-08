@@ -7,7 +7,7 @@
 
 template<class P, class S>
 class CacheManager {
-
+public:
     virtual bool isSolutionExist(P problem) = 0;
 
     virtual S popSolution(P problem) = 0;

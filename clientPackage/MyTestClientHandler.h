@@ -12,15 +12,14 @@
 #include "../cachePackage/CacheManager.h"
 
 
-template <class P, class S>
 class MyTestClientHandler : public ClientHandler {
 
 private:
-    CacheManager<P,S>* cacheManager;
-    Solver<P, S>* solver;
+    CacheManager<string, string>* cacheManager;
+    Solver<string, string>* solver;
 
 public:
-    MyTestClientHandler(Solver<P,S> *solver, CacheManager<P,S> *cacheManager) {
+    MyTestClientHandler(Solver<string, string> *solver, CacheManager<string, string> *cacheManager) {
         this->solver = solver;
         this->cacheManager = cacheManager;
     }

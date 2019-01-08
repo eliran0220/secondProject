@@ -12,14 +12,12 @@ int main(int argc, char *argv[]) {
     server_side::Server* server = new MySerialServer();
     Solver<string, string>* solver = new StringReverser();
     CacheManager<string, string>* cacheManager = new  FileCacheManager("a.txt", "b.txt");
-    ClientHandler* clientHandler = new MyTestClientHandler<string,string>(solver, cacheManager);
+    ClientHandler* clientHandler = new MyTestClientHandler(solver, cacheManager);
     server->open(atoi(argv[1]),*clientHandler);
-    sleep(500);
-
-
-    //delete(server);
-    //delete(solver);
-    //delete(cacheManager);
-    //delete(clientHandler);
+    sleep(1000);
+    delete(server);
+    delete(solver);
+    delete(cacheManager);
+    delete(clientHandler);
     return 0;
 }
