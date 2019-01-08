@@ -3,7 +3,6 @@
 #define SECONDPROJECT_MYTESTCLIENTHANDLER_H
 
 
-#include <zconf.h>
 #include <cstring>
 #include <iostream>
 

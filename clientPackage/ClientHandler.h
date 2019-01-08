@@ -7,6 +7,7 @@
 using namespace std;
 
 #include <istream>
+#include <unistd.h>
 
 class ClientHandler {
 public:

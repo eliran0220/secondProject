@@ -15,6 +15,8 @@ int main(int argc, char *argv[]) {
     ClientHandler* clientHandler = new MyTestClientHandler<string,string>(solver, cacheManager);
     server->open(atoi(argv[1]),*clientHandler);
     sleep(500);
+
+
     //delete(server);
     //delete(solver);
     //delete(cacheManager);

@@ -9,11 +9,11 @@
 #include <netinet/in.h>
 #include <strings.h>
 #include <pthread.h>
-#include <zconf.h>
 #include <cstring>
 #include <iostream>
 #include <thread>
 #include "Server.h"
+#include <unistd.h>
 
 
 class MySerialServer : public server_side::Server{
