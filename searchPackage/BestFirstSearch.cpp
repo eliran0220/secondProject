@@ -6,5 +6,5 @@
 
 template<class Solution, class Searchable>
 Solution BestFirstSearch<Solution, Searchable>::search(Searchable searchable) {
-    State
+
 }

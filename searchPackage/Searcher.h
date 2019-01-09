@@ -11,12 +11,21 @@ using namespace std;
 #include "ISearcher.h"
 #include "State.h"
 
-
 template<class T, class Solution, class Searchable>
 class Searcher : public ISearcher<Solution, Searchable> {
 
 private:
-    queue<State <T>> openList;
+    queue<State<T>> openList;
+    int evalutedNodes;
+
+public:
+    Searcher() =0;
+    virtual int openListSize() =0;
+
+
+protected:
+    State <T> popOpenList();
+
 };
 
 #endif //SECONDPROJECT_SEARCHER_H

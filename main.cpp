@@ -6,6 +6,8 @@
 #include "solverPackage/StringReverser.h"
 #include "cachePackage/FileCacheManager.h"
 #include "clientPackage/MyTestClientHandler.h"
+#include "searchPackage/ISearcher.h"
+#include "searchPackage/Searcher.h"
 
 
 int main(int argc, char *argv[]) {
