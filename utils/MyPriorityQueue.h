@@ -7,6 +7,7 @@
 
 #include "../searchPackage/State.h"
 
+template <class T>
 class MyPriorityQueue{
     virtual void push(State<T>& state) = 0;
     virtual int size() = 0;
