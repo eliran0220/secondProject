@@ -1,7 +1,6 @@
 #include "MySerialServer.h"
 
 
-
 MySerialServer::MySerialServer() {
     setStop();
 }
@@ -11,22 +10,16 @@ MySerialServer::~MySerialServer() {
     this->serverThread.join();
 }
 
-void MySerialServer::open(int port, ClientHandler& clientHandler) {
-    this->serverThread = thread(MySerialServer::runServer, port, &clientHandler, this);
+void MySerialServer::open(int port, ClientHandler &clientHandler) {
+    this->serverThread = thread(MySerialServer::runServer, port, &clientHandler,
+                                this);
 }
 
-void MySerialServer::runServer(int port, ClientHandler *clientHandler, MySerialServer* mySerialServer) {
-    // create a socket and listen for client
+void MySerialServer::runServer(int port, ClientHandler *clientHandler,
+                               MySerialServer *mySerialServer) {
     int sockfd, newsockfd, clilen;
     struct sockaddr_in serv_addr, cli_addr;
-
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_addr.s_addr = INADDR_ANY;
-    serv_addr.sin_port = htons(port);
-
-    while (!mySerialServer->shouldStop()) {
-
-
+    if (!mySerialServer->shouldStop()) {
         /* First call to socket() function */
         sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -38,21 +31,29 @@ void MySerialServer::runServer(int port, ClientHandler *clientHandler, MySerialS
         // set timeout 150 s
         struct timeval tv;
         tv.tv_sec = 150;
-        setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO,(struct timeval *)&tv, sizeof(struct timeval));
+        setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (struct timeval *) &tv,
+                   sizeof(struct timeval));
 
         /* Initialize socket structure */
         bzero((char *) &serv_addr, sizeof(serv_addr));
 
+        // create a socket and listen for client
+        serv_addr.sin_family = AF_INET;
+        serv_addr.sin_addr.s_addr = INADDR_ANY;
+        serv_addr.sin_port = htons(port);
+
         /* Now bind the host address using bind() call.*/
-        if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
+        if (bind(sockfd, (struct sockaddr *) &serv_addr,
+                 sizeof(serv_addr)) <
+            0) {
             perror("ERROR on binding");
             exit(1);
         }
-
+    }
+    while (!mySerialServer->shouldStop()) {
         /* Now start listening for the clients, here process will
-           * go in sleep mode and will wait for the incoming connection
-        */
-
+               * go in sleep mode and will wait for the incoming connection
+            */
         listen(sockfd, 5);
         clilen = sizeof(cli_addr);
         newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr,
@@ -60,7 +61,6 @@ void MySerialServer::runServer(int port, ClientHandler *clientHandler, MySerialS
         if (newsockfd >= 0) {
             clientHandler->handleClient(newsockfd);
             close(newsockfd);
-            close(sockfd);
         }
     }
 }

@@ -11,6 +11,7 @@ using namespace std;
 #include "State.h"
 
 template <class SearchableItem, class T> class Searchable  {
+public:
     virtual State<T> getInitialState() =0;
     virtual State<T> getGoalState() =0;
     virtual list<T> getAllPossibleStates(State<T>);
