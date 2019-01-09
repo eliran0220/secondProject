@@ -1,5 +1,5 @@
 //
-// Created by eliran on 1/8/19.
+// Created by eliran on 1/9/19.
 //
 
 #ifndef SECONDPROJECT_BESTFIRSTSEARCH_H
@@ -7,13 +7,22 @@
 
 
 #include "Searcher.h"
-template <class Solution, class Searchable>
-class BestFirstSearch : public Searcher<Solution,Searchable> {
-    Solution search(Searchable searchable);
+
+template<class T, class Solution>
+class BestFirstSearch : public Searcher<T, Solution> {
+
+private:
+    queue<State<T>> openList;
+    int evaluatedNodes;
+
+public:
+    BestFirstSearch();
+    Solution search(Searchable<T> searchable) override;
+    int openListSize() override;
+    State<T> popOpenList() override;
+
 
 };
-
-
 
 
 #endif //SECONDPROJECT_BESTFIRSTSEARCH_H

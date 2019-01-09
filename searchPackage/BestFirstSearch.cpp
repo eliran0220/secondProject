@@ -1,10 +1,23 @@
 //
-// Created by eliran on 1/8/19.
+// Created by eliran on 1/9/19.
 //
 
 #include "BestFirstSearch.h"
 
-template<class Solution, class Searchable>
-Solution BestFirstSearch<Solution, Searchable>::search(Searchable searchable) {
+template<class T, class Solution>
+BestFirstSearch<T, Solution>::BestFirstSearch(){
+    this->openList = new queue<State <T>>;
+    this->evaluatedNodes = 0;
+}
+
+template<class T, class Solution>
+int BestFirstSearch<T, Solution>::openListSize() {
+    return 0;
+}
+
+template<class T, class Solution>
+State<T> BestFirstSearch<T, Solution>::popOpenList() {
+    evaluatedNodes++;
 
 }
+

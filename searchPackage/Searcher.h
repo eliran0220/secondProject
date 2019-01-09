@@ -10,21 +10,15 @@ using namespace std;
 #include <queue>
 #include "ISearcher.h"
 #include "State.h"
+#include "Searchable.h"
 
-template<class T, class Solution, class Searchable>
-class Searcher : public ISearcher<Solution, Searchable> {
-
-private:
-    queue<State<T>> openList;
-    int evalutedNodes;
+template<class T, class Solution>
+class Searcher {
 
 public:
-    Searcher() =0;
+    virtual Solution search(Searchable<T> searchable);
     virtual int openListSize() =0;
-
-
-protected:
-    State <T> popOpenList();
+    virtual State <T> popOpenList();
 
 };
 
