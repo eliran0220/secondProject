@@ -1,15 +1,15 @@
 
 #include "FileCacheManager.h"
 
-FileCacheManager::FileCacheManager(string fileInput, string fileOutput) {
-    this->fileInput = new ofstream(fileInput, ios_base::app);
-    this->fileOutput = new fstream(fileOutput);
+FileCacheManager::FileCacheManager(string file) {
+    this->fileInput = new ofstream(file, ios_base::app);
+    this->fileOutput = new fstream(file);
 }
 
 FileCacheManager::~FileCacheManager() {
     map<string, string>::iterator it = this->updateFile.begin();
     while (it != this->updateFile.end()) {
-        *this->fileInput << it->first + "$" +it->second <<endl;
+        *this->fileInput << it->first + "$" + it->second << endl;
         it++;
     }
     this->fileOutput->close();
@@ -30,9 +30,11 @@ bool FileCacheManager::isSolutionExist(string problem) {
         stringstream ss(line);
         getline(ss, tempProblem, '$');
         getline(ss, tempSolution, '$');
-        this->mapProblemToSolution[tempProblem] = tempSolution;
-        if (problem == tempProblem) {
-            return true;
+        if (tempProblem != "" && tempSolution != "") {
+            this->mapProblemToSolution[tempProblem] = tempSolution;
+            if (problem == tempProblem) {
+                return true;
+            }
         }
     }
     return false;

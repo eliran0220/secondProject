@@ -22,7 +22,7 @@ class FileCacheManager : public CacheManager<string, string> {
     map<string, string> updateFile;
 
 public:
-    FileCacheManager(string fileInput, string fileOutput);
+    FileCacheManager(string file);
 
     ~FileCacheManager();
 

@@ -30,7 +30,7 @@ void MySerialServer::runServer(int port, ClientHandler *clientHandler,
 
         // set timeout 150 s
         struct timeval tv;
-        tv.tv_sec = 150;
+        tv.tv_sec = 20;
         setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (struct timeval *) &tv,
                    sizeof(struct timeval));
 

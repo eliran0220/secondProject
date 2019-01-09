@@ -19,6 +19,9 @@ namespace server_side {
 
         virtual void closeServer() = 0;
 
+        virtual ~Server(){};
+
+
     };
 }
 
