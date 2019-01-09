@@ -312,33 +312,6 @@ solverPackage/StringReverser.cpp.s:
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.s
 .PHONY : solverPackage/StringReverser.cpp.s
 
-utils/MInPriorityQueue.o: utils/MInPriorityQueue.cpp.o
-
-.PHONY : utils/MInPriorityQueue.o
-
-# target to build an object file
-utils/MInPriorityQueue.cpp.o:
-	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.o
-.PHONY : utils/MInPriorityQueue.cpp.o
-
-utils/MInPriorityQueue.i: utils/MInPriorityQueue.cpp.i
-
-.PHONY : utils/MInPriorityQueue.i
-
-# target to preprocess a source file
-utils/MInPriorityQueue.cpp.i:
-	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.i
-.PHONY : utils/MInPriorityQueue.cpp.i
-
-utils/MInPriorityQueue.s: utils/MInPriorityQueue.cpp.s
-
-.PHONY : utils/MInPriorityQueue.s
-
-# target to generate assembly for a file
-utils/MInPriorityQueue.cpp.s:
-	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.s
-.PHONY : utils/MInPriorityQueue.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -369,9 +342,6 @@ help:
 	@echo "... solverPackage/StringReverser.o"
 	@echo "... solverPackage/StringReverser.i"
 	@echo "... solverPackage/StringReverser.s"
-	@echo "... utils/MInPriorityQueue.o"
-	@echo "... utils/MInPriorityQueue.i"
-	@echo "... utils/MInPriorityQueue.s"
 .PHONY : help
 
 

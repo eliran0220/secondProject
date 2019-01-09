@@ -10,18 +10,31 @@ using namespace std;
 #include <queue>
 #include "State.h"
 #include "Searchable.h"
-#include "set"
-template<class T, class Solution>
-class Searcher {
+#include "../utils/MyPriorityQueue.h"
 
-    priority_queue<T> priorityQueue;
+template<class T>
+class Searcher {
+    int evaluatedNodes;
+    MyPriorityQueue<T> openList;
 
 public:
-    virtual Solution search(Searchable<T> searchable) =0;
+    virtual State<T> search(Searchable<T> searchable) = 0;
 
-    virtual int openListSize() = 0;
+    virtual int openListSize() {
+        this->openList.size();
+    }
 
-    virtual State <T> popOpenList() =0;
+    virtual State <T>& popOpenList(){
+        State<T> temp = this->openList.poll();
+        if (temp != nullptr) {
+            this->evaluatedNodes++;
+        }
+        return temp;
+    }
+
+    virtual int getNumberOfNodesEvaluated() {
+        return this->evaluatedNodes;
+    }
 
 };
 

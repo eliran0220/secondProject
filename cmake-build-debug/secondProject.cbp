@@ -139,10 +139,10 @@
 		<Unit filename="/home/afik/CLionProjects/secondProject/solverPackage/StringReverser.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MInPriorityQueue.cpp">
+		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MaxPriorityQueue.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MInPriorityQueue.h">
+		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MinPriorityQueue.h">
 			<Option target="secondProject"/>
 		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MyPriorityQueue.h">
