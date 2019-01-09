@@ -25,6 +25,7 @@ CMakeFiles/secondProject.dir/main.cpp.o: ../solverPackage/StringReverser.h
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../cachePackage/CacheManager.h
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../cachePackage/FileCacheManager.h
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../clientPackage/ClientHandler.h
+CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../clientPackage/MyTestClientHandler.h
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../serverPackage/MySerialServer.cpp
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../serverPackage/MySerialServer.h
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../serverPackage/Server.h

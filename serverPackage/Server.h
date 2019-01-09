@@ -6,6 +6,13 @@
 #define SECONDPROJECT_SERVER_H
 
 #include "../clientPackage/ClientHandler.h"
+//#include "MySerialServer.h"
+
+#include "../solverPackage/Solver.h"
+#include "../cachePackage/CacheManager.h"
+#include "../cachePackage/FileCacheManager.h"
+#include "../solverPackage/StringReverser.h"
+#include "../clientPackage/MyTestClientHandler.h"
 
 
 namespace server_side {
@@ -19,7 +26,7 @@ namespace server_side {
 
         virtual void closeServer() = 0;
 
-        virtual ~Server(){};
+        virtual ~Server() {};
 
 
     };
@@ -28,23 +35,24 @@ namespace server_side {
 /*
 namespace boot {
 #include "MySerialServer.h"
-#include "../clientPackage/ClientHandler.h"
-#include "../solverPackage/Solver.h"
-#include "../cachePackage/CacheManager.h"
-#include "../cachePackage/FileCacheManager.h"
-#include "../solverPackage/StringReverser.h"
-
     class Main {
     public:
         int main(int argc, char *argv[]) {
-            server_side::Server server = new  MySerialServer();
-            Solver<string, string> solver = StringReverser();
-            CacheManager<string, string> cacheManager = FileCacheManager("a.txt", "b.txt");
-            ClientHandler<string, string> clientHandler = MyTestClientHandler(solver, cacheManager);
-            server.open(argv[1],clientHandler);
-            sleep(500);
+            MySerialServer *server = new MySerialServer();
+            Solver<string, string> *solver = new StringReverser();
+            CacheManager<string, string> *cacheManager = new FileCacheManager(
+                    "a.txt");
+            ClientHandler *clientHandler = new MyTestClientHandler(solver,
+                                                                   cacheManager);
+            server->open(atoi(argv[1]), *clientHandler);
+            sleep(20);
+            delete (server);
+            delete (solver);
+            delete (cacheManager);
+            delete (clientHandler);
         }
     };
 }
  */
+
 #endif //SECONDPROJECT_SERVER_H
