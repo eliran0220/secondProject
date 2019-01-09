@@ -204,6 +204,60 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+searchPackage/BestFirstSearch.o: searchPackage/BestFirstSearch.cpp.o
+
+.PHONY : searchPackage/BestFirstSearch.o
+
+# target to build an object file
+searchPackage/BestFirstSearch.cpp.o:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o
+.PHONY : searchPackage/BestFirstSearch.cpp.o
+
+searchPackage/BestFirstSearch.i: searchPackage/BestFirstSearch.cpp.i
+
+.PHONY : searchPackage/BestFirstSearch.i
+
+# target to preprocess a source file
+searchPackage/BestFirstSearch.cpp.i:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.i
+.PHONY : searchPackage/BestFirstSearch.cpp.i
+
+searchPackage/BestFirstSearch.s: searchPackage/BestFirstSearch.cpp.s
+
+.PHONY : searchPackage/BestFirstSearch.s
+
+# target to generate assembly for a file
+searchPackage/BestFirstSearch.cpp.s:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.s
+.PHONY : searchPackage/BestFirstSearch.cpp.s
+
+searchPackage/State.o: searchPackage/State.cpp.o
+
+.PHONY : searchPackage/State.o
+
+# target to build an object file
+searchPackage/State.cpp.o:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/searchPackage/State.cpp.o
+.PHONY : searchPackage/State.cpp.o
+
+searchPackage/State.i: searchPackage/State.cpp.i
+
+.PHONY : searchPackage/State.i
+
+# target to preprocess a source file
+searchPackage/State.cpp.i:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/searchPackage/State.cpp.i
+.PHONY : searchPackage/State.cpp.i
+
+searchPackage/State.s: searchPackage/State.cpp.s
+
+.PHONY : searchPackage/State.s
+
+# target to generate assembly for a file
+searchPackage/State.cpp.s:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/searchPackage/State.cpp.s
+.PHONY : searchPackage/State.cpp.s
+
 serverPackage/MySerialServer.o: serverPackage/MySerialServer.cpp.o
 
 .PHONY : serverPackage/MySerialServer.o
@@ -258,6 +312,33 @@ solverPackage/StringReverser.cpp.s:
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.s
 .PHONY : solverPackage/StringReverser.cpp.s
 
+utils/MInPriorityQueue.o: utils/MInPriorityQueue.cpp.o
+
+.PHONY : utils/MInPriorityQueue.o
+
+# target to build an object file
+utils/MInPriorityQueue.cpp.o:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.o
+.PHONY : utils/MInPriorityQueue.cpp.o
+
+utils/MInPriorityQueue.i: utils/MInPriorityQueue.cpp.i
+
+.PHONY : utils/MInPriorityQueue.i
+
+# target to preprocess a source file
+utils/MInPriorityQueue.cpp.i:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.i
+.PHONY : utils/MInPriorityQueue.cpp.i
+
+utils/MInPriorityQueue.s: utils/MInPriorityQueue.cpp.s
+
+.PHONY : utils/MInPriorityQueue.s
+
+# target to generate assembly for a file
+utils/MInPriorityQueue.cpp.s:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.s
+.PHONY : utils/MInPriorityQueue.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -276,12 +357,21 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... searchPackage/BestFirstSearch.o"
+	@echo "... searchPackage/BestFirstSearch.i"
+	@echo "... searchPackage/BestFirstSearch.s"
+	@echo "... searchPackage/State.o"
+	@echo "... searchPackage/State.i"
+	@echo "... searchPackage/State.s"
 	@echo "... serverPackage/MySerialServer.o"
 	@echo "... serverPackage/MySerialServer.i"
 	@echo "... serverPackage/MySerialServer.s"
 	@echo "... solverPackage/StringReverser.o"
 	@echo "... solverPackage/StringReverser.i"
 	@echo "... solverPackage/StringReverser.s"
+	@echo "... utils/MInPriorityQueue.o"
+	@echo "... utils/MInPriorityQueue.i"
+	@echo "... utils/MInPriorityQueue.s"
 .PHONY : help
 
 

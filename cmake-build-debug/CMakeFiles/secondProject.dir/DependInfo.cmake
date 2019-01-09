@@ -7,8 +7,11 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/afik/CLionProjects/secondProject/cachePackage/FileCacheManager.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o"
   "/home/afik/CLionProjects/secondProject/clientPackage/MyTestClientHandler.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o"
   "/home/afik/CLionProjects/secondProject/main.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/main.cpp.o"
+  "/home/afik/CLionProjects/secondProject/searchPackage/BestFirstSearch.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o"
+  "/home/afik/CLionProjects/secondProject/searchPackage/State.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/searchPackage/State.cpp.o"
   "/home/afik/CLionProjects/secondProject/serverPackage/MySerialServer.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o"
   "/home/afik/CLionProjects/secondProject/solverPackage/StringReverser.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o"
+  "/home/afik/CLionProjects/secondProject/utils/MInPriorityQueue.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

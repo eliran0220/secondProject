@@ -11,16 +11,20 @@ class State {
 private:
     T state;
     double cost;
-    State<T> cameFrom;
+    State<T>* cameFrom;
 
 public:
-    State(T state);
+    State(T state, State<T>* cameFrom);
 
     T getState();
 
-    bool Equals(T state);
+    double getCost();
 
-    virtual ~State();
+    State<T>* getCameFrom();
+
+    bool Equals(State<T> state);
+
+    ~State();
 };
 
 

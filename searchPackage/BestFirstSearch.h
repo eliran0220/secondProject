@@ -9,7 +9,7 @@
 #include "Searcher.h"
 
 template<class T, class Solution>
-class BestFirstSearch : public Searcher<T, Solution> {
+class BestFirstSearch{
 
 private:
     queue<State<T>> openList;
@@ -20,8 +20,6 @@ public:
     Solution search(Searchable<T> searchable) override;
     int openListSize() override;
     State<T> popOpenList() override;
-
-
 };
 
 

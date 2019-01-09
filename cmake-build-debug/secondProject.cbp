@@ -109,6 +109,18 @@
 		<Unit filename="/home/afik/CLionProjects/secondProject/main.cpp">
 			<Option target="secondProject"/>
 		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/BestFirstSearch.cpp">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/BestFirstSearch.h">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/State.cpp">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/State.h">
+			<Option target="secondProject"/>
+		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/serverPackage/MySerialServer.cpp">
 			<Option target="secondProject"/>
 		</Unit>
@@ -125,6 +137,15 @@
 			<Option target="secondProject"/>
 		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/solverPackage/StringReverser.h">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MInPriorityQueue.cpp">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MInPriorityQueue.h">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MyPriorityQueue.h">
 			<Option target="secondProject"/>
 		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/CMakeLists.txt">

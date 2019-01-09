@@ -122,13 +122,55 @@ CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/afik/CLionProjects/secondProject/solverPackage/StringReverser.cpp -o CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.s
 
+CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o: CMakeFiles/secondProject.dir/flags.make
+CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o: ../searchPackage/BestFirstSearch.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o -c /home/afik/CLionProjects/secondProject/searchPackage/BestFirstSearch.cpp
+
+CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/afik/CLionProjects/secondProject/searchPackage/BestFirstSearch.cpp > CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.i
+
+CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/afik/CLionProjects/secondProject/searchPackage/BestFirstSearch.cpp -o CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.s
+
+CMakeFiles/secondProject.dir/searchPackage/State.cpp.o: CMakeFiles/secondProject.dir/flags.make
+CMakeFiles/secondProject.dir/searchPackage/State.cpp.o: ../searchPackage/State.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/secondProject.dir/searchPackage/State.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/searchPackage/State.cpp.o -c /home/afik/CLionProjects/secondProject/searchPackage/State.cpp
+
+CMakeFiles/secondProject.dir/searchPackage/State.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/secondProject.dir/searchPackage/State.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/afik/CLionProjects/secondProject/searchPackage/State.cpp > CMakeFiles/secondProject.dir/searchPackage/State.cpp.i
+
+CMakeFiles/secondProject.dir/searchPackage/State.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/secondProject.dir/searchPackage/State.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/afik/CLionProjects/secondProject/searchPackage/State.cpp -o CMakeFiles/secondProject.dir/searchPackage/State.cpp.s
+
+CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.o: CMakeFiles/secondProject.dir/flags.make
+CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.o: ../utils/MInPriorityQueue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.o -c /home/afik/CLionProjects/secondProject/utils/MInPriorityQueue.cpp
+
+CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/afik/CLionProjects/secondProject/utils/MInPriorityQueue.cpp > CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.i
+
+CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/afik/CLionProjects/secondProject/utils/MInPriorityQueue.cpp -o CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.s
+
 # Object files for target secondProject
 secondProject_OBJECTS = \
 "CMakeFiles/secondProject.dir/main.cpp.o" \
 "CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o" \
 "CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o" \
 "CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o" \
-"CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o"
+"CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o" \
+"CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o" \
+"CMakeFiles/secondProject.dir/searchPackage/State.cpp.o" \
+"CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.o"
 
 # External object files for target secondProject
 secondProject_EXTERNAL_OBJECTS =
@@ -138,9 +180,12 @@ secondProject: CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o
 secondProject: CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o
 secondProject: CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o
 secondProject: CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o
+secondProject: CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o
+secondProject: CMakeFiles/secondProject.dir/searchPackage/State.cpp.o
+secondProject: CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.o
 secondProject: CMakeFiles/secondProject.dir/build.make
 secondProject: CMakeFiles/secondProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable secondProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable secondProject"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/secondProject.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
