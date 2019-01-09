@@ -6,7 +6,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o"
   "CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o"
   "CMakeFiles/secondProject.dir/searchPackage/State.cpp.o"
-  "CMakeFiles/secondProject.dir/utils/MInPriorityQueue.cpp.o"
   "secondProject.pdb"
   "secondProject"
 )
