@@ -5,7 +5,6 @@
 #ifndef SECONDPROJECT_BESTFIRSTSEARCH_H
 #define SECONDPROJECT_BESTFIRSTSEARCH_H
 
-
 #include "Searcher.h"
 
 template<class T, class Solution>
@@ -17,9 +16,10 @@ private:
 
 public:
     BestFirstSearch();
-    Solution search(Searchable<T> searchable) override;
-    int openListSize() override;
-    State<T> popOpenList() override;
+    Solution search(Searchable<T> searchable);
+    int openListSize();
+    State<T> popOpenList();
+
 };
 
 
