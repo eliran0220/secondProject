@@ -11,6 +11,7 @@ using namespace std;
 #include "State.h"
 #include "Searchable.h"
 #include "../utils/MyPriorityQueue.h"
+#include <set>
 
 template<class T>
 class Searcher {

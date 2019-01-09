@@ -2,6 +2,7 @@
 // Created by eliran on 1/9/19.
 //
 
+
 #include "BestFirstSearch.h"
 
 template<class T, class Solution>
@@ -34,7 +35,7 @@ Solution BestFirstSearch<T, Solution>::search(Searchable<T> searchable) {
         for (State<T> state : successors) {
             if (!closed.find(state)) {
                 openList.push(state);
-            } else {
+            } else  {
 
             }
         }
