@@ -13,9 +13,8 @@ using namespace std;
 
 #define SIZE 4
 
-
 class MatrixDomain : public Searchable<int> {
-    int matrix[SIZE][SIZE];
+    int matrix[SIZE + 1][SIZE + 1];
     map <string,State<int>*> s;
 
 public:

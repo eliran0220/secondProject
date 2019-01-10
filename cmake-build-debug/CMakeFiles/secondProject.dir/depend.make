@@ -19,7 +19,6 @@ CMakeFiles/secondProject.dir/main.cpp.o: ../clientPackage/MyTestClientHandler.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../main.cpp
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/BFS.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/BestFirstSearch.h
-CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/DFS.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/Searchable.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/Searcher.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/State.h
@@ -31,7 +30,6 @@ CMakeFiles/secondProject.dir/main.cpp.o: ../test/MatrixDomain.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MaxPriorityQueue.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MinPriorityQueue.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MyPriority.h
-CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MyPriorityStack.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/Point.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/RegularQueue.h
 
