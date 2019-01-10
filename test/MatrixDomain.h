@@ -11,24 +11,37 @@ using namespace std;
 #include <map>
 #include "../searchPackage/Searchable.h"
 
+#define SIZE 4
+
+
 class MatrixDomain : public Searchable<int> {
     int matrix[10][10];
     map <string,State<int>*> s;
+
 public:
     MatrixDomain() {
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                matrix[i][j] = j;
-            }
+        for (int i = 0; i <= SIZE; ++i) {
+            matrix[i][0] = 2;
+            matrix[i][1] = 2;
+            matrix[i][2] = 2;
+            matrix[i][3] = 2;
+            matrix[i][4] = 2;
         }
+        matrix[SIZE][SIZE] = 1;
     }
 
     State<int >* getInitialState() {
-        return new State<int >(1,matrix[0][0], 0,0);
+        string t = to_string(0) + "," + to_string(0);
+        State<int>* temp =new State<int >(1,matrix[0][0], 0,0);
+        s[t] = temp;
+        return temp;
     }
 
     State<int >* getGoalState(){
-        return new State<int >(1,matrix[2][2], 2,2);
+        string t = to_string(SIZE) + "," + to_string(SIZE);
+        State<int>* temp =new State<int >(1,matrix[SIZE][SIZE], SIZE,SIZE);
+        s[t] = temp;
+        return temp;
     }
 
     vector<State<int>*> getAllPossibleStates(State<int>* state) {
@@ -43,6 +56,7 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x][y+1], x,y+1);
+                s[t] = temp;
             }
             v.push_back(temp);
             t = to_string(x+1) + "," + to_string(y);
@@ -50,15 +64,17 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x+1][y], x+1,y);
+                s[t] = temp;
             }
 
             v.push_back(temp);
-        } else if (x == 0){
+        } else if (x == 0 && y !=SIZE){
             t = to_string(x) + "," + to_string(y-1);
             if (s.count(t)== 1) {
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x][y-1], x,y-1);
+                s[t] = temp;
             }
             v.push_back(temp);
             t = to_string(x) + "," + to_string(y+1);
@@ -66,6 +82,7 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x][y+1], x,y+1);
+                s[t] = temp;
             }
             v.push_back(temp);
             t = to_string(x+1) + "," + to_string(y);
@@ -73,6 +90,35 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x+1][y], x+1,y);
+                s[t] = temp;
+            }
+
+            v.push_back(temp);
+        } else if (y == 0 && x!=SIZE) {
+            t = to_string(x) + "," + to_string(y+1);
+            if (s.count(t)== 1) {
+                temp = s[t];
+            } else {
+                temp = new State<int>(1,matrix[x][y+1], x,y+1);
+                s[t] = temp;
+            }
+
+            v.push_back(temp);
+            t = to_string(x+1) + "," + to_string(y);
+            if (s.count(t)== 1) {
+                temp = s[t];
+            } else {
+                temp = new State<int>(1,matrix[x+1][y], x+1,y);
+                s[t] = temp;
+            }
+
+            v.push_back(temp);
+            t = to_string(x-1) + "," + to_string(y);
+            if (s.count(t)== 1) {
+                temp = s[t];
+            } else {
+                temp = new State<int>(1,matrix[x-1][y], x-1,y);
+                s[t] = temp;
             }
 
             v.push_back(temp);
@@ -82,6 +128,25 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x][y+1], x,y+1);
+                s[t] = temp;
+            }
+
+            v.push_back(temp);
+            t = to_string(x-1) + "," + to_string(y);
+            if (s.count(t)== 1) {
+                temp = s[t];
+            } else {
+                temp = new State<int>(1,matrix[x-1][y], x-1,y);
+                s[t] = temp;
+            }
+            v.push_back(temp);
+        } else if(x==0) {
+            t = to_string(x) + "," + to_string(y-1);
+            if (s.count(t)== 1) {
+                temp = s[t];
+            } else {
+                temp = new State<int>(1,matrix[x][y-1], x,y-1);
+                s[t] = temp;
             }
 
             v.push_back(temp);
@@ -90,24 +155,20 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x+1][y], x+1,y);
+                s[t] = temp;
             }
-
             v.push_back(temp);
-            t = to_string(x-1) + "," + to_string(y);
-            if (s.count(t)== 1) {
-                temp = s[t];
-            } else {
-                temp = new State<int>(1,matrix[x-1][y], x-1,y);
-            }
+        }
 
-            v.push_back(temp);
-        } else if (x==2 & y == 2) {
+
+        else if (x==SIZE & y == SIZE) {
 
             t = to_string(x) + "," + to_string(y-1);
             if (s.count(t)== 1) {
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x][y-1], x,y-1);
+                s[t] = temp;
             }
 
             v.push_back(temp);
@@ -116,18 +177,20 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x-1][y], x-1,y);
+                s[t] = temp;
             }
 
             v.push_back(temp);
         }
 
-        else if (x == 2) {
+        else if (x == SIZE) {
             v.push_back(temp);
             t = to_string(x) + "," + to_string(y+1);
             if (s.count(t)== 1) {
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x][y+1], x,y+1);
+                s[t] = temp;
             }
 
             v.push_back(temp);
@@ -136,6 +199,7 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x][y-1], x,y-1);
+                s[t] = temp;
             }
 
             v.push_back(temp);
@@ -144,16 +208,18 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x-1][y], x-1,y);
+                s[t] = temp;
             }
 
 
             v.push_back(temp);
-        }else if (y == 2) {
+        }else if (y == SIZE) {
             t = to_string(x) + "," + to_string(y-1);
             if (s.count(t)== 1) {
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x][y-1], x,y-1);
+                s[t] = temp;
             }
 
             v.push_back(temp);
@@ -162,6 +228,7 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x+1][y], x+1,y);
+                s[t] = temp;
             }
 
             v.push_back(temp);
@@ -170,6 +237,7 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x-1][y], x-1,y);
+                s[t] = temp;
             }
 
             v.push_back(temp);
@@ -179,6 +247,7 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x-1][y], x-1,y);
+                s[t] = temp;
             }
 
             v.push_back(temp);
@@ -187,6 +256,7 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x+1][y], x+1,y);
+                s[t] = temp;
             }
 
             v.push_back(temp);
@@ -195,6 +265,7 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x][y-1], x,y-1);
+                s[t] = temp;
             }
 
             v.push_back(temp);
@@ -203,6 +274,7 @@ public:
                 temp = s[t];
             } else {
                 temp = new State<int>(1,matrix[x][y+1], x,y+1);
+                s[t] = temp;
             }
 
             v.push_back(temp);

@@ -109,6 +109,9 @@
 		<Unit filename="/home/afik/CLionProjects/secondProject/main.cpp">
 			<Option target="secondProject"/>
 		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/BFS.h">
+			<Option target="secondProject"/>
+		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/BestFirstSearch.h">
 			<Option target="secondProject"/>
 		</Unit>

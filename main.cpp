@@ -19,9 +19,10 @@ int main(int argc, char *argv[]) {
     MatrixDomain matrixDomain = MatrixDomain();
     BestFirstSearch<int>* bestFirstSearch = new BestFirstSearch<int>();
     vector<State<int>*>path = bestFirstSearch->search(&matrixDomain);
+
     int x=9;
     /*
-    MyPriorityQueue<string>* priorityQueue = new RegularQueue<string>();
+    MyPriorityQueue<string>* priorityQueue = new MinPriorityQueue<string>();
     State<string>* s = new State<string>("q",7,1,2);
     s->setCostPath(7);
     priorityQueue->push(s);
@@ -45,8 +46,8 @@ int main(int argc, char *argv[]) {
         cout<<s->getState()<<"-";
         cout<<s->getCost()<<endl;
     }
-
     */
+
     /*
     server_side::Server* server = new MySerialServer();
     Solver<string, string>* solver = new StringReverser();

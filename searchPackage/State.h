@@ -23,7 +23,7 @@ public:
         this->state = state;
         this->cost = cost;
         this->cameFrom = nullptr;
-        this->pathCost = 0;
+        this->pathCost = cost;
         this->position = new Point(x,y);
     }
 
