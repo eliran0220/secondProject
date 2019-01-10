@@ -12,12 +12,13 @@
 #include "utils/RegularQueue.h"
 #include "test/MatrixDomain.h"
 #include "searchPackage/BestFirstSearch.h"
+#include "searchPackage/BFS.h"
 
 
 int main(int argc, char *argv[]) {
 
     MatrixDomain matrixDomain = MatrixDomain();
-    BestFirstSearch<int>* bestFirstSearch = new BestFirstSearch<int>();
+    BFS<int>* bestFirstSearch = new BFS<int>();
     vector<State<int>*>path = bestFirstSearch->search(&matrixDomain);
 
     int x=9;
