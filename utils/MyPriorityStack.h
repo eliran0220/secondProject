@@ -1,7 +1,3 @@
-//
-// Created by eliran on 1/10/19.
-//
-
 #ifndef SECONDPROJECT_MYPRIORITYSTACK_H
 #define SECONDPROJECT_MYPRIORITYSTACK_H
 
@@ -10,7 +6,6 @@
 
 template <class T>
 class MyPriorityStack : public MyPriority<T>{
-
     stack<State<T>*> myStack;
     int sizeStack;
     set<State<T>*> setOfStates;
