@@ -14,7 +14,42 @@ private:
     State<T>* cameFrom;
 
 public:
-    State(T state, State<T>* cameFrom);
+
+    State(T state) {
+        this->state = state;
+        // this->cameFrom = cameFrom;
+    }
+
+
+//template<class T>
+//State<T>::~State() {
+//    delete (this->cameFrom);
+//}
+
+
+    T getState() {
+        return this->state;
+    }
+
+
+    bool Equals(State<T>* state) {
+        if (state == this) {
+            return true;
+        }
+        return false;
+    }
+
+
+    State<T>* getCameFrom() {
+        return this->getCameFrom();
+    }
+
+
+    double getCost() {
+        return  this->cost;
+    }
+    /*
+    State(T state);
 
     T getState();
 
@@ -22,9 +57,10 @@ public:
 
     State<T>* getCameFrom();
 
-    bool Equals(State<T> state);
+    bool Equals(State<T>* state);
+     */
 
-    ~State();
+   // ~State();
 };
 
 

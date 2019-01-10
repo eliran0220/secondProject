@@ -15,6 +15,8 @@ using namespace std;
 
 template<class T>
 class Searcher {
+
+
     int evaluatedNodes;
     MyPriorityQueue<T> openList;
 

@@ -21,7 +21,7 @@ State<T> BestFirstSearch<T, Solution>::popOpenList() {
     evaluatedNodes++;
     return openList.poll();
 }
-
+/*
 template<class T, class Solution>
 Solution BestFirstSearch<T, Solution>::search(Searchable<T> searchable) {
     this->openList.push(searchable.getInitialState()); // push the initial state
@@ -41,6 +41,7 @@ Solution BestFirstSearch<T, Solution>::search(Searchable<T> searchable) {
         }
     }
 }
+ */
 
 
 

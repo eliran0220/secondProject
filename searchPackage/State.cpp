@@ -3,18 +3,18 @@
 //
 
 #include "State.h"
-
+/*
 template<class T>
-State<T>::State(T state, State<T>* cameFrom) {
+State<T>::State(T state) {
     this->state = state;
-    this->cameFrom = cameFrom;
+   // this->cameFrom = cameFrom;
 }
 
 
-template<class T>
-State<T>::~State() {
-    delete (this->cameFrom);
-}
+//template<class T>
+//State<T>::~State() {
+//    delete (this->cameFrom);
+//}
 
 template<class T>
 T State<T>::getState() {
@@ -22,8 +22,8 @@ T State<T>::getState() {
 }
 
 template <class T>
-bool State<T>::Equals(State<T> state) {
-    if (state.getState() == this->state) {
+bool State<T>::Equals(State<T>* state) {
+    if (state == this) {
         return true;
     }
     return false;
@@ -39,6 +39,6 @@ double State<T>::getCost() {
     return  this->cost;
 }
 
-
+*/
 
 
