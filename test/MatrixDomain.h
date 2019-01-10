@@ -15,7 +15,7 @@ using namespace std;
 
 
 class MatrixDomain : public Searchable<int> {
-    int matrix[SIZE][SIZE];
+    int matrix[SIZE+1][SIZE+1];
     map <string,State<int>*> s;
 
 public:
@@ -26,7 +26,7 @@ public:
             matrix[i][2] = 2;
             matrix[i][3] = 2;
         }
-        matrix[SIZE-1][SIZE-1] = 1;
+        matrix[SIZE][SIZE] = 1;
     }
 
     State<int >* getInitialState() {
