@@ -68,5 +68,7 @@ public:
     virtual State<T>* poll() = 0;
     virtual bool isEmpty() = 0 ;
     virtual bool contains(State<T>* state) = 0;
+
+    virtual void eraseAndPush(State<T>* state) = 0;
 };
 #endif //SECONDPROJECT_MYPRIORITYQUEUE_H

@@ -109,10 +109,13 @@
 		<Unit filename="/home/afik/CLionProjects/secondProject/main.cpp">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/BestFirstSearch.cpp">
+		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/BestFirstSearch.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/BestFirstSearch.h">
+		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/Searchable.h">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/Searcher.h">
 			<Option target="secondProject"/>
 		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/State.cpp">
@@ -146,6 +149,9 @@
 			<Option target="secondProject"/>
 		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MyPriorityQueue.h">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/utils/Point.h">
 			<Option target="secondProject"/>
 		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/utils/RegularQueue.h">

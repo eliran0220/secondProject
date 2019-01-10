@@ -204,33 +204,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-searchPackage/BestFirstSearch.o: searchPackage/BestFirstSearch.cpp.o
-
-.PHONY : searchPackage/BestFirstSearch.o
-
-# target to build an object file
-searchPackage/BestFirstSearch.cpp.o:
-	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o
-.PHONY : searchPackage/BestFirstSearch.cpp.o
-
-searchPackage/BestFirstSearch.i: searchPackage/BestFirstSearch.cpp.i
-
-.PHONY : searchPackage/BestFirstSearch.i
-
-# target to preprocess a source file
-searchPackage/BestFirstSearch.cpp.i:
-	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.i
-.PHONY : searchPackage/BestFirstSearch.cpp.i
-
-searchPackage/BestFirstSearch.s: searchPackage/BestFirstSearch.cpp.s
-
-.PHONY : searchPackage/BestFirstSearch.s
-
-# target to generate assembly for a file
-searchPackage/BestFirstSearch.cpp.s:
-	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.s
-.PHONY : searchPackage/BestFirstSearch.cpp.s
-
 searchPackage/State.o: searchPackage/State.cpp.o
 
 .PHONY : searchPackage/State.o
@@ -330,9 +303,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... searchPackage/BestFirstSearch.o"
-	@echo "... searchPackage/BestFirstSearch.i"
-	@echo "... searchPackage/BestFirstSearch.s"
 	@echo "... searchPackage/State.o"
 	@echo "... searchPackage/State.i"
 	@echo "... searchPackage/State.s"

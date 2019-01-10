@@ -24,17 +24,12 @@ CMakeFiles/secondProject.dir/main.cpp.o: ../solverPackage/Solver.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../solverPackage/StringReverser.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MaxPriorityQueue.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MyPriorityQueue.h
+CMakeFiles/secondProject.dir/main.cpp.o: ../utils/Point.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/RegularQueue.h
-
-CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o: ../searchPackage/BestFirstSearch.cpp
-CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o: ../searchPackage/BestFirstSearch.h
-CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o: ../searchPackage/Searchable.h
-CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o: ../searchPackage/Searcher.h
-CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o: ../searchPackage/State.h
-CMakeFiles/secondProject.dir/searchPackage/BestFirstSearch.cpp.o: ../utils/MyPriorityQueue.h
 
 CMakeFiles/secondProject.dir/searchPackage/State.cpp.o: ../searchPackage/State.cpp
 CMakeFiles/secondProject.dir/searchPackage/State.cpp.o: ../searchPackage/State.h
+CMakeFiles/secondProject.dir/searchPackage/State.cpp.o: ../utils/Point.h
 
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../cachePackage/CacheManager.h
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../cachePackage/FileCacheManager.h

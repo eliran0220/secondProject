@@ -14,14 +14,22 @@
 
 int main(int argc, char *argv[]) {
     MyPriorityQueue<string>* priorityQueue = new RegularQueue<string>();
-    State<string>* s = new State<string>("q",7);
-
+    State<string>* s = new State<string>("q",7,1,2);
+    s->setCostPath(7);
     priorityQueue->push(s);
-    priorityQueue->push(new State<string>("a",67));
-    priorityQueue->push(new State<string>("b",4));
-    priorityQueue->push(new State<string>("c",8));
-    priorityQueue->push(new State<string>("d",9));
-    priorityQueue->push(new State<string>("e",0));
+    s = new State<string>("a",67,1,3);
+    s->setCostPath(67);
+    priorityQueue->push(s);
+    s = new State<string>("a",9,1,3);
+    s->setCostPath(9);
+    priorityQueue->push(s);
+    s = new State<string>("a",89,1,3);
+    s->setCostPath(89);
+    priorityQueue->push(s);
+    s = new State<string>("a",19,1,3);
+    s->setCostPath(19);
+    priorityQueue->push(s);
+
 
     //s = priorityQueue.poll();
     while (!priorityQueue->isEmpty()) {

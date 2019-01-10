@@ -15,20 +15,23 @@ using namespace std;
 
 template<class T>
 class Searcher {
-
-
+protected:
     int evaluatedNodes;
     MyPriorityQueue<T> openList;
 
 public:
-    virtual State<T> search(Searchable<T> searchable) = 0;
+    Searcher(MyPriorityQueue<T> myPriorityQueue) {
+        this->openList = myPriorityQueue;
+        this->evaluatedNodes = 0;
+    }
+    virtual vector<State<T>> search(Searchable<T> searchable) = 0;
 
     virtual int openListSize() {
         this->openList.size();
     }
 
-    virtual State <T>& popOpenList(){
-        State<T> temp = this->openList.poll();
+    virtual State <T>* popOpenList(){
+        State<T>* temp = this->openList.poll();
         if (temp != nullptr) {
             this->evaluatedNodes++;
         }
@@ -37,6 +40,17 @@ public:
 
     virtual int getNumberOfNodesEvaluated() {
         return this->evaluatedNodes;
+    }
+
+    virtual vector<State<T>> backTrace(State<T> state) {
+        vector<State<T>> path;
+        State<T> current = state;
+        State<T> temp;
+        while (current != nullptr) {
+            path.push_back(current)
+            current = current.getCameFrom();
+        }
+        return path;
     }
 
 };

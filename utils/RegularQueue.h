@@ -58,6 +58,22 @@ public:
         }
         return false;
     }
+
+    void eraseAndPush(State<T>* state) {
+        vector<State<T>*> states;
+        State<T>* temp;
+        temp = this->poll();
+        while (temp != nullptr) {
+            if (!state->Equals(temp)) {
+                states.push_back(temp);
+            } else {
+                break;
+            }
+        }
+        for (int i = 0; i < (int)states.size(); ++i) {
+            this->push(states[i]);
+        }
+    }
 };
 
 #endif //SECONDPROJECT_REGULARQUEUE_H
