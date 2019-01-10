@@ -7,10 +7,11 @@
 
 #include "stack"
 #include "MyPriority.h"
+
 template <class T>
 class MyPriorityStack : public MyPriority<T>{
 
-    stack<State<T>> myStack;
+    stack<State<T>*> myStack;
     int sizeStack;
     set<State<T>*> setOfStates;
 
