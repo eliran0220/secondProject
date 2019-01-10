@@ -19,7 +19,7 @@ public:
     Solution search(Searchable<T> searchable);
     int openListSize();
     State<T> popOpenList();
-
+    list<State<T>> backTrace();
 };
 
 
