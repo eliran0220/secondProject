@@ -13,26 +13,26 @@ class BestFirstSearch {
 
 
 public:
-    BestFirstSearch(MinPriorityQueue<T> k) : Searcher<T>(k) {}
+    BestFirstSearch() : Searcher<T>(new MinPriorityQueue<T>) {}
 
-    vector<State<T>> search(Searchable<T> searchable) {
-        this->openList.push(
-                searchable.getInitialState()); // push the initial state
+    vector<State<T>*> search(Searchable<T>* searchable) {
+        this->openList->push(
+                searchable->getInitialState()); // push the initial state
         set<State<T> *> closed;
-        State<T> *goalState = searchable.getGoalState();
-        while (openListSize() > 0) {
-            State<T> *n = popOpenList();
+        State<T> *goalState = searchable->getGoalState();
+        while (this->openListSize() > 0) {
+            State<T> *n = this->popOpenList();
             closed.insert(n);
             if (n->Equals(goalState)) {
                 return this->backTrace();
             }
-            vector<State<T> *> successors = searchable.getAllPossibleStates(n);
+            vector<State<T> *> successors = searchable->getAllPossibleStates(n);
             for (State<T> *state : successors) {
                 if (!(closed.count(state) >= 1) &&
                     !(this->openList.contains(state))) {
                     state->setCameFrom(n);
                     state->setCostPath(n->getCost() + state->getCost());
-                    openList.push(state);
+                    this->openList.push(state);
                 } else {
                     // if the cost path is a less than the previous path.
                     if (this->openList.contains(state) &&

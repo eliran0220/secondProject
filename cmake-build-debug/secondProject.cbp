@@ -118,9 +118,6 @@
 		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/Searcher.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/State.cpp">
-			<Option target="secondProject"/>
-		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/State.h">
 			<Option target="secondProject"/>
 		</Unit>
@@ -140,6 +137,9 @@
 			<Option target="secondProject"/>
 		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/solverPackage/StringReverser.h">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/test/MatrixDomain.h">
 			<Option target="secondProject"/>
 		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MaxPriorityQueue.h">

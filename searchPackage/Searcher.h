@@ -17,14 +17,14 @@ template<class T>
 class Searcher {
 protected:
     int evaluatedNodes;
-    MyPriorityQueue<T> openList;
+    MyPriorityQueue<T>* openList;
 
 public:
-    Searcher(MyPriorityQueue<T> myPriorityQueue) {
+    Searcher(MyPriorityQueue<T>* myPriorityQueue) {
         this->openList = myPriorityQueue;
         this->evaluatedNodes = 0;
     }
-    virtual vector<State<T>> search(Searchable<T> searchable) = 0;
+    virtual vector<State<T>*> search(Searchable<T> searchable) = 0;
 
     virtual int openListSize() {
         this->openList.size();
@@ -47,10 +47,14 @@ public:
         State<T> current = state;
         State<T> temp;
         while (current != nullptr) {
-            path.push_back(current)
+            path.push_back(current);
             current = current.getCameFrom();
         }
         return path;
+    }
+
+    ~Searcher() {
+        delete(this->openList);
     }
 
 };

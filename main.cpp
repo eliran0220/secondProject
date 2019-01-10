@@ -10,9 +10,16 @@
 #include "searchPackage/State.h"
 #include "utils/MaxPriorityQueue.h"
 #include "utils/RegularQueue.h"
+#include "test/MatrixDomain.h"
+#include "searchPackage/BestFirstSearch.h"
 
 
 int main(int argc, char *argv[]) {
+    MatrixDomain matrixDomain = MatrixDomain();
+    BestFirstSearch<int> bestFirstSearch = BestFirstSearch<int>();
+    vector<State<int>*>path = bestFirstSearch.search(&matrixDomain);
+
+    /*
     MyPriorityQueue<string>* priorityQueue = new RegularQueue<string>();
     State<string>* s = new State<string>("q",7,1,2);
     s->setCostPath(7);
@@ -38,7 +45,7 @@ int main(int argc, char *argv[]) {
         cout<<s->getCost()<<endl;
     }
 
-
+    */
     /*
     server_side::Server* server = new MySerialServer();
     Solver<string, string>* solver = new StringReverser();

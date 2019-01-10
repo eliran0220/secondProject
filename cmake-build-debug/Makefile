@@ -204,33 +204,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-searchPackage/State.o: searchPackage/State.cpp.o
-
-.PHONY : searchPackage/State.o
-
-# target to build an object file
-searchPackage/State.cpp.o:
-	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/searchPackage/State.cpp.o
-.PHONY : searchPackage/State.cpp.o
-
-searchPackage/State.i: searchPackage/State.cpp.i
-
-.PHONY : searchPackage/State.i
-
-# target to preprocess a source file
-searchPackage/State.cpp.i:
-	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/searchPackage/State.cpp.i
-.PHONY : searchPackage/State.cpp.i
-
-searchPackage/State.s: searchPackage/State.cpp.s
-
-.PHONY : searchPackage/State.s
-
-# target to generate assembly for a file
-searchPackage/State.cpp.s:
-	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/searchPackage/State.cpp.s
-.PHONY : searchPackage/State.cpp.s
-
 serverPackage/MySerialServer.o: serverPackage/MySerialServer.cpp.o
 
 .PHONY : serverPackage/MySerialServer.o
@@ -303,9 +276,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... searchPackage/State.o"
-	@echo "... searchPackage/State.i"
-	@echo "... searchPackage/State.s"
 	@echo "... serverPackage/MySerialServer.o"
 	@echo "... serverPackage/MySerialServer.i"
 	@echo "... serverPackage/MySerialServer.s"
