@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/afik/CLionProjects/secondProject/cmake-build-debug"/>
+				<Option working_dir="/home/eliran/CLionProjects/secondProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/afik/CLionProjects/secondProject/cmake-build-debug"/>
+				<Option working_dir="/home/eliran/CLionProjects/secondProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/afik/CLionProjects/secondProject/cmake-build-debug"/>
+				<Option working_dir="/home/eliran/CLionProjects/secondProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="secondProject">
-				<Option output="/home/afik/CLionProjects/secondProject/cmake-build-debug/secondProject" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/afik/CLionProjects/secondProject/cmake-build-debug"/>
+				<Option output="/home/eliran/CLionProjects/secondProject/cmake-build-debug/secondProject" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/eliran/CLionProjects/secondProject/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -56,15 +56,15 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 secondProject"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 secondProject"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="secondProject/fast">
-				<Option output="/home/afik/CLionProjects/secondProject/cmake-build-debug/secondProject" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/afik/CLionProjects/secondProject/cmake-build-debug"/>
+				<Option output="/home/eliran/CLionProjects/secondProject/cmake-build-debug/secondProject" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/eliran/CLionProjects/secondProject/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -81,86 +81,89 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 secondProject/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/afik/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 secondProject/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/eliran/CLionProjects/secondProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/afik/CLionProjects/secondProject/cachePackage/CacheManager.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/cachePackage/CacheManager.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/cachePackage/FileCacheManager.cpp">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/cachePackage/FileCacheManager.cpp">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/cachePackage/FileCacheManager.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/cachePackage/FileCacheManager.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/clientPackage/ClientHandler.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/clientPackage/ClientHandler.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/clientPackage/MyTestClientHandler.cpp">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/clientPackage/MyTestClientHandler.cpp">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/clientPackage/MyTestClientHandler.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/clientPackage/MyTestClientHandler.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/main.cpp">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/main.cpp">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/BFS.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/searchPackage/BFS.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/BestFirstSearch.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/searchPackage/BestFirstSearch.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/Searchable.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/searchPackage/Searchable.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/Searcher.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/searchPackage/Searcher.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/State.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/searchPackage/State.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/serverPackage/MySerialServer.cpp">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/serverPackage/MySerialServer.cpp">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/serverPackage/MySerialServer.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/serverPackage/MySerialServer.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/serverPackage/Server.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/serverPackage/Server.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/solverPackage/Solver.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/solverPackage/Solver.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/solverPackage/StringReverser.cpp">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/solverPackage/StringReverser.cpp">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/solverPackage/StringReverser.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/solverPackage/StringReverser.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/test/MatrixDomain.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/test/MatrixDomain.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MaxPriorityQueue.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/utils/MaxPriorityQueue.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MinPriorityQueue.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/utils/MinPriorityQueue.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MyPriority.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/utils/MyPriority.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/utils/Point.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/utils/MyPriorityStack.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/utils/RegularQueue.h">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/utils/Point.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/CMakeLists.txt">
+		<Unit filename="/home/eliran/CLionProjects/secondProject/utils/RegularQueue.h">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/eliran/CLionProjects/secondProject/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
