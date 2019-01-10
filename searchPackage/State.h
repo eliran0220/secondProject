@@ -58,7 +58,7 @@ public:
 
 
     State<T>* getCameFrom() {
-        return this->getCameFrom();
+        return this->cameFrom;
     }
 
     void setCameFrom(State<T>* state) {

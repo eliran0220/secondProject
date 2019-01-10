@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     MatrixDomain matrixDomain = MatrixDomain();
     BestFirstSearch<int>* bestFirstSearch = new BestFirstSearch<int>();
     vector<State<int>*>path = bestFirstSearch->search(&matrixDomain);
-
+    int x=9;
     /*
     MyPriorityQueue<string>* priorityQueue = new RegularQueue<string>();
     State<string>* s = new State<string>("q",7,1,2);
