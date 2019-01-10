@@ -13,12 +13,13 @@
 #include "test/MatrixDomain.h"
 #include "searchPackage/BestFirstSearch.h"
 #include "searchPackage/BFS.h"
+#include "searchPackage/DFS.h"
 
 
 int main(int argc, char *argv[]) {
 
     MatrixDomain matrixDomain = MatrixDomain();
-    BFS<int>* bestFirstSearch = new BFS<int>();
+    DFS<int>* bestFirstSearch = new DFS<int>();
     vector<State<int>*>path = bestFirstSearch->search(&matrixDomain);
 
     int x=9;

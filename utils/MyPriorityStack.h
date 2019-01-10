@@ -16,7 +16,7 @@ public:
         this->sizeStack = 0;
     }
 
-    void push(State<T> state) {
+    void push(State<T>* state) {
         myStack.push(state);
         this->setOfStates.insert(state);
         sizeStack++;
