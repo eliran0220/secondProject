@@ -23,7 +23,6 @@ struct compareMin
 
 template <class T>
 class MinPriorityQueue : public MyPriority<T> {
-
     priority_queue<State<T>*,vector<State<T>*>,compareMin<T>> priorityQueue;
     int sizeQueue;
     set<State<T>*> setOfStates;
