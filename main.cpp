@@ -6,7 +6,7 @@
 #include "solverPackage/StringReverser.h"
 #include "cachePackage/FileCacheManager.h"
 #include "clientPackage/MyTestClientHandler.h"
-//#include "searchPackage/Searcher.h"
+#include "searchPackage/Searcher.h"
 #include "searchPackage/State.h"
 #include "utils/MaxPriorityQueue.h"
 #include "utils/RegularQueue.h"

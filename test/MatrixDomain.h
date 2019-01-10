@@ -25,21 +25,20 @@ public:
             matrix[i][1] = 2;
             matrix[i][2] = 2;
             matrix[i][3] = 2;
-            matrix[i][4] = 2;
         }
-        matrix[SIZE][SIZE] = 1;
+        matrix[SIZE-1][SIZE-1] = 1;
     }
 
     State<int >* getInitialState() {
         string t = to_string(0) + "," + to_string(0);
-        State<int>* temp =new State<int >(1,matrix[0][0], 0,0);
+        State<int>* temp =new State<int>(1,matrix[0][0], 0,0);
         s[t] = temp;
         return temp;
     }
 
     State<int >* getGoalState(){
         string t = to_string(SIZE) + "," + to_string(SIZE);
-        State<int>* temp =new State<int >(1,matrix[SIZE][SIZE], SIZE,SIZE);
+        State<int>* temp =new State<int>(1,matrix[SIZE][SIZE], SIZE,SIZE);
         s[t] = temp;
         return temp;
     }
