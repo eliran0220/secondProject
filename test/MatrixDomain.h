@@ -33,43 +33,45 @@ public:
         int y = state->getY();
         vector<State<int>*> v;
         State<int>* temp;
-        if (y==0&&x == 0) {
-            temp = new State<int>(1,matrix[x+1][y], x+1,y);
-            v.push_back(temp);
+        if (y==0 && x == 0) {
             temp = new State<int>(1,matrix[x][y+1], x,y+1);
+            v.push_back(temp);
+            temp = new State<int>(1,matrix[x+1][y], x+1,y);
             v.push_back(temp);
         } else if (x == 0){
-            temp = new State<int>(1,matrix[x+1][y], x+1,y);
-            v.push_back(temp);
-            temp = new State<int>(1,matrix[x][y+1], x,y+1);
-            v.push_back(temp);
             temp = new State<int>(1,matrix[x][y-1], x,y-1);
             v.push_back(temp);
-        } else if (y == 0) {
-            temp = new State<int>(1,matrix[x-1][y], x-1,y);
+            temp = new State<int>(1,matrix[x][y+1], x,y+1);
             v.push_back(temp);
             temp = new State<int>(1,matrix[x+1][y], x+1,y);
             v.push_back(temp);
+        } else if (y == 0) {
             temp = new State<int>(1,matrix[x][y+1], x,y+1);
             v.push_back(temp);
-        } else if (x==9 & y == 9) {
+            temp = new State<int>(1,matrix[x+1][y], x+1,y);
+            v.push_back(temp);
             temp = new State<int>(1,matrix[x-1][y], x-1,y);
             v.push_back(temp);
-            temp = new State<int>(1,matrix[x][y+1], x,y+1);
+        } else if (x==9 & y == 9) {
+            temp = new State<int>(1,matrix[x][y-1], x,y-1);
+            v.push_back(temp);
+            temp = new State<int>(1,matrix[x-1][y], x-1,y);
             v.push_back(temp);
         }
 
         else if (x == 9) {
-            temp = new State<int>(1,matrix[x-1][y], x-1,y);
-            v.push_back(temp);
             temp = new State<int>(1,matrix[x][y+1], x,y+1);
             v.push_back(temp);
-        }else if (y == 9) {
+            temp = new State<int>(1,matrix[x][y-1], x,y-1);
+            v.push_back(temp);
             temp = new State<int>(1,matrix[x-1][y], x-1,y);
+            v.push_back(temp);
+        }else if (y == 9) {
+            temp = new State<int>(1,matrix[x][y-1], x,y-1);
             v.push_back(temp);
             temp = new State<int>(1,matrix[x+1][y], x+1,y);
             v.push_back(temp);
-            temp = new State<int>(1,matrix[x][y-1], x,y+1);
+            temp = new State<int>(1,matrix[x-1][y], x-1,y);
             v.push_back(temp);
         } else {
             temp = new State<int>(1,matrix[x-1][y], x-1,y);
@@ -81,6 +83,7 @@ public:
             temp = new State<int>(1,matrix[x][y+1], x,y+1);
             v.push_back(temp);
         }
+        return v;
     }
 };
 

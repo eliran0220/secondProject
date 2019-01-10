@@ -13,7 +13,7 @@
 using namespace std;
 
 template <class T>
-struct compare
+struct compareMin
 {
     bool operator()(State<T>* l, State<T>* r)
     {
@@ -24,14 +24,14 @@ struct compare
 template <class T>
 class MinPriorityQueue : public MyPriorityQueue<T> {
 
-    priority_queue<State<T>*,vector<State<T>*>,compare<T>> priorityQueue;
+    priority_queue<State<T>*,vector<State<T>*>,compareMin<T>> priorityQueue;
     int sizeQueue;
     set<State<T>*> setOfStates;
 
 public:
     MinPriorityQueue(){
         this->sizeQueue= 0;
-       //this->priorityQueue = priority_queue<State<T>*,vector<State<T>>,compare<T>>;
+       //this->priorityQueue = priority_queue<State<T>*,vector<State<T>>,compareMax<T>>;
     }
 
     void push(State<T>* state) {

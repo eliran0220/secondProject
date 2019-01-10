@@ -61,6 +61,9 @@ public:
         return this->getCameFrom();
     }
 
+    void setCameFrom(State<T>* state) {
+        this->cameFrom = state;
+    }
 
     double getPositionCost() {
         return this->cost;

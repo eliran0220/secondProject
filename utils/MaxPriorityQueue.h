@@ -12,7 +12,7 @@
 using namespace std;
 
 template <class T>
-struct compare
+struct compareMax
 {
     bool operator()(State<T>* l, State<T>* r)
     {
@@ -23,7 +23,7 @@ struct compare
 template <class T>
 class MaxPriorityQueue : public MyPriorityQueue<T> {
 
-    priority_queue<State<T>*,vector<State<T>*>,compare<T>> priorityQueue;
+    priority_queue<State<T>*,vector<State<T>*>,compareMax<T>> priorityQueue;
     int sizeQueue;
     set<State<T>*> setOfStates;
 

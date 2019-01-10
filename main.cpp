@@ -15,9 +15,10 @@
 
 
 int main(int argc, char *argv[]) {
+
     MatrixDomain matrixDomain = MatrixDomain();
-    BestFirstSearch<int> bestFirstSearch = BestFirstSearch<int>();
-    vector<State<int>*>path = bestFirstSearch.search(&matrixDomain);
+    BestFirstSearch<int>* bestFirstSearch = new BestFirstSearch<int>();
+    vector<State<int>*>path = bestFirstSearch->search(&matrixDomain);
 
     /*
     MyPriorityQueue<string>* priorityQueue = new RegularQueue<string>();
