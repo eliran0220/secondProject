@@ -10,17 +10,17 @@ using namespace std;
 #include <queue>
 #include "State.h"
 #include "Searchable.h"
-#include "../utils/MyPriorityQueue.h"
+#include "../utils/MyPriority.h"
 #include <set>
 
 template<class T>
 class Searcher {
 protected:
     int evaluatedNodes;
-    MyPriorityQueue<T>* openList;
+    MyPriority<T>* openList;
 
 public:
-    Searcher(MyPriorityQueue<T>* myPriorityQueue) {
+    Searcher(MyPriority<T>* myPriorityQueue) {
         this->openList = myPriorityQueue;
         this->evaluatedNodes = 0;
     }

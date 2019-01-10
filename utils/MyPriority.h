@@ -13,7 +13,7 @@ using namespace std;
 
 
 template <class T>
-class MyPriorityQueue{
+class MyPriority{
     /*
 protected:
     priority_queue<State<T>*> priorityQueue;
@@ -21,7 +21,7 @@ protected:
     set<State<T>*> setOfStates;
 
 public:
-    MyPriorityQueue(){
+    MyPriority(){
         this->sizeQueue= 0;
     }
 

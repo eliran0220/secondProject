@@ -8,12 +8,12 @@
 
 #include <queue>
 #include <set>
-#include "MyPriorityQueue.h"
+#include "MyPriority.h"
 
 using namespace std;;
 
 template <class T>
-class RegularQueue : public MyPriorityQueue<T> {
+class RegularQueue : public MyPriority<T> {
 
     queue<State<T>*> priorityQueue;
     int sizeQueue;

@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 
     int x=9;
     /*
-    MyPriorityQueue<string>* priorityQueue = new MinPriorityQueue<string>();
+    MyPriority<string>* priorityQueue = new MinPriorityQueue<string>();
     State<string>* s = new State<string>("q",7,1,2);
     s->setCostPath(7);
     priorityQueue->push(s);

@@ -7,7 +7,7 @@
 
 
 #include <queue>
-#include "MyPriorityQueue.h"
+#include "MyPriority.h"
 
 using namespace std;
 
@@ -21,7 +21,7 @@ struct compareMax
 };
 
 template <class T>
-class MaxPriorityQueue : public MyPriorityQueue<T> {
+class MaxPriorityQueue : public MyPriority<T> {
 
     priority_queue<State<T>*,vector<State<T>*>,compareMax<T>> priorityQueue;
     int sizeQueue;

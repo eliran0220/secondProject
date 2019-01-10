@@ -8,7 +8,7 @@
 
 #include <queue>
 #include <set>
-#include "MyPriorityQueue.h"
+#include "MyPriority.h"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ struct compareMin
 };
 
 template <class T>
-class MinPriorityQueue : public MyPriorityQueue<T> {
+class MinPriorityQueue : public MyPriority<T> {
 
     priority_queue<State<T>*,vector<State<T>*>,compareMin<T>> priorityQueue;
     int sizeQueue;

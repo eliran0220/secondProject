@@ -28,7 +28,7 @@ CMakeFiles/secondProject.dir/main.cpp.o: ../solverPackage/StringReverser.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../test/MatrixDomain.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MaxPriorityQueue.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MinPriorityQueue.h
-CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MyPriorityQueue.h
+CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MyPriority.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/Point.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/RegularQueue.h
 
