@@ -148,6 +148,9 @@
 		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MyPriorityQueue.h">
 			<Option target="secondProject"/>
 		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/utils/RegularQueue.h">
+			<Option target="secondProject"/>
+		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

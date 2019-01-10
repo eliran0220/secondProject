@@ -14,6 +14,7 @@ using namespace std;
 
 template <class T>
 class MyPriorityQueue{
+    /*
 protected:
     priority_queue<State<T>*> priorityQueue;
     int sizeQueue;
@@ -36,7 +37,8 @@ public:
 
     State<T>* poll() {
         if (this->sizeQueue > 0) {
-            State<T>* state = priorityQueue.pop();
+            State<T>* state = priorityQueue.top();
+            priorityQueue.pop();
             //return priorityQueue.pop();
             this->setOfStates.erase(state);
             this->sizeQueue--;
@@ -58,13 +60,13 @@ public:
         }
         return false;
     }
-    /*
+     */
+public:
     virtual void push(State<T>* state) = 0;
     virtual int size() = 0;
     //virtual bool contains(State<T>& state) = 0;
     virtual State<T>* poll() = 0;
     virtual bool isEmpty() = 0 ;
-    virtual bool contains(State<T>* state);
-     */
+    virtual bool contains(State<T>* state) = 0;
 };
 #endif //SECONDPROJECT_MYPRIORITYQUEUE_H

@@ -15,8 +15,9 @@ private:
 
 public:
 
-    State(T state) {
+    State(T state, double cost) {
         this->state = state;
+        this->cost = cost;
         // this->cameFrom = cameFrom;
     }
 

@@ -14,26 +14,25 @@ using namespace std;
 template <class T>
 struct compare
 {
-    bool operator()(const State<T>& l, const State<T>& r)
+    bool operator()(State<T>* l, State<T>* r)
     {
-        return l.getCost() > r.getCost();
+        return l->getCost() < r->getCost();
     }
 };
 
 template <class T>
 class MaxPriorityQueue : public MyPriorityQueue<T> {
 
-    //priority_queue<State<T>,vector<State<T>>,compare<T>> priorityQueue;
-    //int sizeQueue;
-    //set<State<T>*> setOfStates;
+    priority_queue<State<T>*,vector<State<T>*>,compare<T>> priorityQueue;
+    int sizeQueue;
+    set<State<T>*> setOfStates;
 
 public:
     MaxPriorityQueue(){
-        this->priorityQueue = new priority_queue<State<T>,vector<State<T>>,compare<T>>;
-        //this->sizeQueue= 0;
+        this->sizeQueue= 0;
     }
 
-/*
+
     void push(State<T>* state) {
         priorityQueue.push(state);
         this->setOfStates.insert(state);
@@ -46,8 +45,8 @@ public:
 
     State<T>* poll() {
         if (this->sizeQueue > 0) {
-            State<T>* state = priorityQueue.pop();
-            //return priorityQueue.pop();
+            State<T>* state = priorityQueue.top();
+            priorityQueue.pop();
             this->setOfStates.erase(state);
             this->sizeQueue--;
             return state;
@@ -68,7 +67,6 @@ public:
         }
         return false;
     }
-    */
 };
 
 #endif //SECONDPROJECT_MAXPRIORITYQUEUE_H
