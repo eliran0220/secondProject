@@ -26,7 +26,6 @@ public:
     vector<State<T>*> backTrace(State<T>* state) {
         vector<State<T>*> path;
         State<T>* current = state;
-        State<T>* temp;
         while (current != nullptr) {
             path.push_back(current);
             current = current->getCameFrom();

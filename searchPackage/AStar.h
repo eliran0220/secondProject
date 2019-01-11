@@ -10,29 +10,29 @@
 #include "../utils/MyPriorQueue.h"
 
 
-template <class T>
-struct compareMinWithHeuristicCost
-{
-    bool operator()(State<T>* l, State<T>* r)
-    {
-        return l->getCost() + l->getHeuristicCost() > r->getCost() + r->getHeuristicCost();
+template<class T>
+struct compareMinWithHeuristicCost {
+    bool operator()(State<T> *l, State<T> *r) {
+        return l->getCost() + l->getHeuristicCost() >
+               r->getCost() + r->getHeuristicCost();
     }
 };
 
 
 template<class T>
 class AStar : public Searcher<T> {
-    MyPriorQueue<T,compareMinWithHeuristicCost<T>> openList;
+    MyPriorQueue<T, compareMinWithHeuristicCost<T>> openList;
 
 public:
     AStar() : Searcher<T>() {}
 
     double heuristicFunc(State<T> *state, State<T> *goalState) {
-        return sqrt(pow(state->getX() - goalState->getX(), 2) + pow(state->getY() - goalState->getY(), 2));
+        return sqrt(pow(state->getX() - goalState->getX(), 2) +
+                    pow(state->getY() - goalState->getY(), 2));
     }
 
-    State <T>* popOpenList(){
-        State<T>* temp = this->openList.top();
+    State<T> *popOpenList() {
+        State<T> *temp = this->openList.top();
         this->openList.pop();
         if (temp != nullptr) {
             this->evaluatedNodes++;
@@ -54,12 +54,17 @@ public:
             if (closed.count(topInQueue) >= 1) {
                 continue;
             }
-            vector<State<T>*> successors = searchable->getAllPossibleStates(topInQueue);
-            for (State<T>* state : successors) {
-                state->setCostPath(topInQueue->getCost() + state->getPositionCost());
-                state->setCameFrom(topInQueue);
-                state->setHeuristicCost(heuristicFunc(state, goalState));
-                this->openList.pushState(state);
+            vector<State<T> *> successors = searchable->getAllPossibleStates(
+                    topInQueue);
+
+            for (State<T> *state : successors) {
+                if (!state->Equals(initialState)) {
+                    state->setCostPath(
+                            topInQueue->getCost() + state->getPositionCost());
+                    state->setCameFrom(topInQueue);
+                    state->setHeuristicCost(heuristicFunc(state, goalState));
+                    this->openList.pushState(state);
+                }
             }
             closed.insert(topInQueue);
         }
