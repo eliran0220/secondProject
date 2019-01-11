@@ -17,6 +17,7 @@ CMakeFiles/secondProject.dir/main.cpp.o: ../cachePackage/FileCacheManager.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../clientPackage/ClientHandler.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../clientPackage/MyTestClientHandler.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../main.cpp
+CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/AStar.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/BFS.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/BestFirstSearch.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/DFS.h

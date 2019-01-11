@@ -14,8 +14,8 @@ class AStar : public Searcher<T> {
 public:
     AStar() : Searcher<T>(new MinPriorityQueue<T>) {}
 
-    double func(State<T> state) {
-        return state.getCost() + state.getPositionCost();
+    double func(State<T> *state) {
+        return state->getCost() + state->getPositionCost();
     }
 
     vector<State<T> *> search(Searchable<T> *searchable) {
@@ -35,24 +35,11 @@ public:
                 if (!(closed.count(state) >= 1) &&
                     !(this->openList->contains(state))) {
                     state->setCameFrom(n);
-                    state->setFCost(func(state));
+                    double fCost = this->func(state);
+                    state->setFCost(fCost);
                     this->openList->push(state);
                 } else {
-                    // מנסים למצוא האם יש דרך יותר טובה להגיע ב"חזרה לאחור"
-                    double updatedCostPath = 0;
-                    State<T> temp = state;
-                    State<T> tempN = n;
-                    state->setCameFrom(n);
-                    while (tempN != nullptr) {
-                        updatedCostPath += state->getCost();
-                        tempN = tempN->getCameFrom();
-                    }
-                    if (updatedCostPath < state->getCost()) {
-                        state->setCameFrom(n);
-                        this->openList->eraseAndPush(state);
-                    } else if (!(closed.count(state) >= 1)) {
-                        this->openList->push(state);
-                    }
+
 
                 }
             }
