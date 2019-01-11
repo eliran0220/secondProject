@@ -58,7 +58,7 @@ public:
                     topInQueue);
 
             for (State<T> *state : successors) {
-                if (!state->Equals(initialState)) {
+                if (!this->openList.contains(state)) {
                     state->setCostPath(
                             topInQueue->getCost() + state->getPositionCost());
                     state->setCameFrom(topInQueue);

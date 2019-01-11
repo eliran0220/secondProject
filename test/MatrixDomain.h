@@ -12,39 +12,22 @@ using namespace std;
 #include <map>
 #include "../searchPackage/Searchable.h"
 
-#define SIZE 1
+#define SIZE 4
 
 
 class MatrixDomain : public Searchable<int> {
-    /*
+
     int matrix[SIZE+1][SIZE+1] {
-            {1,8,12,5,2},
-            {5,9,10,1,5},
-            {6,15,2,9,10},
-            {8,4,4,76,2},
+            {1,1,1,5,2},
+            {5,9,1,1,5},
+            {6,15,1,1,10},
+            {8,4,4,1,2},
             {1,2,3,4,5}
-    };;
-     */
-    int matrix[SIZE+1][SIZE+1] {
-            {0,1},
-            {0,1},
     };;
     map <string,State<int>*> s;
 
 public:
-    MatrixDomain() {
-        /*
-        for (int i = 0; i <= SIZE; ++i) {
-            matrix[i][0] = 2;
-            matrix[i][1] = 2;
-            matrix[i][2] = 2;
-            matrix[i][3] = 2;
-        }
-        matrix[SIZE][SIZE] = 1;
-    }
-         */
-
-    }
+    MatrixDomain() {}
 
     State<int >* getInitialState() {
         string t = to_string(0) + "," + to_string(0);

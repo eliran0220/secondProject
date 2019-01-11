@@ -12,7 +12,7 @@ public:
     BFS() : Searcher<T>() {}
 
     State <T>* popOpenList(){
-        State<T>* temp = this->openList.top();
+        State<T>* temp = this->openList.front();
         this->openList.pop();
         if (temp != nullptr) {
             this->evaluatedNodes++;

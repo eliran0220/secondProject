@@ -18,7 +18,7 @@
 int main(int argc, char *argv[]) {
 
     MatrixDomain matrixDomain = MatrixDomain();
-    AStar<int>* bestFirstSearch = new AStar<int>();
+    BFS<int>* bestFirstSearch = new BFS<int>();
     vector<State<int>*>path = bestFirstSearch->search(&matrixDomain);
 
     int x=9;

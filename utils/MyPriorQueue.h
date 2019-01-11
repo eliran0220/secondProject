@@ -28,7 +28,7 @@ public:
     }
 
     State<T>* poll() {
-        if (this->sizeQueue > 0) {
+        if (this->sizeQueue() > 0) {
             State<T>* state = this->top();
             this->pop();
             this->setOfStates.erase(state);
@@ -54,9 +54,10 @@ public:
             } else {
                 break;
             }
+            temp = this->poll();
         }
         for (int i = 0; i < (int)states.size(); ++i) {
-            this->push(states[i]);
+            this->pushState(states[i]);
         }
     }
 };
