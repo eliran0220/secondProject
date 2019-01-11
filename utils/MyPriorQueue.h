@@ -1,55 +1,40 @@
 //
-// Created by afik on 1/10/19.
+// Created by afik on 1/11/19.
 //
 
-#ifndef SECONDPROJECT_REGULARQUEUE_H
-#define SECONDPROJECT_REGULARQUEUE_H
-
+#ifndef SECONDPROJECT_MYPRIORQUEUE_H
+#define SECONDPROJECT_MYPRIORQUEUE_H
 
 #include <queue>
 #include <set>
-#include "MyPriority.h"
+#include "../searchPackage/State.h"
 
-using namespace std;;
 
-template <class T>
-class RegularQueue : public MyPriority<T> {
+using namespace std;
 
-    queue<State<T>*> priorityQueue;
-    int sizeQueue;
+
+template<class T, class compare>
+class MyPriorQueue : public priority_queue<State<T>*,vector<State<T>*>,compare>{
     set<State<T>*> setOfStates;
 
 public:
-    RegularQueue(){
-        this->sizeQueue= 0;
-    }
-
-    void push(State<T>* state) {
-        priorityQueue.push(state);
+    void pushState(State<T>* state) {
+        this->push(state);
         this->setOfStates.insert(state);
-        this->sizeQueue++;
     }
 
-    int size() {
-        return this->sizeQueue;
+    int sizeQueue() {
+        return (int)this->size();
     }
 
     State<T>* poll() {
         if (this->sizeQueue > 0) {
-            State<T>* state = priorityQueue.front();
-            priorityQueue.pop();
+            State<T>* state = this->top();
+            this->pop();
             this->setOfStates.erase(state);
-            this->sizeQueue--;
             return state;
         }
         return nullptr;
-    }
-
-    bool isEmpty() {
-        if (this->sizeQueue == 0) {
-            return true;
-        }
-        return false;
     }
 
     bool contains(State<T>* state) {
@@ -76,4 +61,5 @@ public:
     }
 };
 
-#endif //SECONDPROJECT_REGULARQUEUE_H
+
+#endif //SECONDPROJECT_MYPRIORQUEUE_H

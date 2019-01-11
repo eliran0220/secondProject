@@ -8,8 +8,6 @@
 #include "clientPackage/MyTestClientHandler.h"
 #include "searchPackage/Searcher.h"
 #include "searchPackage/State.h"
-#include "utils/MaxPriorityQueue.h"
-#include "utils/RegularQueue.h"
 #include "test/MatrixDomain.h"
 #include "searchPackage/BestFirstSearch.h"
 #include "searchPackage/BFS.h"

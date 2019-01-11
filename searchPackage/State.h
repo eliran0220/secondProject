@@ -14,7 +14,7 @@ private:
     T state;
     double cost;
     double pathCost;
-    double fCost;
+    double heuristicCost;
     State<T>* cameFrom;
     Point* position;
 
@@ -25,20 +25,13 @@ public:
         this->cost = cost;
         this->cameFrom = nullptr;
         this->pathCost = cost;
+        this->heuristicCost = 0;
         this->position = new Point(x,y);
-        this->fCost = 0;
-
     }
 
     void setCostPath(double cost) {
         this->pathCost = cost;
     }
-
-//template<class T>
-//State<T>::~State() {
-//    delete (this->cameFrom);
-//}
-
     int getX() {
         return this->position->getX();
     }
@@ -68,10 +61,6 @@ public:
         this->cameFrom = state;
     }
 
-    void setFCost(double cost){
-        this->fCost = cost;
-    }
-
     double getPositionCost() {
         return this->cost;
     }
@@ -80,18 +69,13 @@ public:
         return this->pathCost;
     }
 
+    double setHeuristicCost(double cost) {
+        this->heuristicCost = cost;
+    }
 
-    /*
-    State(T state);
-
-    T getState();
-
-    double getCost();
-
-    State<T>* getCameFrom();
-
-    bool Equals(State<T>* state);
-     */
+    double getHeuristicCost() {
+        return this->heuristicCost;
+    }
 
     ~State() {
         delete (this->position);

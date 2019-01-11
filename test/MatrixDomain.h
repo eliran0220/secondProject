@@ -4,6 +4,7 @@
 
 #ifndef SECONDPROJECT_MATRIXDOMAIN_H
 #define SECONDPROJECT_MATRIXDOMAIN_H
+
 using namespace std;
 
 #include <vector>

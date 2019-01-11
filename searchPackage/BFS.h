@@ -2,18 +2,30 @@
 #define SECONDPROJECT_BFS_H
 
 #include "Searcher.h"
-#include "../utils/RegularQueue.h"
+#include <set>
 
 template <class T>
 class BFS: public Searcher<T> {
+    queue<State<T>*> openList;
+
 public:
-    BFS() : Searcher<T>(new RegularQueue<T>) {}
+    BFS() : Searcher<T>() {}
+
+    State <T>* popOpenList(){
+        State<T>* temp = this->openList.top();
+        this->openList.pop();
+        if (temp != nullptr) {
+            this->evaluatedNodes++;
+        }
+        return temp;
+    }
+
     vector<State<T>*> search(Searchable<T>* searchable) {
         State<T> *initialState = searchable->getInitialState();
-        this->openList->push(initialState); // push the initial state
+        this->openList.push(initialState); // push the initial state
         set<State<T>*> closed;
         State<T> *goalState = searchable->getGoalState();
-        while (this->openListSize() > 0) {
+        while (this->openList.size() > 0) {
             State<T> *topInQueue = this->popOpenList();
             closed.insert(topInQueue);
             if (topInQueue->Equals(goalState)) {
@@ -24,7 +36,7 @@ public:
                 if (!(closed.count(state) >= 1)) {
                     state->setCameFrom(topInQueue);
                     closed.insert(state);
-                    this->openList->push(state);
+                    this->openList.push(state);
                 }
             }
         }

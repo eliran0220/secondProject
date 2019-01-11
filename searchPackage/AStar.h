@@ -6,43 +6,62 @@
 #define SECONDPROJECT_ASTAR_H
 
 #include "Searcher.h"
-#include "../utils/MinPriorityQueue.h"
+#include <math.h>
+#include "../utils/MyPriorQueue.h"
+
+
+template <class T>
+struct compareMinWithHeuristicCost
+{
+    bool operator()(State<T>* l, State<T>* r)
+    {
+        return l->getCost() + l->getHeuristicCost() > r->getCost() + r->getHeuristicCost();
+    }
+};
+
 
 template<class T>
-
 class AStar : public Searcher<T> {
-public:
-    AStar() : Searcher<T>(new MinPriorityQueue<T>) {}
+    MyPriorQueue<T,compareMinWithHeuristicCost<T>> openList;
 
-    double func(State<T> *state) {
-        return state->getCost() + state->getPositionCost();
+public:
+    AStar() : Searcher<T>() {}
+
+    double heuristicFunc(State<T> *state, State<T> *goalState) {
+        return sqrt(pow(state->getX() - goalState->getX(), 2) + pow(state->getY() - goalState->getY(), 2));
+    }
+
+    State <T>* popOpenList(){
+        State<T>* temp = this->openList.top();
+        this->openList.pop();
+        if (temp != nullptr) {
+            this->evaluatedNodes++;
+        }
+        return temp;
     }
 
     vector<State<T> *> search(Searchable<T> *searchable) {
 
         State<T> *initialState = searchable->getInitialState();
-        this->openList->push(initialState); // push the initial state
+        this->openList.pushState(initialState); // push the initial state
         set<State<T> *> closed;
         State<T> *goalState = searchable->getGoalState();
-        while (this->openListSize() > 0) {
-            State<T> *n = this->popOpenList();
-            closed.insert(n);
-            if (n->Equals(goalState)) {
-                return this->backTrace(n);
+        while (this->openList.sizeQueue() > 0) {
+            State<T> *topInQueue = this->popOpenList();
+            if (topInQueue->Equals(goalState)) {
+                return this->backTrace(topInQueue);
             }
-            vector<State<T> *> successors = searchable->getAllPossibleStates(n);
-            for (State<T> *state : successors) {
-                if (!(closed.count(state) >= 1) &&
-                    !(this->openList->contains(state))) {
-                    state->setCameFrom(n);
-                    double fCost = this->func(state);
-                    state->setFCost(fCost);
-                    this->openList->push(state);
-                } else {
-
-
-                }
+            if (closed.count(topInQueue) >= 1) {
+                continue;
             }
+            vector<State<T>*> successors = searchable->getAllPossibleStates(topInQueue);
+            for (State<T>* state : successors) {
+                state->setCostPath(topInQueue->getCost() + state->getPositionCost());
+                state->setCameFrom(topInQueue);
+                state->setHeuristicCost(heuristicFunc(state, goalState));
+                this->openList.pushState(state);
+            }
+            closed.insert(topInQueue);
         }
     }
 };

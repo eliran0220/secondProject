@@ -10,33 +10,14 @@ using namespace std;
 #include <queue>
 #include "State.h"
 #include "Searchable.h"
-#include "../utils/MyPriority.h"
-#include <set>
 
 template<class T>
 class Searcher {
 protected:
     int evaluatedNodes;
-    MyPriority<T>* openList;
 
 public:
-    Searcher(MyPriority<T>* myPriority) {
-        this->openList = myPriority;
-        this->evaluatedNodes = 0;
-    }
     virtual vector<State<T>*> search(Searchable<T>* searchable) = 0;
-
-    virtual int openListSize() {
-        this->openList->size();
-    }
-
-    virtual State <T>* popOpenList(){
-        State<T>* temp = this->openList->poll();
-        if (temp != nullptr) {
-            this->evaluatedNodes++;
-        }
-        return temp;
-    }
 
     virtual int getNumberOfNodesEvaluated() {
         return this->evaluatedNodes;
@@ -52,11 +33,6 @@ public:
         }
         return path;
     }
-
-    ~Searcher() {
-        delete(this->openList);
-    }
-
 };
 
 #endif //SECONDPROJECT_SEARCHER_H

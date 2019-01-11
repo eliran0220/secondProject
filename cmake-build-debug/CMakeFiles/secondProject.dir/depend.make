@@ -29,12 +29,8 @@ CMakeFiles/secondProject.dir/main.cpp.o: ../serverPackage/Server.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../solverPackage/Solver.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../solverPackage/StringReverser.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../test/MatrixDomain.h
-CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MaxPriorityQueue.h
-CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MinPriorityQueue.h
-CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MyPriority.h
-CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MyPriorityStack.h
+CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MyPriorQueue.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/Point.h
-CMakeFiles/secondProject.dir/main.cpp.o: ../utils/RegularQueue.h
 
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../cachePackage/CacheManager.h
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../cachePackage/FileCacheManager.h
