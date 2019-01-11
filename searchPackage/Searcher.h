@@ -20,8 +20,8 @@ protected:
     MyPriority<T>* openList;
 
 public:
-    Searcher(MyPriority<T>* myPriorityQueue) {
-        this->openList = myPriorityQueue;
+    Searcher(MyPriority<T>* myPriority) {
+        this->openList = myPriority;
         this->evaluatedNodes = 0;
     }
     virtual vector<State<T>*> search(Searchable<T>* searchable) = 0;

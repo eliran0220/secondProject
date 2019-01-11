@@ -1,21 +1,25 @@
 //
-// Created by eliran on 1/9/19.
+// Created by eliran on 1/11/19.
 //
 
-#ifndef SECONDPROJECT_BESTFIRSTSEARCH_H
-#define SECONDPROJECT_BESTFIRSTSEARCH_H
+#ifndef SECONDPROJECT_ASTAR_H
+#define SECONDPROJECT_ASTAR_H
 
 #include "Searcher.h"
 #include "../utils/MinPriorityQueue.h"
 
 template<class T>
-class BestFirstSearch : public Searcher<T> {
 
-
+class AStar : public Searcher<T> {
 public:
-    BestFirstSearch() : Searcher<T>(new MinPriorityQueue<T>) {}
+    AStar() : Searcher<T>(new MinPriorityQueue<T>) {}
+
+    double func(State<T> state) {
+        return state.getCost() + state.getPositionCost();
+    }
 
     vector<State<T> *> search(Searchable<T> *searchable) {
+
         State<T> *initialState = searchable->getInitialState();
         this->openList->push(initialState); // push the initial state
         set<State<T> *> closed;
@@ -31,19 +35,25 @@ public:
                 if (!(closed.count(state) >= 1) &&
                     !(this->openList->contains(state))) {
                     state->setCameFrom(n);
-                    state->setCostPath(n->getCost() + state->getCost());
+                    state->setFCost(func(state));
                     this->openList->push(state);
                 } else {
-                    // if the cost path is a less than the previous path.
-                    if (this->openList->contains(state) &&
-                        (n->getPositionCost() + state->getCost()) <
-                        state->getPositionCost()) {
-                        state->setCameFrom(state);
-                        state->setCostPath(n->getPositionCost() + state->getCost());
+                    // מנסים למצוא האם יש דרך יותר טובה להגיע ב"חזרה לאחור"
+                    double updatedCostPath = 0;
+                    State<T> temp = state;
+                    State<T> tempN = n;
+                    state->setCameFrom(n);
+                    while (tempN != nullptr) {
+                        updatedCostPath += state->getCost();
+                        tempN = tempN->getCameFrom();
+                    }
+                    if (updatedCostPath < state->getCost()) {
+                        state->setCameFrom(n);
                         this->openList->eraseAndPush(state);
                     } else if (!(closed.count(state) >= 1)) {
                         this->openList->push(state);
                     }
+
                 }
             }
         }
@@ -51,4 +61,4 @@ public:
 };
 
 
-#endif //SECONDPROJECT_BESTFIRSTSEARCH_H
+#endif //SECONDPROJECT_ASTAR_H

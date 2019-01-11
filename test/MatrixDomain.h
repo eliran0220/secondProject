@@ -15,11 +15,18 @@ using namespace std;
 
 
 class MatrixDomain : public Searchable<int> {
-    int matrix[SIZE+1][SIZE+1];
+    int matrix[SIZE+1][SIZE+1] {
+            {1,8,12,5,2},
+            {5,9,10,1,5},
+            {6,15,2,9,10},
+            {8,4,4,76,2},
+            {1,2,3,4,5}
+    };;
     map <string,State<int>*> s;
 
 public:
     MatrixDomain() {
+        /*
         for (int i = 0; i <= SIZE; ++i) {
             matrix[i][0] = 2;
             matrix[i][1] = 2;
@@ -27,6 +34,9 @@ public:
             matrix[i][3] = 2;
         }
         matrix[SIZE][SIZE] = 1;
+    }
+         */
+
     }
 
     State<int >* getInitialState() {

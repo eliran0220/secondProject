@@ -14,6 +14,7 @@ private:
     T state;
     double cost;
     double pathCost;
+    double fCost;
     State<T>* cameFrom;
     Point* position;
 
@@ -25,6 +26,8 @@ public:
         this->cameFrom = nullptr;
         this->pathCost = cost;
         this->position = new Point(x,y);
+        this->fCost = 0;
+
     }
 
     void setCostPath(double cost) {
@@ -65,6 +68,10 @@ public:
         this->cameFrom = state;
     }
 
+    void setFCost(double cost){
+        this->fCost = cost;
+    }
+
     double getPositionCost() {
         return this->cost;
     }
@@ -72,6 +79,7 @@ public:
     double getCost() {
         return this->pathCost;
     }
+
 
     /*
     State(T state);

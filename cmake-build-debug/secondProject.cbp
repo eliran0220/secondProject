@@ -109,6 +109,9 @@
 		<Unit filename="/home/eliran/CLionProjects/secondProject/main.cpp">
 			<Option target="secondProject"/>
 		</Unit>
+		<Unit filename="/home/eliran/CLionProjects/secondProject/searchPackage/AStar.h">
+			<Option target="secondProject"/>
+		</Unit>
 		<Unit filename="/home/eliran/CLionProjects/secondProject/searchPackage/BFS.h">
 			<Option target="secondProject"/>
 		</Unit>
