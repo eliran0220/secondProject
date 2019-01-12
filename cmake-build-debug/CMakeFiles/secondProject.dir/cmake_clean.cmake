@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o"
   "CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o"
   "CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o"
+  "CMakeFiles/secondProject.dir/problemPackage/CreateMatrix.cpp.o"
   "secondProject.pdb"
   "secondProject"
 )

@@ -11,6 +11,8 @@ using namespace std;
 #include <vector>
 #include "State.h"
 
+#define START_END_INDEXES 3
+
 template <class T> class Searchable  {
 public:
     virtual State<T>* getInitialState() =0;
