@@ -9,6 +9,10 @@ using namespace std;
 #include <istream>
 #include <unistd.h>
 
+#define END "end"
+#define BUFFER_SIZE 1024
+#define SEPERATOR ":"
+
 class ClientHandler {
 public:
     virtual void handleClient(int socket) = 0;

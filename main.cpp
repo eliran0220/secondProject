@@ -21,6 +21,8 @@ int main(int argc, char *argv[]) {
     BFS<int>* bestFirstSearch = new BFS<int>();
     vector<State<int>*>path = bestFirstSearch->search(&matrixDomain);
 
+
+
     int x=9;
     /*
     MyPriority<string>* priorityQueue = new MinPriorityQueue<string>();

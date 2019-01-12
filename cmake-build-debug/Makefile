@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/afik/Desktop/clion/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/eliran/Documents/CLion-2018.2.4/clion-2018.2.4/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/afik/Desktop/clion/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/eliran/Documents/CLion-2018.2.4/clion-2018.2.4/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/afik/CLionProjects/secondProject
+CMAKE_SOURCE_DIR = /home/eliran/CLionProjects/secondProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/afik/CLionProjects/secondProject/cmake-build-debug
+CMAKE_BINARY_DIR = /home/eliran/CLionProjects/secondProject/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/afik/CLionProjects/secondProject/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/afik/Desktop/clion/bin/cmake/linux/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/eliran/Documents/CLion-2018.2.4/clion-2018.2.4/bin/cmake/linux/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/afik/Desktop/clion/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/eliran/Documents/CLion-2018.2.4/clion-2018.2.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles /home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles /home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -149,6 +149,33 @@ cachePackage/FileCacheManager.s: cachePackage/FileCacheManager.cpp.s
 cachePackage/FileCacheManager.cpp.s:
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.s
 .PHONY : cachePackage/FileCacheManager.cpp.s
+
+clientPackage/MyClientHandler.o: clientPackage/MyClientHandler.cpp.o
+
+.PHONY : clientPackage/MyClientHandler.o
+
+# target to build an object file
+clientPackage/MyClientHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o
+.PHONY : clientPackage/MyClientHandler.cpp.o
+
+clientPackage/MyClientHandler.i: clientPackage/MyClientHandler.cpp.i
+
+.PHONY : clientPackage/MyClientHandler.i
+
+# target to preprocess a source file
+clientPackage/MyClientHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.i
+.PHONY : clientPackage/MyClientHandler.cpp.i
+
+clientPackage/MyClientHandler.s: clientPackage/MyClientHandler.cpp.s
+
+.PHONY : clientPackage/MyClientHandler.s
+
+# target to generate assembly for a file
+clientPackage/MyClientHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.s
+.PHONY : clientPackage/MyClientHandler.cpp.s
 
 clientPackage/MyTestClientHandler.o: clientPackage/MyTestClientHandler.cpp.o
 
@@ -270,6 +297,9 @@ help:
 	@echo "... cachePackage/FileCacheManager.o"
 	@echo "... cachePackage/FileCacheManager.i"
 	@echo "... cachePackage/FileCacheManager.s"
+	@echo "... clientPackage/MyClientHandler.o"
+	@echo "... clientPackage/MyClientHandler.i"
+	@echo "... clientPackage/MyClientHandler.s"
 	@echo "... clientPackage/MyTestClientHandler.o"
 	@echo "... clientPackage/MyTestClientHandler.i"
 	@echo "... clientPackage/MyTestClientHandler.s"

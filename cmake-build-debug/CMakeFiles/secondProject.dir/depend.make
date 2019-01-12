@@ -5,6 +5,12 @@ CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o: ../cachePackag
 CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o: ../cachePackage/FileCacheManager.cpp
 CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o: ../cachePackage/FileCacheManager.h
 
+CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../cachePackage/CacheManager.h
+CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../clientPackage/ClientHandler.h
+CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../clientPackage/MyClientHandler.cpp
+CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../clientPackage/MyClientHandler.h
+CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../solverPackage/Solver.h
+
 CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o: ../cachePackage/CacheManager.h
 CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o: ../clientPackage/ClientHandler.h
 CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o: ../clientPackage/MyTestClientHandler.cpp

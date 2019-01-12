@@ -41,7 +41,6 @@ public:
     }
 
     vector<State<T> *> search(Searchable<T> *searchable) {
-
         State<T> *initialState = searchable->getInitialState();
         this->openList.pushState(initialState); // push the initial state
         set<State<T> *> closed;
