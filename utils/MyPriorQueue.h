@@ -8,6 +8,8 @@
 #include <queue>
 #include <set>
 #include "../searchPackage/State.h"
+#include "MyUnorderedSet.h"
+
 
 
 using namespace std;
@@ -15,12 +17,12 @@ using namespace std;
 
 template<class T, class compare>
 class MyPriorQueue : public priority_queue<State<T>*,vector<State<T>*>,compare>{
-    set<State<T>*> setOfStates;
+    MyUnorderedSet<T> set;
 
 public:
     void pushState(State<T>* state) {
         this->push(state);
-        this->setOfStates.insert(state);
+        this->set.insert(state);
     }
 
     int sizeQueue() {
@@ -31,14 +33,14 @@ public:
         if (this->sizeQueue() > 0) {
             State<T>* state = this->top();
             this->pop();
-            this->setOfStates.erase(state);
+            this->set.remove(state);
             return state;
         }
         return nullptr;
     }
 
     bool contains(State<T>* state) {
-        if (this->setOfStates.count(state) == 1) {
+        if (this->set.contains(state)) {
             return true;
         }
         return false;
@@ -61,8 +63,8 @@ public:
         }
     }
 
-    set<State<T>*> getSetInQueue() {
-        return this->setOfStates;
+    MyUnorderedSet<T> getSetInQueue() {
+        return this->set;
     }
 
 };

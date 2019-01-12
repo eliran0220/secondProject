@@ -8,11 +8,13 @@
 #include "Searcher.h"
 #include <set>
 #include <stack>
+#include "../utils/MyUnorderedSet.h"
+
 
 template <class T>
 class DFS: public Searcher<T> {
     stack<State<T>*> openList;
-    set<State<T>*> statesInOpenList;
+    MyUnorderedSet<T> statesInOpenList;
 
 public:
     DFS() : Searcher<T>() {}
@@ -22,7 +24,7 @@ public:
         this->openList.pop();
         if (temp != nullptr) {
             this->evaluatedNodes++;
-            this->statesInOpenList.erase(temp);
+            this->statesInOpenList.remove(temp);
         }
         //this->statesInOpenList.erase(temp);
         return temp;
@@ -37,13 +39,13 @@ public:
     vector<State<T>*> search(Searchable<T>* searchable) {
         State<T> *initialState = searchable->getInitialState();
         pushState(initialState); // push the initial state
-        set<State<T>*> closed;
+        MyUnorderedSet<T> closed;
         vector<State<T> *> path;
         State<T> *goalState = searchable->getGoalState();
-        while (this->openList.size() > 0) {
+        while (!this->openList.empty()) {
             State<T> *topInStack = this->popOpenList();
             // אם הוא נמצא ב closed
-            if (closed.count(topInStack) < 1) {
+            if (!closed.contains(topInStack)) {
                 closed.insert(topInStack);
             }
             if (topInStack->Equals(goalState)) {
@@ -54,7 +56,7 @@ public:
             vector<State<T> *> successors = searchable->getAllPossibleStates(topInStack);
             for (State<T> *state : successors) {
                 // אם הוא לא נמצא ב closed וגם ב open
-                if ((closed.count(state) < 1)&& (this->statesInOpenList.count(state) < 1)) {
+                if (!closed.contains(state)&& !this->statesInOpenList.contains(state)) {
                     state->setCameFrom(topInStack);
                     pushState(state);
                 }

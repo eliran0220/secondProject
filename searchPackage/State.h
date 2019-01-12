@@ -7,57 +7,47 @@
 
 
 #include "../utils/Point.h"
+#include <unordered_set>
 
 template<class T>
 class State {
+
 private:
-    T state;
+    T data;
     double cost;
     double pathCost;
     double heuristicCost;
-    State<T>* cameFrom;
-    Point* position;
+    State<T> *cameFrom;
 
 public:
 
-    State(T state, double cost, int x, int y) {
-        this->state = state;
+    State(T data, double cost) {
+        this->data = data;
         this->cost = cost;
         this->cameFrom = nullptr;
         this->pathCost = cost;
         this->heuristicCost = 0;
-        this->position = new Point(x,y);
     }
 
     void setCostPath(double cost) {
         this->pathCost = cost;
     }
-    int getX() {
-        return this->position->getX();
-    }
 
-    int getY() {
-        return this->position->getY();
-    }
-
-    T getState() {
-        return this->state;
+    T getData() {
+        return this->data;
     }
 
 
-    bool Equals(State<T>* state) {
-        if (state->getX() == this->getX() && state->getY() == this->getY()) {
-            return true;
-        }
-        return false;
+    bool Equals(State<T> *data) {
+        return this->data == data->getData();
     }
 
 
-    State<T>* getCameFrom() {
+    State<T> *getCameFrom() {
         return this->cameFrom;
     }
 
-    void setCameFrom(State<T>* state) {
+    void setCameFrom(State<T> *state) {
         this->cameFrom = state;
     }
 
@@ -77,10 +67,30 @@ public:
         return this->heuristicCost;
     }
 
-    ~State() {
-        delete (this->position);
+
+};
+
+template<class T>
+struct statePHash {
+    size_t operator()(State<T> *const &state) const {
+        return std::hash<T>()(state->getData());
     }
 };
 
+template<class T>
+struct stateComp {
+    bool operator()(State<T> *const &l, State<T> *const &r) const {
+        return l->getData() == r->getData();
+    }
+};
+
+namespace std {
+    template<class T>
+    struct hash<State<T>> {
+        size_t operator()(const State<T> &state) const {
+            return hash<T>()(state.getData());
+        }
+    };
+}
 
 #endif //SECONDPROJECT_STATE_H

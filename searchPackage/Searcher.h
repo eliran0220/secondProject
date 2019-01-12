@@ -9,9 +9,12 @@ using namespace std;
 
 #include <queue>
 #include <iostream>
-#include <set>
+
+
 #include "State.h"
 #include "Searchable.h"
+#include "../utils/MyUnorderedSet.h"
+
 
 template<class T>
 class Searcher {
@@ -35,23 +38,23 @@ public:
         return path;
     }
 
-    void calculateEvaluatedNodes(set<State<T>*> statesInOpenList, vector<State<T> *> path,
-                                 set<State<T> *> closedList) {
+    void calculateEvaluatedNodes(MyUnorderedSet<T> statesInOpenList, vector<State<T> *> path,
+                                 MyUnorderedSet<T> closedList) {
         int temp = 0;
         bool containInSet = false;
         bool containsInOpenList = false;
-        set<State<T> *> tempSet = closedList;
+        MyUnorderedSet<T> tempSet = closedList;
         for (int i = 0; i < (int) path.size(); ++i) {
-            if (statesInOpenList.count(path[i]) >= 1) {
+            if (statesInOpenList.contains(path[i])) {
                 containsInOpenList = true;
             }
-            if (tempSet.count(path[i]) >= 1) {
+            if (tempSet.contains(path[i])) {
                 containInSet = true;
             }
             if (!containInSet && !containsInOpenList) {
                 temp++;
             } else if (containInSet && containsInOpenList) {
-                tempSet.erase(path[i]);
+                tempSet.remove(path[i]);
             }
             containInSet = false;
             containsInOpenList = false;

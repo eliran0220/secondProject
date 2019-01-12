@@ -17,8 +17,8 @@
 
 int main(int argc, char *argv[]) {
     MatrixDomain matrixDomain = MatrixDomain();
-    AStar<int>* bestFirstSearch = new AStar<int>();
-    vector<State<int>*>path = bestFirstSearch->search(&matrixDomain);
+    BestFirstSearch<Point*>*  bestFirstSearch = new BestFirstSearch<Point*>();
+    vector<State<Point*>*>path = bestFirstSearch->search(&matrixDomain);
     cout<< bestFirstSearch->getNumberOfNodesEvaluated()<<endl;
 
     int x=9;

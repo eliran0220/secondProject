@@ -15,7 +15,7 @@ using namespace std;
 #define SIZE 36
 
 
-class MatrixDomain : public Searchable<int> {
+class MatrixDomain : public Searchable<Point*> {
 
     int matrix[SIZE + 1][SIZE + 1]{
             {0, 0, 8, 6, 8, 2, 10, 2, 4, 1, 9, 9, 5, 10, 1, 1, 1, 0, 7, 3, 1, 6, 9, 3, 9, 7, 7, 9, 5, 6, 4, 5, 1, 6, -1, 1, 7},
@@ -63,37 +63,41 @@ class MatrixDomain : public Searchable<int> {
             {2,9,-1},
             {12,45,0}};
     */
-    map<string, State<int> *> s;
+    map<string, State<Point*> *> s;
+
 
 public:
-    MatrixDomain() {}
+    MatrixDomain() {
 
-    State<int> *getInitialState() {
+    }
+
+
+    State<Point*> *getInitialState(){
         string t = to_string(0) + "," + to_string(0);
-        State<int> *temp = new State<int>(1, matrix[0][0], 0, 0);
+        State<Point*>  *temp = new State<Point*>(new Point(0,0), matrix[0][0]);
         s[t] = temp;
         return temp;
     }
 
-    State<int> *getGoalState() {
+    State<Point*> *getGoalState() {
         string t = to_string(SIZE) + "," + to_string(SIZE);
-        State<int> *temp = new State<int>(1, matrix[SIZE][SIZE], SIZE, SIZE);
+        State<Point*> *temp = new State<Point*>(new Point(SIZE,SIZE), matrix[SIZE][SIZE]);
         s[t] = temp;
         return temp;
     }
 
-    vector<State<int> *> getAllPossibleStates(State<int> *state) {
-        int x = state->getX();
-        int y = state->getY();
-        vector<State<int> *> v;
-        State<int> *temp;
+    vector<State<Point*> *> getAllPossibleStates(State<Point*> *state) {
+        int x = state->getData()->getX();
+        int y = state->getData()->getY();
+        vector<State<Point*> *> v;
+        State<Point*> *temp;
         string t;
         if (y == 0 && x == 0) {
             t = to_string(x) + "," + to_string(y + 1);
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x][y + 1], x, y + 1);
+                temp = new State<Point*>(new Point(x,y+1), matrix[x][y + 1]);
                 s[t] = temp;
             }
             v.push_back(temp);
@@ -101,7 +105,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x + 1][y], x + 1, y);
+                temp = new State<Point*>(new Point(x+1,y), matrix[x + 1][y]);
                 s[t] = temp;
             }
 
@@ -111,7 +115,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x][y - 1], x, y - 1);
+                temp = new State<Point*>(new Point(x,y-1), matrix[x][y - 1]);
                 s[t] = temp;
             }
             v.push_back(temp);
@@ -119,7 +123,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x][y + 1], x, y + 1);
+                temp = new State<Point*>(new Point(x,y+1), matrix[x][y + 1]);
                 s[t] = temp;
             }
             v.push_back(temp);
@@ -127,7 +131,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x + 1][y], x + 1, y);
+                temp = new State<Point*>(new Point(x+1,y), matrix[x + 1][y]);
                 s[t] = temp;
             }
 
@@ -137,7 +141,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x][y + 1], x, y + 1);
+                temp = new State<Point*>(new Point(x,y+1), matrix[x][y + 1]);
                 s[t] = temp;
             }
 
@@ -146,7 +150,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x + 1][y], x + 1, y);
+                temp = new State<Point*>(new Point(x+1,y), matrix[x + 1][y]);
                 s[t] = temp;
             }
 
@@ -155,7 +159,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x - 1][y], x - 1, y);
+                temp = new State<Point*>(new Point(x-1,y), matrix[x - 1][y]);
                 s[t] = temp;
             }
 
@@ -165,7 +169,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x][y + 1], x, y + 1);
+                temp = new State<Point*>(new Point(x,y+1), matrix[x][y + 1]);
                 s[t] = temp;
             }
 
@@ -174,7 +178,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x - 1][y], x - 1, y);
+                temp = new State<Point*>(new Point(x-1,y), matrix[x - 1][y]);
                 s[t] = temp;
             }
             v.push_back(temp);
@@ -183,7 +187,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x][y - 1], x, y - 1);
+                temp = new State<Point*>(new Point(x,y-1), matrix[x][y - 1]);
                 s[t] = temp;
             }
 
@@ -192,7 +196,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x + 1][y], x + 1, y);
+                temp = new State<Point*>(new Point(x+1,y), matrix[x + 1][y]);
                 s[t] = temp;
             }
             v.push_back(temp);
@@ -202,7 +206,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x][y - 1], x, y - 1);
+                temp = new State<Point*>(new Point(x,y-1), matrix[x][y - 1]);
                 s[t] = temp;
             }
 
@@ -211,7 +215,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x - 1][y], x - 1, y);
+                temp = new State<Point*>(new Point(x-1,y), matrix[x - 1][y]);
                 s[t] = temp;
             }
 
@@ -222,7 +226,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x][y + 1], x, y + 1);
+                temp = new State<Point*>(new Point(x,y+1), matrix[x][y + 1]);
                 s[t] = temp;
             }
 
@@ -231,7 +235,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x][y - 1], x, y - 1);
+                temp = new State<Point*>(new Point(x,y-1), matrix[x][y - 1]);
                 s[t] = temp;
             }
 
@@ -240,7 +244,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x - 1][y], x - 1, y);
+                temp = new State<Point*>(new Point(x-1,y), matrix[x - 1][y]);
                 s[t] = temp;
             }
 
@@ -251,7 +255,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x][y - 1], x, y - 1);
+                temp = new State<Point*>(new Point(x,y-1), matrix[x][y - 1]);
                 s[t] = temp;
             }
 
@@ -260,7 +264,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x + 1][y], x + 1, y);
+                temp = new State<Point*>(new Point(x+1,y), matrix[x + 1][y]);
                 s[t] = temp;
             }
 
@@ -269,7 +273,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x - 1][y], x - 1, y);
+                temp = new State<Point*>(new Point(x-1,y), matrix[x - 1][y]);
                 s[t] = temp;
             }
 
@@ -279,7 +283,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x - 1][y], x - 1, y);
+                temp = new State<Point*>(new Point(x-1,y), matrix[x - 1][y]);
                 s[t] = temp;
             }
 
@@ -288,7 +292,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x + 1][y], x + 1, y);
+                temp = new State<Point*>(new Point(x+1,y), matrix[x + 1][y]);
                 s[t] = temp;
             }
 
@@ -297,7 +301,7 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x][y - 1], x, y - 1);
+                temp = new State<Point*>(new Point(x,y-1), matrix[x][y - 1]);
                 s[t] = temp;
             }
 
@@ -306,13 +310,13 @@ public:
             if (s.count(t) == 1) {
                 temp = s[t];
             } else {
-                temp = new State<int>(1, matrix[x][y + 1], x, y + 1);
+                temp = new State<Point*>(new Point(x,y+1), matrix[x][y + 1]);
                 s[t] = temp;
             }
 
             v.push_back(temp);
         }
-        vector<State<int> *> vtemp;
+        vector<State<Point*> *> vtemp;
         for (int i = 0; i < v.size(); ++i) {
             if (v[i]->getPositionCost()!= -1) {
                 vtemp.push_back(v[i]);
