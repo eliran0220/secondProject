@@ -9,7 +9,11 @@ CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../cachePackag
 CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../clientPackage/ClientHandler.h
 CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../clientPackage/MyClientHandler.cpp
 CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../clientPackage/MyClientHandler.h
+CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../problemPackage/CreateMatrix.h
+CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../searchPackage/Searchable.h
+CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../searchPackage/State.h
 CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../solverPackage/Solver.h
+CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../utils/Point.h
 
 CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o: ../cachePackage/CacheManager.h
 CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o: ../clientPackage/ClientHandler.h
@@ -36,6 +40,7 @@ CMakeFiles/secondProject.dir/main.cpp.o: ../solverPackage/Solver.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../solverPackage/StringReverser.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../test/MatrixDomain.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MyPriorQueue.h
+CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MyUnorderedSet.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/Point.h
 
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../cachePackage/CacheManager.h

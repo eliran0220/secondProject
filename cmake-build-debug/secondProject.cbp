@@ -163,9 +163,6 @@
 		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MyPriorQueue.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/utils/MyUnorderedSet.h">
-			<Option target="secondProject"/>
-		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/utils/Point.h">
 			<Option target="secondProject"/>
 		</Unit>

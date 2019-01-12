@@ -5,11 +5,12 @@
 #include <strings.h>
 #include <cstring>
 #include "MyClientHandler.h"
+#include "../problemPackage/CreateMatrix.h"
 
 void MyClientHandler::handleClient(int socket) {
     string clientInput = "";
     string problem;
-    string solutionString ="";
+    string solutionString = "";
     clientInput = readFromClient(socket);
     while (clientInput != END) {
         problem += clientInput;
@@ -17,7 +18,7 @@ void MyClientHandler::handleClient(int socket) {
         clientInput = readFromClient(socket);
     }
 
-    if (this->cacheManager->isSolutionExist(problem)){
+    if (this->cacheManager->isSolutionExist(problem)) {
         solutionString += this->cacheManager->popSolution(problem);
     } else {
         //create a new problem
@@ -26,10 +27,10 @@ void MyClientHandler::handleClient(int socket) {
 
 }
 
-string MyClientHandler::readFromClient(int socket){
+string MyClientHandler::readFromClient(int socket) {
     char buffer[BUFFER_SIZE];
     ssize_t n;
-    n = read(socket,buffer,BUFFER_SIZE-1);
+    n = read(socket, buffer, BUFFER_SIZE - 1);
     if (n < 0) {
         perror("ERROR reading from socket");
         exit(1);
