@@ -12,6 +12,8 @@
 template <class T>
 class DFS: public Searcher<T> {
     stack<State<T>*> openList;
+    set<State<T>*> statesInOpenList;
+
 public:
     DFS() : Searcher<T>() {}
 
@@ -20,26 +22,41 @@ public:
         this->openList.pop();
         if (temp != nullptr) {
             this->evaluatedNodes++;
+            this->statesInOpenList.erase(temp);
         }
+        //this->statesInOpenList.erase(temp);
         return temp;
     }
+
+    void pushState(State <T>* state) {
+        this->statesInOpenList.insert(state);
+        this->openList.push(state);
+    }
+
+
     vector<State<T>*> search(Searchable<T>* searchable) {
         State<T> *initialState = searchable->getInitialState();
-        this->openList.push(initialState); // push the initial state
+        pushState(initialState); // push the initial state
         set<State<T>*> closed;
+        vector<State<T> *> path;
         State<T> *goalState = searchable->getGoalState();
         while (this->openList.size() > 0) {
             State<T> *topInStack = this->popOpenList();
-            closed.insert(topInStack);
+            // אם הוא נמצא ב closed
+            if (closed.count(topInStack) < 1) {
+                closed.insert(topInStack);
+            }
             if (topInStack->Equals(goalState)) {
-                return this->backTrace(topInStack);
+                path = this->backTrace(topInStack);
+                this->calculateEvaluatedNodes(this->statesInOpenList, path, closed);
+                return path;
             }
             vector<State<T> *> successors = searchable->getAllPossibleStates(topInStack);
             for (State<T> *state : successors) {
-                if (!(closed.count(state) >= 1)) {
+                // אם הוא לא נמצא ב closed וגם ב open
+                if ((closed.count(state) < 1)&& (this->statesInOpenList.count(state) < 1)) {
                     state->setCameFrom(topInStack);
-                    closed.insert(state);
-                    this->openList.push(state);
+                    pushState(state);
                 }
             }
         }

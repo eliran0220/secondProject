@@ -60,6 +60,11 @@ public:
             this->pushState(states[i]);
         }
     }
+
+    set<State<T>*> getSetInQueue() {
+        return this->setOfStates;
+    }
+
 };
 
 

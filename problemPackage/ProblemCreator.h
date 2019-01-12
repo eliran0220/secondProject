@@ -5,7 +5,9 @@
 #ifndef SECONDPROJECT_PROBLEMCREATOR_H
 #define SECONDPROJECT_PROBLEMCREATOR_H
 
-#include <string.h>
+#include <string>
+
+using namespace std;
 
 template<class P>
 class ProblemCreator {

@@ -8,6 +8,8 @@
 using namespace std;
 
 #include <queue>
+#include <iostream>
+#include <set>
 #include "State.h"
 #include "Searchable.h"
 
@@ -31,6 +33,32 @@ public:
             current = current->getCameFrom();
         }
         return path;
+    }
+
+    void calculateEvaluatedNodes(set<State<T>*> statesInOpenList, vector<State<T> *> path,
+                                 set<State<T> *> closedList) {
+        int temp = 0;
+        bool containInSet = false;
+        bool containsInOpenList = false;
+        set<State<T> *> tempSet = closedList;
+        for (int i = 0; i < (int) path.size(); ++i) {
+            if (statesInOpenList.count(path[i]) >= 1) {
+                containsInOpenList = true;
+            }
+            if (tempSet.count(path[i]) >= 1) {
+                containInSet = true;
+            }
+            if (!containInSet && !containsInOpenList) {
+                temp++;
+            } else if (containInSet && containsInOpenList) {
+                tempSet.erase(path[i]);
+            }
+            containInSet = false;
+            containsInOpenList = false;
+        }
+        temp += (int) tempSet.size();
+        temp += statesInOpenList.size();
+        this->evaluatedNodes = temp;
     }
 };
 

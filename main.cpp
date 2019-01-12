@@ -16,12 +16,10 @@
 
 
 int main(int argc, char *argv[]) {
-
     MatrixDomain matrixDomain = MatrixDomain();
-    BFS<int>* bestFirstSearch = new BFS<int>();
+    AStar<int>* bestFirstSearch = new AStar<int>();
     vector<State<int>*>path = bestFirstSearch->search(&matrixDomain);
-
-
+    cout<< bestFirstSearch->getNumberOfNodesEvaluated()<<endl;
 
     int x=9;
     /*

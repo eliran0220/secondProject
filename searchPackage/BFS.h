@@ -7,6 +7,7 @@
 template <class T>
 class BFS: public Searcher<T> {
     queue<State<T>*> openList;
+    set<State<T>*> statesInOpenList;
 
 public:
     BFS() : Searcher<T>() {}
@@ -16,27 +17,37 @@ public:
         this->openList.pop();
         if (temp != nullptr) {
             this->evaluatedNodes++;
+            this->statesInOpenList.erase(temp);
         }
         return temp;
     }
 
+     void pushState(State <T>* state) {
+        this->statesInOpenList.insert(state);
+        this->openList.push(state);
+    }
     vector<State<T>*> search(Searchable<T>* searchable) {
         State<T> *initialState = searchable->getInitialState();
-        this->openList.push(initialState); // push the initial state
+        pushState(initialState); // push the initial state
         set<State<T>*> closed;
+        vector<State<T> *> path;
         State<T> *goalState = searchable->getGoalState();
         while (this->openList.size() > 0) {
             State<T> *topInQueue = this->popOpenList();
-            closed.insert(topInQueue);
+            if (closed.count(topInQueue) < 1) {
+                closed.insert(topInQueue);
+            }
             if (topInQueue->Equals(goalState)) {
-                return this->backTrace(topInQueue);
+                path = this->backTrace(topInQueue);
+                this->calculateEvaluatedNodes(this->statesInOpenList, path, closed);
+
+                return path;
             }
             vector<State<T> *> successors = searchable->getAllPossibleStates(topInQueue);
             for (State<T> *state : successors) {
-                if (!(closed.count(state) >= 1)) {
+                if ((closed.count(state) < 1)&& (this->statesInOpenList.count(state) < 1)) {
                     state->setCameFrom(topInQueue);
-                    closed.insert(state);
-                    this->openList.push(state);
+                    pushState(state);
                 }
             }
         }
