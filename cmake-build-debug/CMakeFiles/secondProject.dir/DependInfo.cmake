@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/afik/CLionProjects/secondProject/cachePackage/FileCacheManager.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o"
-  "/home/afik/CLionProjects/secondProject/clientPackage/MyClientHandler.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o"
-  "/home/afik/CLionProjects/secondProject/clientPackage/MyTestClientHandler.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o"
-  "/home/afik/CLionProjects/secondProject/main.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/main.cpp.o"
-  "/home/afik/CLionProjects/secondProject/problemPackage/MatrixProblem.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o"
-  "/home/afik/CLionProjects/secondProject/serverPackage/MySerialServer.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o"
-  "/home/afik/CLionProjects/secondProject/solverPackage/StringReverser.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o"
+  "/home/eliran/CLionProjects/secondProject/cachePackage/FileCacheManager.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o"
+  "/home/eliran/CLionProjects/secondProject/clientPackage/MyClientHandler.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o"
+  "/home/eliran/CLionProjects/secondProject/clientPackage/MyTestClientHandler.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o"
+  "/home/eliran/CLionProjects/secondProject/main.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/main.cpp.o"
+  "/home/eliran/CLionProjects/secondProject/problemPackage/MatrixProblem.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o"
+  "/home/eliran/CLionProjects/secondProject/serverPackage/MySerialServer.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o"
+  "/home/eliran/CLionProjects/secondProject/solverPackage/StringReverser.cpp" "/home/eliran/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

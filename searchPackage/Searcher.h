@@ -1,9 +1,5 @@
-//
-// Created by eliran on 1/8/19.
-//
-
-#ifndef SECONDPROJECT_SEARCHER_H
-#define SECONDPROJECT_SEARCHER_H
+#ifndef SEARCHER_H
+#define SEARCHER_H
 
 using namespace std;
 
@@ -16,24 +12,51 @@ using namespace std;
 #include "Searchable.h"
 #include "../utils/MyUnorderedSet.h"
 
-
+/**
+ * Searcher class, responsible searching on the Searchable item, and
+ * the path to the solution.
+ * @param T a given state
+ */
 template<class T>
 class Searcher {
 protected:
     int evaluatedNodes;
 
 public:
+    /**
+     * Function name: ~Searcher
+     * The function operation: distructs the Searcher
+     */
     virtual ~Searcher() = default;
 
-    virtual vector<State<T>*> search(Searchable<T>* searchable) = 0;
+    /**
+     * Function name: search
+     * The function operation: performs the search algorithem on the searchable
+     * parameter
+     * @param searchable given searchable
+     * @return vector<State>*>
+     */
+    virtual vector<State<T> *> search(Searchable<T> *searchable) = 0;
 
+    /**
+     * Function name: getNumberOfNodesEvaluated
+     * The function operation: returns evaluatedNodes
+     * @return int
+     */
     virtual int getNumberOfNodesEvaluated() {
         return this->evaluatedNodes;
     }
 
-    vector<State<T>*> backTrace(State<T>* state) {
-        vector<State<T>*> path;
-        State<T>* current = state;
+    /**
+     * Function name: backTrace
+     * The function operation: returns the path backwards from the goal position
+     * to the initial position
+     * @param state given state
+     * @return vector<State>*>
+     */
+    vector<State<T> *> backTrace(State<T> *state) {
+        vector<State<T> *> path;
+        State<T> *current = state;
         while (current != nullptr) {
             path.push_back(current);
             current = current->getCameFrom();
@@ -44,6 +67,14 @@ public:
         return path;
     }
 
+    /**
+     * Function name: calculateEvaluatedNodes
+     * The function operation: calculates the number of nodes the algorithem
+     * has met during the search
+     * @param statesInOpenList given UnOrderedSet
+     * @param path given vector<State>*>
+     * @param closedList given UnOrderedSet
+     */
     void calculateEvaluatedNodes(MyUnorderedSet<T> statesInOpenList, vector<State<T> *> path,
                                  MyUnorderedSet<T> closedList) {
         int temp = 0;
@@ -71,4 +102,4 @@ public:
     }
 };
 
-#endif //SECONDPROJECT_SEARCHER_H
+#endif
