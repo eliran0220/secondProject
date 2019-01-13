@@ -1,15 +1,14 @@
-//
-// Created by eliran on 1/11/19.
-//
-
-#ifndef SECONDPROJECT_ASTAR_H
-#define SECONDPROJECT_ASTAR_H
+#ifndef ASTAR_H
+#define ASTAR_H
 
 #include "Searcher.h"
 #include <math.h>
 #include "../utils/MyPriorQueue.h"
 
-
+/**
+ * compareMinWithHeuristicCost struct is used so t
+ * @tparam T
+ */
 template<class T>
 struct compareMinWithHeuristicCost {
     bool operator()(State<T> *l, State<T> *r) {
@@ -70,4 +69,4 @@ public:
 };
 
 
-#endif //SECONDPROJECT_ASTAR_H
+#endif

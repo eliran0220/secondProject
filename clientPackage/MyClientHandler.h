@@ -1,9 +1,5 @@
-//
-// Created by eliran on 1/12/19.
-//
-
-#ifndef SECONDPROJECT_MYCLIENTHANDLER_H
-#define SECONDPROJECT_MYCLIENTHANDLER_H
+#ifndef MYCLIENTHANDLER_H
+#define MYCLIENTHANDLER_H
 
 
 #include "ClientHandler.h"
@@ -19,6 +15,10 @@
 #define BUFFER_SIZE 1
 #define SEPERATOR ":"
 
+/**
+ * MyClientHandler class, implements ClientHandler
+ * @tparam T a generic State
+ */
 template <class T>
 class MyClientHandler : public ClientHandler {
 
@@ -28,15 +28,12 @@ private:
     ProblemCreator<Searchable<T>*>* problemCreator;
 
 public:
+
     MyClientHandler(Solver<Searchable<T>*,  vector<State<Point*>*>> *problemSolver, CacheManager<string, string> *cacheManager,ProblemCreator<Searchable<T>*>* problemCreator) {
         this->problemSolver = problemSolver;
         this->cacheManager = cacheManager;
         this->problemCreator = problemCreator;
     }
-    /*
-    void handleClient(int socket) override;
-    string readFromClient(int socket);
-     */
 
 
     void handleClient(int socket) override {
@@ -65,6 +62,13 @@ public:
         }
     }
 
+    /**
+     * Function name: readFromClient
+     * The function operation: constructs a string from the data given by user each line,
+     * and returns it
+     * @param socket a given socket
+     * @return string
+     */
     string readFromClient(int socket) {
         char buffer[BUFFER_SIZE];
         string clientInput;
@@ -87,4 +91,4 @@ public:
 };
 
 
-#endif //SECONDPROJECT_MYCLIENTHANDLER_H
+#endif

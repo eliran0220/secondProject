@@ -1,9 +1,5 @@
-//
-// Created by eliran on 1/8/19.
-//
-
-#ifndef SECONDPROJECT_STATE_H
-#define SECONDPROJECT_STATE_H
+#ifndef STATE_H
+#define STATE_H
 
 
 #include "../utils/Point.h"
@@ -101,4 +97,4 @@ namespace std {
 }
  */
 
-#endif //SECONDPROJECT_STATE_H
+#endif

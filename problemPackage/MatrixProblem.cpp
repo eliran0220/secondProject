@@ -1,7 +1,3 @@
-//
-// Created by afik on 1/13/19.
-//
-
 #include <sstream>
 #include "MatrixProblem.h"
 

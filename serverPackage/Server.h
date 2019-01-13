@@ -1,9 +1,5 @@
-//
-// Created by afik on 1/6/19.
-//
-
-#ifndef SECONDPROJECT_SERVER_H
-#define SECONDPROJECT_SERVER_H
+#ifndef SERVER_H
+#define SERVER_H
 
 #include "../clientPackage/ClientHandler.h"
 //#include "MySerialServer.h"
@@ -14,18 +10,45 @@
 #include "../solverPackage/StringReverser.h"
 #include "../clientPackage/MyTestClientHandler.h"
 
-
+/**
+ * Server class, used to open and run server
+ */
 namespace server_side {
     class Server {
     public:
+
+        /**
+         * Function name: open
+         * The function operation: opens a new server by a given port and clientHandler
+         * @param port given port
+         * @param clientHandler given clientHandler
+         */
         virtual void open(int port, ClientHandler &clientHandler) = 0;
 
+        /**
+         * Function name: shouldStop
+         * The function operation: returns the value of stop
+         * @return bool
+         */
         virtual bool shouldStop() = 0;
 
+        /**
+         * Function name: setStop
+         * The function operation: sets the value of stop to false
+         */
         virtual void setStop() = 0;
 
+        /**
+         * Function name: closeServer
+         * The function operation: sets the value of stop to true (to indicate
+         * that the server needs to end his work)
+         */
         virtual void closeServer() = 0;
 
+        /**
+         * Function name: ~Server
+         * The function operation: destructs the server
+         */
         virtual ~Server() {};
 
 
@@ -55,4 +78,4 @@ namespace boot {
 }
  */
 
-#endif //SECONDPROJECT_SERVER_H
+#endif

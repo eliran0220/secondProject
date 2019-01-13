@@ -1,9 +1,5 @@
-//
-// Created by afik on 1/6/19.
-//
-
-#ifndef SECONDPROJECT_MYSERIALSERVER_H
-#define SECONDPROJECT_MYSERIALSERVER_H
+#ifndef MYSERIALSERVER_H
+#define MYSERIALSERVER_H
 
 
 #include <netinet/in.h>
@@ -15,23 +11,64 @@
 #include "Server.h"
 #include <unistd.h>
 
-
-class MySerialServer : public server_side::Server{
+/**
+ * MySerialServer class, creates a new serial server
+ */
+class MySerialServer : public server_side::Server {
     bool stop;
     thread serverThread;
 
 public:
+
+    /**
+     * Function name: MySerialServer
+     * The function operation: constructs a new MySerialServer
+     */
     MySerialServer();
+
+    /**
+     * Function name: ~MySerialServer
+     * The function operation: distructs the mySerialServer
+     */
     ~MySerialServer();
-    void open(int port, ClientHandler& clientHandler) override;
 
-    static void runServer(int port, ClientHandler* clientHandler, MySerialServer* mySerialServer);
+    /**
+     * Function name: open
+     * The function operation: opens a server by a given port and clientHandler
+     * @param port given port
+     * @param clientHandler given clientHanlder
+     */
+    void open(int port, ClientHandler &clientHandler) override;
 
-    bool shouldStop(){ return this->stop;}
-    void closeServer(){this->stop = true;}
-    void setStop() {this->stop = false;}
+    /**
+     * Function name: runServer
+     * The function operation: runs the server
+     * @param port given port
+     * @param clientHandler given clientHandler
+     * @param mySerialServer given MySerialServer
+     */
+    static void runServer(int port, ClientHandler *clientHandler, MySerialServer *mySerialServer);
+
+    /**
+     * Function name: shouldStop
+     * The function operation: returns the stop value
+     * @return bool
+     */
+    bool shouldStop() { return this->stop; }
+
+    /**
+     * Function name: closeServer
+     * The function operation: sets the stop value to true
+     */
+    void closeServer() { this->stop = true; }
+
+    /**
+     * Function name: setStop
+     * The function operation: sets the stop value to false
+     */
+    void setStop() { this->stop = false; }
 
 };
 
 
-#endif //SECONDPROJECT_MYSERIALSERVER_H
+#endif
