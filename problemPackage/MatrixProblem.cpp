@@ -11,9 +11,9 @@ vector<vector<string>> MatrixProblem::createMatrix(string matrixString) {
     stringstream ssRow(matrixString);
     vector<vector<string>> matrix;
     vector<string> splitRow;
-    while (getline(ssRow,row,'$')) {
+    while (getline(ssRow,row,SEP_ROW)) {
         stringstream ssCol(matrixString);
-        while (getline(ssRow,index,',')) {
+        while (getline(ssRow,index,SEP_COL)) {
             splitRow.push_back(index);
         }
         matrix.push_back(splitRow);

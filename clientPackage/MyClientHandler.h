@@ -17,7 +17,7 @@
 
 #define END "end"
 #define BUFFER_SIZE 1
-#define SEPERATOR "$"
+#define SEPERATOR ":"
 
 template <class T>
 class MyClientHandler : public ClientHandler {

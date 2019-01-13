@@ -9,6 +9,10 @@
 #include "../searchPackage/Searchable.h"
 #include "../searchPackage/SearchableMatrix.h"
 
+#define SEP_ROW ':'
+#define SEP_COL ','
+
+
 class MatrixProblem : public ProblemCreator<Searchable<Point *> *> {
     SearchableMatrix *searchable;
 
