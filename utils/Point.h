@@ -16,6 +16,7 @@ public:
         this->y = y;
     }
 
+
     int getX() const {
         return this->x;
     }
@@ -31,7 +32,7 @@ public:
         return false;
     }
 
-    double getDistanse(const Point* p) {
+    double getDistance(const Point* p) {
         return sqrt(pow(this->x - p->getX(), 2) +
              pow(this->y - p->getY(), 2));
     }

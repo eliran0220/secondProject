@@ -12,10 +12,11 @@ using namespace std;
 #include <map>
 #include "../searchPackage/Searchable.h"
 
-#define SIZE 36
+#define SIZE 3
 
 
 class MatrixDomain : public Searchable<Point*> {
+    /*
 
     int matrix[SIZE + 1][SIZE + 1]{
             {0, 0, 8, 6, 8, 2, 10, 2, 4, 1, 9, 9, 5, 10, 1, 1, 1, 0, 7, 3, 1, 6, 9, 3, 9, 7, 7, 9, 5, 6, 4, 5, 1, 6, -1, 1, 7},
@@ -56,13 +57,15 @@ class MatrixDomain : public Searchable<Point*> {
             { 3, 1, 0, 8, 1, 4, 7, 9, 3, 7, 3, 6, 6, 6, 3, 9, 9, 3, 9, 3, 3, 7, 5, 10, 0, 8, 2, 2, 5, 4, 9, 8, 5, 3, 2, 6, 0 },
             { 10, 1, 9, 5, 9, 2, 6, 10, 3, 4, 10, -1, 10, 7, 9, 2, 1, 2, 0, 4, 6, 10, 2, 0, 0, 3, 4, 1, 4, 4, 0, 4, 10, 6, 2, 5, 0 },
     };
+     */
 
-    /*
+
     int matrix[SIZE + 1][SIZE + 1]{
-            {1,-1,1},
-            {2,9,-1},
-            {12,45,0}};
-    */
+            {1,2,3,4},
+            {0,0,0,0},
+            {1,1,1,1},
+            {0,0,0,0}};
+
     map<string, State<Point*> *> s;
 
 
@@ -73,15 +76,15 @@ public:
 
 
     State<Point*> *getInitialState(){
-        string t = to_string(0) + "," + to_string(0);
-        State<Point*>  *temp = new State<Point*>(new Point(0,0), matrix[0][0]);
+        string t = to_string(1) + "," + to_string(1);
+        State<Point*>  *temp = new State<Point*>(new Point(1,1), matrix[1][1]);
         s[t] = temp;
         return temp;
     }
 
     State<Point*> *getGoalState() {
-        string t = to_string(SIZE) + "," + to_string(SIZE);
-        State<Point*> *temp = new State<Point*>(new Point(SIZE,SIZE), matrix[SIZE][SIZE]);
+        string t = to_string(2) + "," + to_string(2);
+        State<Point*> *temp = new State<Point*>(new Point(2,2), matrix[2][2]);
         s[t] = temp;
         return temp;
     }

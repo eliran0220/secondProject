@@ -15,27 +15,32 @@ enum POSITION {
 using std::vector;
 
 
-class SearchableMatrix : public Searchable<Point *> {
+class SearchableMatrix : public Searchable<Point*> {
     vector<vector<string>> matrix;
-    MyUnorderedSet<Point *> set;
+    MyUnorderedSet<Point*> set;
     vector<string> initialState;
     vector<string> goalState;
+    Point * goal;
+    Point * ini;
     int row;
     int col;
 
 private:
 
-    State<Point *>*createState(int x, int y) {
+    State<Point*>*createState(int x, int y) {
         double cost = stod(matrix[x][y]);
-        State<Point *> *state = nullptr;
+        State<Point*> *state = nullptr;
         // if cost != -1
         if (cost >= 0) {
-            Point *position = new Point(x, y);
-            state = new State<Point *>(position, cost);
+            Point* position = new Point(x, y);
+            state = new State<Point*>(position, cost);
+            if (*position == *goal || *position == *ini) {
+                int x = 8;
+            }
             if (set.contains(state)) {
-                State<Point *> *temp = state;
+                State<Point*> *temp = state;
                 state = set.getState(temp);
-                delete (position);
+                delete (temp->getData());
                 delete(temp);
             } else {
                 set.insert(state);
@@ -58,7 +63,7 @@ private:
             neighbors.push_back(RIGHT);
             neighbors.push_back(UP);
 
-        } else if (x == row) {
+        } else if (x == row && y != col) {
             neighbors.push_back(RIGHT);
             neighbors.push_back(UP);
             neighbors.push_back(LEFT);
@@ -89,7 +94,7 @@ private:
 
     void deleteState() {
         for(State<Point*>* state: set) {
-            delete(state->getData());
+            delete (state->getData());
             delete(state);
         }
         this->set.clear();
@@ -101,7 +106,7 @@ private:
         this->initialState = matrix[(int) matrix.size() - 1];
         matrix.pop_back();
         this->row = (int) matrix.size() - 1;
-        this->col = (int) matrix[0].size();
+        this->col = (int) matrix[0].size() - 1;
         this->matrix = matrix;
     }
 public:
@@ -114,27 +119,31 @@ public:
     }
 
 
-    State<Point *> *getInitialState() {
-        Point *position = new Point((int) stod(initialState[0]),
+    State<Point*> *getInitialState() {
+        Point* position = new Point((int) stod(initialState[0]),
                                     (int) stod(initialState[1]));
-        State<Point *> *initialState = new State<Point *>(position,
+        State<Point*> *initialState = new State<Point*>(position,
                                                           stod(matrix[position->getX()][position->getY()]));
         this->set.insert(initialState);
+        this->ini = position;
+        return initialState;
     }
 
-    State<Point *> *getGoalState() {
-        Point *position = new Point((int) stod(goalState[0]),
+    State<Point*> *getGoalState() {
+        Point* position = new Point((int) stod(goalState[0]),
                                     (int) stod(goalState[1]));
-        State<Point *> *initialState = new State<Point *>(position,
+        State<Point*> *goalState = new State<Point*>(position,
                                                           stod(matrix[position->getX()][position->getY()]));
-        this->set.insert(initialState);
+        this->set.insert(goalState);
+        this->goal = position;
+        return goalState;
     }
 
 
 
-    vector<State<Point *> *> getAllPossibleStates(State<Point *> *state) {
-        vector<State<Point *> *> possibleNeighbors;
-        Point *data = state->getData();
+    vector<State<Point*> *> getAllPossibleStates(State<Point*> *state) {
+        vector<State<Point*> *> possibleNeighbors;
+        Point* data = state->getData();
         State<Point*>* tempState = nullptr;
         int x = data->getX();
         int y = data->getY();
@@ -142,7 +151,7 @@ public:
         for (POSITION position : neighbors) {
             switch (position) {
                 case LEFT : {
-                    tempState = createState(x - 1, y);
+                    tempState = createState(x, y-1);
                     break;
                 }
                 case RIGHT: {

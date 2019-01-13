@@ -39,7 +39,7 @@ public:
 
 
     bool Equals(State<T> *data) {
-        return this->data == data->getData();
+        return *this->data == *data->getData();
     }
 
 

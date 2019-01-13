@@ -13,7 +13,7 @@
 #define SEP_COL ','
 
 
-class MatrixProblem : public ProblemCreator<Searchable<Point *> *> {
+class MatrixProblem : public ProblemCreator<Searchable<Point*> *> {
     SearchableMatrix *searchable;
 
 public:
@@ -29,7 +29,7 @@ public:
 
     vector<vector<string>> createMatrix(string matrixString);
 
-    Searchable<Point *> *createProblem(string problem) override{
+    Searchable<Point*> *createProblem(string problem) override{
         vector<vector<string>> matrix = createMatrix(problem);
         if (searchable == nullptr) {
             this->searchable = new SearchableMatrix(matrix);

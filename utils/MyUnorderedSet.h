@@ -14,6 +14,7 @@ using std::unordered_set;
 using std::iterator;
 
 template<class T>
+//class MyUnorderedSet : public unordered_set<State<T>*,statePHash<T>, stateComp<T>>{
 class MyUnorderedSet : public unordered_set<State<T>*,statePHash<T>, stateComp<T>>{
     //unordered_set<State<T>*,statePHash<T>, stateComp<T>> set;
 public:

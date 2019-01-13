@@ -12,11 +12,12 @@ vector<vector<string>> MatrixProblem::createMatrix(string matrixString) {
     vector<vector<string>> matrix;
     vector<string> splitRow;
     while (getline(ssRow,row,SEP_ROW)) {
-        stringstream ssCol(matrixString);
-        while (getline(ssRow,index,SEP_COL)) {
+        stringstream ssCol(row);
+        while (getline(ssCol,index,SEP_COL)) {
             splitRow.push_back(index);
         }
         matrix.push_back(splitRow);
+        splitRow.clear();
     }
     return matrix;
 }

@@ -27,7 +27,7 @@ public:
     AStar() : Searcher<T>() {}
 
     double heuristicFunc(State<Point*> *state, State<Point*> *goalState) {
-        return state->getData()->getDistanse(goalState->getData());
+        return state->getData()->getDistance(goalState->getData());
     }
 
     State<T> *popOpenList() {

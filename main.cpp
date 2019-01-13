@@ -18,45 +18,56 @@
 #include "problemPackage/MatrixProblem.h"
 
 
-int main(int argc, char *argv[]) {
 
 
-    /*
-     *
-    MatrixDomain matrixDomain = MatrixDomain();
-    BestFirstSearch<Point*>*  bestFirstSearch = new BestFirstSearch<Point*>();
-    vector<State<Point*>*>path = bestFirstSearch->search(&matrixDomain);
-    cout<< bestFirstSearch->getNumberOfNodesEvaluated()<<endl;
+void check(int argc, char *argv[]) {
+    vector<vector<string>> matrix;
+    vector<string> temp;
+    temp.push_back("1");
+    temp.push_back("2");
+    temp.push_back("3");
+    temp.push_back("4");
+    matrix.push_back(temp);
+    temp.clear();
+    temp.push_back("0");
+    temp.push_back("0");
+    temp.push_back("0");
+    temp.push_back("0");
+    matrix.push_back(temp);
+    temp.clear();
+    temp.push_back("1");
+    temp.push_back("1");
+    temp.push_back("1");
+    temp.push_back("1");
+    matrix.push_back(temp);
+    temp.clear();
+    temp.push_back("0");
+    temp.push_back("0");
+    temp.push_back("0");
+    temp.push_back("0");
+    matrix.push_back(temp);
+    temp.clear();
+    temp.push_back("1");
+    temp.push_back("1");
+    matrix.push_back(temp);
+    temp.clear();
+    temp.push_back("2");
+    temp.push_back("2");
+    matrix.push_back(temp);
+    temp.clear();
 
-    int x=9;
 
-    MyPriority<string>* priorityQueue = new MinPriorityQueue<string>();
-    State<string>* s = new State<string>("q",7,1,2);
-    s->setCostPath(7);
-    priorityQueue->push(s);
-    s = new State<string>("a",67,1,3);
-    s->setCostPath(67);
-    priorityQueue->push(s);
-    s = new State<string>("a",9,1,3);
-    s->setCostPath(9);
-    priorityQueue->push(s);
-    s = new State<string>("a",89,1,3);
-    s->setCostPath(89);
-    priorityQueue->push(s);
-    s = new State<string>("a",19,1,3);
-    s->setCostPath(19);
-    priorityQueue->push(s);
+    SearchableMatrix* m = new SearchableMatrix(matrix);
+    Searcher<Point*>*  searcher = new BestFirstSearch<Point*>();
+    Solver<Searchable<Point*>*, vector<State<Point*>*>> *solver = new SearchSolver<Point*>(searcher);
+    vector<State<Point*>*> v =solver->solver(m);
+    cout << solver->solutionToString(v)<<endl;
+    cout << v[v.size() - 1]->getCost();
+}
 
 
-    //s = priorityQueue.poll();
-    while (!priorityQueue->isEmpty()) {
-        s = priorityQueue->poll();
-        cout<<s->getState()<<"-";
-        cout<<s->getCost()<<endl;
-    }
-    */
 
-
+void serverCheck(int argc, char *argv[]) {
     server_side::Server* server = new MySerialServer();
     Searcher<Point*>*  searcher = new BestFirstSearch<Point*>();
     Solver<Searchable<Point*>*, vector<State<Point*>*>> *solver = new SearchSolver<Point*>(searcher);
@@ -64,12 +75,24 @@ int main(int argc, char *argv[]) {
     ProblemCreator<Searchable<Point*>*>* problemCreator = new MatrixProblem();
     MyClientHandler<Point*>* clientHandler = new MyClientHandler<Point*>(solver, cacheManager, problemCreator);
     server->open(atoi(argv[1]),*clientHandler);
-    sleep(20);
+    sleep(60);
     delete(server);
     delete(solver);
     delete (searcher);
     delete(cacheManager);
     delete(clientHandler);
-    return 0;
+}
+
+
+void matrixDomainCheck() {
+    MatrixDomain * m = new MatrixDomain();
+    BestFirstSearch<Point*>* bestFirstSearch = new BestFirstSearch<Point*>();
+    bestFirstSearch->search(m);
+}
+
+int main(int argc, char *argv[]) {
+
+    check(argc, argv);
+    //matrixDomainCheck();
 
 }
