@@ -16,6 +16,3 @@ string StringReverser::solutionToString(string solution) {
     return solution;
 }
 
-string StringReverser::stringToProblem(string problemString) {
-    return problemString;
-}

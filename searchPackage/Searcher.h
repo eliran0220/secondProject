@@ -9,6 +9,7 @@ using namespace std;
 
 #include <queue>
 #include <iostream>
+#include <algorithm>
 
 
 #include "State.h"
@@ -35,6 +36,9 @@ public:
             path.push_back(current);
             current = current->getCameFrom();
         }
+        path.reserve(path.size() - 1);
+
+        reverse(path.begin(), path.end());
         return path;
     }
 

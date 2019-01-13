@@ -5,36 +5,52 @@
 #include <strings.h>
 #include <cstring>
 #include "MyClientHandler.h"
-#include "../problemPackage/CreateMatrix.h"
 
-void MyClientHandler::handleClient(int socket) {
-    string clientInput = "";
-    string problem;
-    string solutionString = "";
+template <class T>
+void MyClientHandler<T>::handleClient(int socket) {
+    string clientInput;
+    string problemString;
+    string solutionString;
+    vector<State<T>*> solution;
     clientInput = readFromClient(socket);
+    ssize_t n;
     while (clientInput != END) {
-        problem += clientInput;
-        problem += SEPERATOR;
+        problemString += clientInput;
+        problemString += SEPERATOR;
         clientInput = readFromClient(socket);
     }
-
-    if (this->cacheManager->isSolutionExist(problem)) {
-        solutionString += this->cacheManager->popSolution(problem);
+    if (this->cacheManager->isSolutionExist(problemString)) {
+        solutionString = this->cacheManager->popSolution(problemString);
     } else {
-        //create a new problem
-
+        solution = this->solver(this->problemCreator->createProblem(problemString));
+        solutionString = this->solver->solutionToString(solution);
+        this->cacheManager->saveSolution(problemString, solutionString);
     }
-
+    n = write(socket, solutionString.c_str(),solutionString.size());
+    if(n < 0){
+        perror("ERROR writing to socket");
+        exit(1);
+    }
 }
 
-string MyClientHandler::readFromClient(int socket) {
+template <class  T>
+string MyClientHandler<T>::readFromClient(int socket) {
     char buffer[BUFFER_SIZE];
+    string clientInput;
     ssize_t n;
-    n = read(socket, buffer, BUFFER_SIZE - 1);
+    n = read(socket, buffer, BUFFER_SIZE);
     if (n < 0) {
         perror("ERROR reading from socket");
         exit(1);
     }
-    return string(buffer);
+    while (strcmp(buffer, "\n") != 0) {
+        clientInput += buffer;
+        n = read(socket, buffer, BUFFER_SIZE);
+        if (n < 0) {
+            perror("ERROR reading from socket");
+            exit(1);
+        }
+    }
+    return clientInput;
 }
 

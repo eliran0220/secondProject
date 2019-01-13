@@ -12,7 +12,6 @@ class StringReverser : public Solver<string,string>{
 public:
     StringReverser() {}
     string solver(string problem) override;
-    string stringToProblem(string problemString) override;
     string solutionToString(string solution) override;
 };
 

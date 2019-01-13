@@ -6,29 +6,37 @@
 #define SECONDPROJECT_MYUNORDEREDSET_H
 
 #include <iostream>
+#include <unordered_set>
 
 #include "../searchPackage/State.h"
 
+using std::unordered_set;
+using std::iterator;
+
 template<class T>
-class MyUnorderedSet {
-    std::unordered_set<State<T>*,statePHash<T>, stateComp<T>> set;
+class MyUnorderedSet : public unordered_set<State<T>*,statePHash<T>, stateComp<T>>{
+    //unordered_set<State<T>*,statePHash<T>, stateComp<T>> set;
 public:
     MyUnorderedSet() = default;
 
-    size_t size() {
-        return this->set.size();
-    }
-
     bool contains(State<T> *state) const {
-        return set.find(state) != set.end();
+        return this->find(state) != this->end();
     }
 
-    void insert(State<T>* state) {
-        this->set.insert(state);
+    State<T>* getState(State<T>* state) {
+        State<T>* stateInSet = nullptr;
+        auto it = this->find(state);
+        stateInSet = it.operator*();
+        return stateInSet;
+    }
+
+    void insertState(State<T>* state) {
+        this->insert(state);
     }
 
     void remove(State<T>* state) {
-        this->set.erase(state);
+        this->erase(state);
     }
 };
+
 #endif //SECONDPROJECT_MYUNORDEREDSET_H

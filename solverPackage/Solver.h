@@ -13,9 +13,7 @@ template<class P, class S>
 class Solver {
 public:
     virtual S solver(P problem) = 0;
-    virtual S stringToProblem(string problemString) = 0;
     virtual string solutionToString(S solution) = 0;
-    virtual ~Solver(){};
 };
 
 #endif //SECONDPROJECT_SOLVER_H

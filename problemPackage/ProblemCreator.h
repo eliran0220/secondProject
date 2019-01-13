@@ -12,7 +12,6 @@ using namespace std;
 template<class P>
 class ProblemCreator {
     virtual P createProblem(string problem) = 0;
-
 };
 
 #endif //SECONDPROJECT_PROBLEMCREATOR_H

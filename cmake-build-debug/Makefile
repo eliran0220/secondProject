@@ -231,6 +231,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+problemPackage/MatrixProblem.o: problemPackage/MatrixProblem.cpp.o
+
+.PHONY : problemPackage/MatrixProblem.o
+
+# target to build an object file
+problemPackage/MatrixProblem.cpp.o:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o
+.PHONY : problemPackage/MatrixProblem.cpp.o
+
+problemPackage/MatrixProblem.i: problemPackage/MatrixProblem.cpp.i
+
+.PHONY : problemPackage/MatrixProblem.i
+
+# target to preprocess a source file
+problemPackage/MatrixProblem.cpp.i:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.i
+.PHONY : problemPackage/MatrixProblem.cpp.i
+
+problemPackage/MatrixProblem.s: problemPackage/MatrixProblem.cpp.s
+
+.PHONY : problemPackage/MatrixProblem.s
+
+# target to generate assembly for a file
+problemPackage/MatrixProblem.cpp.s:
+	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.s
+.PHONY : problemPackage/MatrixProblem.cpp.s
+
 serverPackage/MySerialServer.o: serverPackage/MySerialServer.cpp.o
 
 .PHONY : serverPackage/MySerialServer.o
@@ -306,6 +333,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... problemPackage/MatrixProblem.o"
+	@echo "... problemPackage/MatrixProblem.i"
+	@echo "... problemPackage/MatrixProblem.s"
 	@echo "... serverPackage/MySerialServer.o"
 	@echo "... serverPackage/MySerialServer.i"
 	@echo "... serverPackage/MySerialServer.s"

@@ -31,7 +31,7 @@ public:
     }
 
     void pushState(State <T>* state) {
-        this->statesInOpenList.insert(state);
+        this->statesInOpenList.insertState(state);
         this->openList.push(state);
     }
 
@@ -46,7 +46,7 @@ public:
             State<T> *topInStack = this->popOpenList();
             // אם הוא נמצא ב closed
             if (!closed.contains(topInStack)) {
-                closed.insert(topInStack);
+                closed.insertState(topInStack);
             }
             if (topInStack->Equals(goalState)) {
                 path = this->backTrace(topInStack);

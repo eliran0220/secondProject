@@ -324,6 +324,10 @@ public:
         }
         return vtemp;
     }
+
+    string pathToString(vector<State<Point*>*> path) {
+        return "";
+    }
 };
 
 #endif //SECONDPROJECT_MATRIXDOMAIN_H

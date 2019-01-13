@@ -115,6 +115,12 @@
 		<Unit filename="/home/afik/CLionProjects/secondProject/main.cpp">
 			<Option target="secondProject"/>
 		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/problemPackage/MatrixProblem.cpp">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/problemPackage/MatrixProblem.h">
+			<Option target="secondProject"/>
+		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/problemPackage/ProblemCreator.h">
 			<Option target="secondProject"/>
 		</Unit>
@@ -131,6 +137,9 @@
 			<Option target="secondProject"/>
 		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/Searchable.h">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/SearchableMatrix.h">
 			<Option target="secondProject"/>
 		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/Searcher.h">
@@ -166,7 +175,7 @@
 		<Unit filename="/home/afik/CLionProjects/secondProject/utils/Point.h">
 			<Option target="secondProject"/>
 		</Unit>
-		<Unit filename="/home/afik/CLionProjects/secondProject/utils/SearchClient.h">
+		<Unit filename="/home/afik/CLionProjects/secondProject/utils/SearchSolver.h">
 			<Option target="secondProject"/>
 		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/CMakeLists.txt">

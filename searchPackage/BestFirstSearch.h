@@ -37,7 +37,7 @@ public:
         while (this->openList.sizeQueue() > 0) {
             State<T> *topInQueue = this->popOpenList();
             if (!closed.contains(topInQueue)) {
-                closed.insert(topInQueue);
+                closed.insertState(topInQueue);
             }
             if (topInQueue->Equals(goalState)) {
                 path = this->backTrace(topInQueue);

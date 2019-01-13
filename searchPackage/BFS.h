@@ -24,7 +24,7 @@ public:
     }
 
      void pushState(State <T>* state) {
-        this->statesInOpenList.insert(state);
+        this->statesInOpenList.insertState(state);
         this->openList.push(state);
     }
     vector<State<T>*> search(Searchable<T>* searchable) {
@@ -36,7 +36,7 @@ public:
         while (!this->openList.empty()) {
             State<T> *topInQueue = this->popOpenList();
             if (!closed.contains(topInQueue)) {
-                closed.insert(topInQueue);
+                closed.insertState(topInQueue);
             }
             if (topInQueue->Equals(goalState)) {
                 path = this->backTrace(topInQueue);
