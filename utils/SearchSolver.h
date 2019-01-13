@@ -51,4 +51,4 @@ public:
 
 };
 
-#endif SEARCHCLIENT_H
+#endif

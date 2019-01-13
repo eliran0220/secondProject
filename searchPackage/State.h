@@ -67,34 +67,15 @@ public:
 template<class T>
 struct statePHash {
     size_t operator()(State<T> *const &state) const {
-        Point* p = state->getData();
-        size_t rowHash = std::hash<int>()(p->getX());
-        size_t colHash = std::hash<int>()(p->getY());
-        return rowHash ^ colHash;
-        /*
-        Point* p = state->getData();
-        return std::hash<Point*>()(state->getData());
-        //return std::hash<T>()(*p);
-         */
+        return std::hash<T>()(state->getData());
     }
 };
 
 template<class T>
 struct stateComp {
-    bool operator()(State<T> *const &l, State<T> *const &r) const {
-        return *(l->getData()) == *(r->getData());
+    bool operator()(State<T> *const &left, State<T> *const &right) const {
+        return *(left->getData()) == *(right->getData());
     }
 };
-
-/*
-namespace std {
-    template<class T>
-    struct hash<State<T>*> {
-        size_t operator()(const State<T> &state) const {
-            return hash<T>()(state.getData());
-        }
-    };
-}
- */
 
 #endif

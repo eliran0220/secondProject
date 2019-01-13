@@ -49,14 +49,14 @@ void check(int argc, char *argv[]) {
     temp.push_back("1");
     matrix.push_back(temp);
     temp.clear();
-    temp.push_back("2");
-    temp.push_back("2");
+    temp.push_back("3");
+    temp.push_back("3");
     matrix.push_back(temp);
     temp.clear();
 
 
     SearchableMatrix *m = new SearchableMatrix(matrix);
-    Searcher<Point *> *searcher = new BestFirstSearch<Point *>();
+    Searcher<Point *> *searcher = new AStar<Point *>();
     Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
             searcher);
     vector<State<Point *> *> v = solver->solver(m);
@@ -101,14 +101,14 @@ void checkUnorder() {
     set.insertState(p);
     p = new State<Point *>(new Point(1, 5), 3);
     set.insertState(p);
-    p = new State<Point *>(new Point(1, 5), 3);
+    p = new State<Point *>(new Point(1, 7), 3);
     set.contains(p);
 }
 
 int main(int argc, char *argv[]) {
 
-    //check(argc, argv);
+    check(argc, argv);
     //matrixDomainCheck();
-    checkUnorder();
+    //checkUnorder();
 
 }

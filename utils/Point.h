@@ -42,10 +42,10 @@ public:
 
 namespace std {
     template<>
-    struct hash<Point*&> {
-        size_t operator()(const Point* &cell) const {
-            size_t rowHash = hash<int>()(cell->getX());
-            size_t colHash = hash<int>()(cell->getY());
+    struct hash<Point*> {
+        size_t operator()(const Point* point) const {
+            size_t rowHash = hash<int>()(point->getX());
+            size_t colHash = hash<int>()(point->getY());
             return rowHash ^ colHash;
         }
     };
