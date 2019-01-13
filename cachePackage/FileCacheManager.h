@@ -10,6 +10,8 @@ using namespace std;
 #include <sstream>
 #include "CacheManager.h"
 
+#define SEPRATE "$"
+
 /**
  * FileCacheManager class, implements CacheManager
  */

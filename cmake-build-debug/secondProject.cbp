@@ -148,6 +148,12 @@
 		<Unit filename="/home/afik/CLionProjects/secondProject/searchPackage/State.h">
 			<Option target="secondProject"/>
 		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/serverPackage/MyParralelServer.cpp">
+			<Option target="secondProject"/>
+		</Unit>
+		<Unit filename="/home/afik/CLionProjects/secondProject/serverPackage/MyParralelServer.h">
+			<Option target="secondProject"/>
+		</Unit>
 		<Unit filename="/home/afik/CLionProjects/secondProject/serverPackage/MySerialServer.cpp">
 			<Option target="secondProject"/>
 		</Unit>

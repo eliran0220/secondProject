@@ -41,14 +41,14 @@ public:
     vector<State<T> *> search(Searchable<T> *searchable) {
         State<T> *initialState = searchable->getInitialState();
         this->openList.pushState(initialState); // push the initial state
-        MyUnorderedSet<State<T> *> closed;
+        MyUnorderedSet<T> closed;
         State<T> *goalState = searchable->getGoalState();
         while (!this->openList.empty()) {
             State<T> *topInQueue = this->popOpenList();
             if (topInQueue->Equals(goalState)) {
                 return this->backTrace(topInQueue);
             }
-            if (!closed.contains(topInQueue)) {
+            if (closed.contains(topInQueue)) {
                 continue;
             }
             vector<State<T> *> successors = searchable->getAllPossibleStates(

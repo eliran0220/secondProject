@@ -9,7 +9,7 @@ FileCacheManager::FileCacheManager(string file) {
 FileCacheManager::~FileCacheManager() {
     map<string, string>::iterator it = this->updateFile.begin();
     while (it != this->updateFile.end()) {
-        *this->fileInput << it->first + "$" + it->second << endl;
+        *(this->fileInput) << it->first + SEPRATE + it->second << endl;
         it++;
     }
     this->fileOutput->close();

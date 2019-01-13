@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/afik/CLionProjects/secondProject/clientPackage/MyTestClientHandler.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o"
   "/home/afik/CLionProjects/secondProject/main.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/main.cpp.o"
   "/home/afik/CLionProjects/secondProject/problemPackage/MatrixProblem.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o"
+  "/home/afik/CLionProjects/secondProject/serverPackage/MyParralelServer.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o"
   "/home/afik/CLionProjects/secondProject/serverPackage/MySerialServer.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o"
   "/home/afik/CLionProjects/secondProject/solverPackage/StringReverser.cpp" "/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o"
   )

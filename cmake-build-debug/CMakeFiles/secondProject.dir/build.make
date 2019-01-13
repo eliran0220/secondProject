@@ -70,9 +70,22 @@ CMakeFiles/secondProject.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/secondProject.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/afik/CLionProjects/secondProject/main.cpp -o CMakeFiles/secondProject.dir/main.cpp.s
 
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o: CMakeFiles/secondProject.dir/flags.make
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o: ../serverPackage/MyParralelServer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o -c /home/afik/CLionProjects/secondProject/serverPackage/MyParralelServer.cpp
+
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/afik/CLionProjects/secondProject/serverPackage/MyParralelServer.cpp > CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.i
+
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/afik/CLionProjects/secondProject/serverPackage/MyParralelServer.cpp -o CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.s
+
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: CMakeFiles/secondProject.dir/flags.make
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../serverPackage/MySerialServer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o -c /home/afik/CLionProjects/secondProject/serverPackage/MySerialServer.cpp
 
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.i: cmake_force
@@ -85,7 +98,7 @@ CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.s: cmake_force
 
 CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o: CMakeFiles/secondProject.dir/flags.make
 CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o: ../clientPackage/MyTestClientHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o -c /home/afik/CLionProjects/secondProject/clientPackage/MyTestClientHandler.cpp
 
 CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.i: cmake_force
@@ -98,7 +111,7 @@ CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.s: cmake_forc
 
 CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o: CMakeFiles/secondProject.dir/flags.make
 CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o: ../cachePackage/FileCacheManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o -c /home/afik/CLionProjects/secondProject/cachePackage/FileCacheManager.cpp
 
 CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.i: cmake_force
@@ -111,7 +124,7 @@ CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.s: cmake_force
 
 CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o: CMakeFiles/secondProject.dir/flags.make
 CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o: ../solverPackage/StringReverser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.o -c /home/afik/CLionProjects/secondProject/solverPackage/StringReverser.cpp
 
 CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.i: cmake_force
@@ -124,7 +137,7 @@ CMakeFiles/secondProject.dir/solverPackage/StringReverser.cpp.s: cmake_force
 
 CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: CMakeFiles/secondProject.dir/flags.make
 CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o: ../clientPackage/MyClientHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o -c /home/afik/CLionProjects/secondProject/clientPackage/MyClientHandler.cpp
 
 CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.s: cmake_force
 
 CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o: CMakeFiles/secondProject.dir/flags.make
 CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o: ../problemPackage/MatrixProblem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o -c /home/afik/CLionProjects/secondProject/problemPackage/MatrixProblem.cpp
 
 CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.i: cmake_force
@@ -151,6 +164,7 @@ CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.s: cmake_force
 # Object files for target secondProject
 secondProject_OBJECTS = \
 "CMakeFiles/secondProject.dir/main.cpp.o" \
+"CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o" \
 "CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o" \
 "CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o" \
 "CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o" \
@@ -162,6 +176,7 @@ secondProject_OBJECTS = \
 secondProject_EXTERNAL_OBJECTS =
 
 secondProject: CMakeFiles/secondProject.dir/main.cpp.o
+secondProject: CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o
 secondProject: CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o
 secondProject: CMakeFiles/secondProject.dir/clientPackage/MyTestClientHandler.cpp.o
 secondProject: CMakeFiles/secondProject.dir/cachePackage/FileCacheManager.cpp.o
@@ -170,7 +185,7 @@ secondProject: CMakeFiles/secondProject.dir/clientPackage/MyClientHandler.cpp.o
 secondProject: CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o
 secondProject: CMakeFiles/secondProject.dir/build.make
 secondProject: CMakeFiles/secondProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable secondProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable secondProject"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/secondProject.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

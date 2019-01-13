@@ -107,8 +107,9 @@ void checkUnorder() {
 
 int main(int argc, char *argv[]) {
 
-    check(argc, argv);
+    //check(argc, argv);
     //matrixDomainCheck();
     //checkUnorder();
+    serverCheck(argc,argv);
 
 }

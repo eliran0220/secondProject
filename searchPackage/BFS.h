@@ -7,7 +7,6 @@
 template <class T>
 class BFS: public Searcher<T> {
     queue<State<T>*> openList;
-    //set<State<T>*> statesInOpenList;
     MyUnorderedSet<T> statesInOpenList;
 
 public:

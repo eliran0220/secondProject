@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /home/afik/CLionProjects/secondProject/cmake-build-debug
 CMakeFiles/secondProject.dir/all:
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/depend
 	$(MAKE) -f CMakeFiles/secondProject.dir/build.make CMakeFiles/secondProject.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target secondProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target secondProject"
 .PHONY : CMakeFiles/secondProject.dir/all
 
 # Include target in all.
@@ -81,7 +81,7 @@ all: CMakeFiles/secondProject.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/secondProject.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/secondProject.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/afik/CLionProjects/secondProject/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/secondProject.dir/rule
