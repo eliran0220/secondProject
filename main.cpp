@@ -18,8 +18,6 @@
 #include "problemPackage/MatrixProblem.h"
 
 
-
-
 void check(int argc, char *argv[]) {
     vector<vector<string>> matrix;
     vector<string> temp;
@@ -57,42 +55,60 @@ void check(int argc, char *argv[]) {
     temp.clear();
 
 
-    SearchableMatrix* m = new SearchableMatrix(matrix);
-    Searcher<Point*>*  searcher = new BestFirstSearch<Point*>();
-    Solver<Searchable<Point*>*, vector<State<Point*>*>> *solver = new SearchSolver<Point*>(searcher);
-    vector<State<Point*>*> v =solver->solver(m);
-    cout << solver->solutionToString(v)<<endl;
+    SearchableMatrix *m = new SearchableMatrix(matrix);
+    Searcher<Point *> *searcher = new BestFirstSearch<Point *>();
+    Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
+            searcher);
+    vector<State<Point *> *> v = solver->solver(m);
+    cout << solver->solutionToString(v) << endl;
     cout << v[v.size() - 1]->getCost();
 }
 
 
-
 void serverCheck(int argc, char *argv[]) {
-    server_side::Server* server = new MySerialServer();
-    Searcher<Point*>*  searcher = new BestFirstSearch<Point*>();
-    Solver<Searchable<Point*>*, vector<State<Point*>*>> *solver = new SearchSolver<Point*>(searcher);
-    CacheManager<string, string>* cacheManager = new  FileCacheManager(argv[2]);
-    ProblemCreator<Searchable<Point*>*>* problemCreator = new MatrixProblem();
-    MyClientHandler<Point*>* clientHandler = new MyClientHandler<Point*>(solver, cacheManager, problemCreator);
-    server->open(atoi(argv[1]),*clientHandler);
+    server_side::Server *server = new MySerialServer();
+    Searcher<Point *> *searcher = new BestFirstSearch<Point *>();
+    Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
+            searcher);
+    CacheManager<string, string> *cacheManager = new FileCacheManager(argv[2]);
+    ProblemCreator<Searchable<Point *> *> *problemCreator = new MatrixProblem();
+    MyClientHandler<Point *> *clientHandler = new MyClientHandler<Point *>(
+            solver, cacheManager, problemCreator);
+    server->open(atoi(argv[1]), *clientHandler);
     sleep(60);
-    delete(server);
-    delete(solver);
+    delete (server);
+    delete (solver);
     delete (searcher);
-    delete(cacheManager);
-    delete(clientHandler);
+    delete (cacheManager);
+    delete (clientHandler);
 }
 
 
 void matrixDomainCheck() {
-    MatrixDomain * m = new MatrixDomain();
-    BestFirstSearch<Point*>* bestFirstSearch = new BestFirstSearch<Point*>();
+    MatrixDomain *m = new MatrixDomain();
+    BestFirstSearch<Point *> *bestFirstSearch = new BestFirstSearch<Point *>();
     bestFirstSearch->search(m);
+}
+
+
+void checkUnorder() {
+    MyUnorderedSet<Point *> set;
+    State<Point *> *p = new State<Point *>(new Point(1, 2), 3);
+    set.insertState(p);
+    p = new State<Point *>(new Point(1, 3), 3);
+    set.insertState(p);
+    p = new State<Point *>(new Point(1, 4), 3);
+    set.insertState(p);
+    p = new State<Point *>(new Point(1, 5), 3);
+    set.insertState(p);
+    p = new State<Point *>(new Point(1, 5), 3);
+    set.contains(p);
 }
 
 int main(int argc, char *argv[]) {
 
-    check(argc, argv);
+    //check(argc, argv);
     //matrixDomainCheck();
+    checkUnorder();
 
 }

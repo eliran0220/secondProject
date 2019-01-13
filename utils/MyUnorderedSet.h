@@ -18,10 +18,20 @@ template<class T>
 class MyUnorderedSet : public unordered_set<State<T>*,statePHash<T>, stateComp<T>>{
     //unordered_set<State<T>*,statePHash<T>, stateComp<T>> set;
 public:
-    MyUnorderedSet() = default;
+    //MyUnorderedSet() = default;
 
     bool contains(State<T> *state) const {
-        return this->find(state) != this->end();
+        //for (State<T>* stateIt : this) {
+           // if (*stateIt->getData() == *state->getData()) {
+            //    return true;
+          //  }
+        //}
+        //auto it = std::find(this->begin(), this->end(), state);
+        auto search = this->find(state);
+
+        //return this->find(state) != this->end();
+        return false;
+     //   return false;
     }
 
     State<T>* getState(State<T>* state) {
@@ -33,6 +43,7 @@ public:
 
     void insertState(State<T>* state) {
         this->insert(state);
+        //this->insert(state);
     }
 
     void remove(State<T>* state) {

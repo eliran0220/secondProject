@@ -6,6 +6,7 @@
 #define SECONDPROJECT_POINT_H
 
 #include <math.h>
+#include <unordered_set>
 
 class Point {
     int x;
@@ -37,4 +38,16 @@ public:
              pow(this->y - p->getY(), 2));
     }
 };
+
+
+namespace std {
+    template<>
+    struct hash<Point*&> {
+        size_t operator()(const Point* &cell) const {
+            size_t rowHash = hash<int>()(cell->getX());
+            size_t colHash = hash<int>()(cell->getY());
+            return rowHash ^ colHash;
+        }
+    };
+}
 #endif //SECONDPROJECT_POINT_H

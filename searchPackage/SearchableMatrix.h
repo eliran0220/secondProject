@@ -43,7 +43,7 @@ private:
                 delete (temp->getData());
                 delete(temp);
             } else {
-                set.insert(state);
+                set.insertState(state);
             }
         }
         return state;
@@ -124,7 +124,7 @@ public:
                                     (int) stod(initialState[1]));
         State<Point*> *initialState = new State<Point*>(position,
                                                           stod(matrix[position->getX()][position->getY()]));
-        this->set.insert(initialState);
+        this->set.insertState(initialState);
         this->ini = position;
         return initialState;
     }
@@ -134,7 +134,7 @@ public:
                                     (int) stod(goalState[1]));
         State<Point*> *goalState = new State<Point*>(position,
                                                           stod(matrix[position->getX()][position->getY()]));
-        this->set.insert(goalState);
+        this->set.insertState(goalState);
         this->goal = position;
         return goalState;
     }

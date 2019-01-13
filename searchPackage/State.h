@@ -66,31 +66,39 @@ public:
     double getHeuristicCost() {
         return this->heuristicCost;
     }
-
-
 };
 
 template<class T>
 struct statePHash {
     size_t operator()(State<T> *const &state) const {
-        return std::hash<T>()(state->getData());
+        Point* p = state->getData();
+        size_t rowHash = std::hash<int>()(p->getX());
+        size_t colHash = std::hash<int>()(p->getY());
+        return rowHash ^ colHash;
+        /*
+        Point* p = state->getData();
+        return std::hash<Point*>()(state->getData());
+        //return std::hash<T>()(*p);
+         */
     }
 };
 
 template<class T>
 struct stateComp {
     bool operator()(State<T> *const &l, State<T> *const &r) const {
-        return l->getData() == r->getData();
+        return *(l->getData()) == *(r->getData());
     }
 };
 
+/*
 namespace std {
     template<class T>
-    struct hash<State<T>> {
+    struct hash<State<T>*> {
         size_t operator()(const State<T> &state) const {
             return hash<T>()(state.getData());
         }
     };
 }
+ */
 
 #endif //SECONDPROJECT_STATE_H
