@@ -11,6 +11,7 @@ using namespace std;
 
 template<class P>
 class ProblemCreator {
+public:
     virtual P createProblem(string problem) = 0;
 };
 

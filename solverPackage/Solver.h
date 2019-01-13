@@ -14,6 +14,7 @@ class Solver {
 public:
     virtual S solver(P problem) = 0;
     virtual string solutionToString(S solution) = 0;
+    virtual ~Solver() = default;
 };
 
 #endif //SECONDPROJECT_SOLVER_H

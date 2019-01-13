@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
 
     server_side::Server* server = new MySerialServer();
     Searcher<Point*>*  searcher = new BestFirstSearch<Point*>();
-    Solver<Searchable<Point*>*, string> *solver = new SearchSolver<Point*>(searcher);
+    Solver<Searchable<Point*>*, vector<State<Point*>*>> *solver = new SearchSolver<Point*>(searcher);
     CacheManager<string, string>* cacheManager = new  FileCacheManager(argv[2]);
     ProblemCreator<Searchable<Point*>*>* problemCreator = new MatrixProblem();
     MyClientHandler<Point*>* clientHandler = new MyClientHandler<Point*>(solver, cacheManager, problemCreator);

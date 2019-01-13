@@ -6,6 +6,8 @@
 #include <cstring>
 #include "MyClientHandler.h"
 
+
+/*
 template <class T>
 void MyClientHandler<T>::handleClient(int socket) {
     string clientInput;
@@ -54,3 +56,4 @@ string MyClientHandler<T>::readFromClient(int socket) {
     return clientInput;
 }
 
+*/

@@ -11,7 +11,7 @@
 using std::string;
 
 template<class T>
-class SearchSolver : public Solver<Searchable<T>, vector<State<T>*>> {
+class SearchSolver : public Solver<Searchable<T>*, vector<State<T>*>> {
     Searcher<T> *searcher;
     string solution;
 
@@ -20,9 +20,10 @@ public:
         this->searcher = searcher;
     }
 
-    virtual vector<State<T>*> solver(Searchable<T> problem) override {
+    vector<State<T>*> solver(Searchable<T>* problem) override {
         vector<State<T>*> solutionPath =  searcher->search(problem);
-        this->solution = problem.pathToString(solutionPath);
+        this->solution = problem->pathToString(solutionPath);
+        return solutionPath;
     }
 
     string solutionToString(vector<State<T>*> solution) override{
