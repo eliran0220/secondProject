@@ -9,7 +9,6 @@
 #include "../searchPackage/Searchable.h"
 #include "../searchPackage/SearchableMatrix.h"
 
-template<class T>
 class MatrixProblem : public ProblemCreator<Searchable<Point *> *> {
     SearchableMatrix *searchable;
 

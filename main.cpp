@@ -13,16 +13,23 @@
 #include "searchPackage/BFS.h"
 #include "searchPackage/DFS.h"
 #include "searchPackage/AStar.h"
+#include "clientPackage/MyClientHandler.h"
+#include "utils/SearchSolver.h"
+#include "problemPackage/MatrixProblem.h"
 
 
 int main(int argc, char *argv[]) {
+
+
+    /*
+     *
     MatrixDomain matrixDomain = MatrixDomain();
     BestFirstSearch<Point*>*  bestFirstSearch = new BestFirstSearch<Point*>();
     vector<State<Point*>*>path = bestFirstSearch->search(&matrixDomain);
     cout<< bestFirstSearch->getNumberOfNodesEvaluated()<<endl;
 
     int x=9;
-    /*
+
     MyPriority<string>* priorityQueue = new MinPriorityQueue<string>();
     State<string>* s = new State<string>("q",7,1,2);
     s->setCostPath(7);
@@ -49,19 +56,20 @@ int main(int argc, char *argv[]) {
     }
     */
 
-    /*
+
     server_side::Server* server = new MySerialServer();
-    Solver<string, string>* solver = new StringReverser();
-    CacheManager<string, string>* cacheManager = new  FileCacheManager("a.txt");
-    ClientHandler* clientHandler = new MyTestClientHandler(solver, cacheManager);
+    Searcher<Point*>*  searcher = new BestFirstSearch<Point*>();
+    Solver<Searchable<Point*>*, string> *solver = new SearchSolver<Point*>(searcher);
+    CacheManager<string, string>* cacheManager = new  FileCacheManager(argv[2]);
+    ProblemCreator<Searchable<Point*>*>* problemCreator = new MatrixProblem();
+    MyClientHandler<Point*>* clientHandler = new MyClientHandler<Point*>(solver, cacheManager, problemCreator);
     server->open(atoi(argv[1]),*clientHandler);
     sleep(20);
-    int x = 3;
-    cout<<"aa";
     delete(server);
     delete(solver);
+    delete (searcher);
     delete(cacheManager);
     delete(clientHandler);
     return 0;
-     */
+
 }

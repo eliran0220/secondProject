@@ -51,9 +51,8 @@ public:
         State<T>* temp;
         temp = this->poll();
         while (temp != nullptr) {
-            if (!state->Equals(temp)) {
-                states.push_back(temp);
-            } else {
+            states.push_back(temp);
+            if (state->Equals(temp)) {
                 break;
             }
             temp = this->poll();

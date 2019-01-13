@@ -23,6 +23,8 @@ protected:
     int evaluatedNodes;
 
 public:
+    virtual ~Searcher() = default;
+
     virtual vector<State<T>*> search(Searchable<T>* searchable) = 0;
 
     virtual int getNumberOfNodesEvaluated() {

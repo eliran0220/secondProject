@@ -5,8 +5,7 @@
 #include <sstream>
 #include "MatrixProblem.h"
 
-template <class T>
-vector<vector<string>> MatrixProblem<T>::createMatrix(string matrixString) {
+vector<vector<string>> MatrixProblem::createMatrix(string matrixString) {
     string row;
     string index;
     stringstream ssRow(matrixString);
