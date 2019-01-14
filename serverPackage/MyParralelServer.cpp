@@ -13,11 +13,8 @@ MyParralelServer::~MyParralelServer() {
 }
 
 void MyParralelServer::open(int port, ClientHandler &clientHandler) {
-    //this->serverThreads.emplace_back(thread(MyParralelServer::openMainServerThread, port, clientHandler,this));
-    //MyParralelServer::openMainServerThread(port, clientHandler, this);
     int sockfd = server_side::Server::runServer(port, this);
     this->serverThreads.emplace_back(thread(MyParralelServer::openMainServerThread, sockfd, &clientHandler,this));
-    //thread(MyParralelServer::openMainServerThread, sockfd, &clientHandler,this);
 }
 
 void MyParralelServer::openMainServerThread(int sockfd,
@@ -35,10 +32,10 @@ void MyParralelServer::openMainServerThread(int sockfd,
         newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr,
                            (socklen_t *) &clilen);
 
-        server_side::Server::settimeout(0,0,newsockfd);
+
         if (newsockfd >= 0) {
+            server_side::Server::settimeout(0,0,newsockfd);
             server->serverThreads.emplace_back(thread(MyParralelServer::communicate,newsockfd, clientHandler));
-            //thread(MyParralelServer::communicate,newsockfd, &clientHandler);
         }
     }
     close(sockfd);
