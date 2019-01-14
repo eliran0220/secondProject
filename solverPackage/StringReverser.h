@@ -30,7 +30,7 @@ public:
      * @param solution given solution
      * @return string
      */
-    string solutionToString(string solution) override;
+    string solutionToString(string problem, string solution) override;
 };
 
 #endif

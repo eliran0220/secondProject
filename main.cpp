@@ -61,8 +61,8 @@ void check(int argc, char *argv[]) {
     Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
             searcher);
     vector<State<Point *> *> v = solver->solver(m);
-    cout << solver->solutionToString(v) << endl;
-    cout << v[v.size() - 1]->getCost();
+    //cout << solver->solutionToString(v) << endl;
+    //cout << v[v.size() - 1]->getCost();
 }
 
 
@@ -76,7 +76,7 @@ void serverCheck(int argc, char *argv[]) {
     MyClientHandler<Point *> *clientHandler = new MyClientHandler<Point *>(
             solver, cacheManager, problemCreator);
     server->open(atoi(argv[1]), *clientHandler);
-    sleep(60);
+    sleep(10);
     delete (server);
     delete (solver);
     delete (searcher);

@@ -11,9 +11,12 @@ MySerialServer::~MySerialServer() {
 }
 
 void MySerialServer::open(int port, ClientHandler &clientHandler) {
+    //struct timeval tv;
+    //tv.tv_sec = 100;
     int sockfd = server_side::Server::runServer(port, this);
     this->serverThread = thread(MySerialServer::communicate,this, sockfd, &clientHandler);
 }
+
 
 void MySerialServer::communicate(server_side::Server *server, int sockfd,
                                  ClientHandler *clientHandler) {

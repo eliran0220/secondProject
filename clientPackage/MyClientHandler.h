@@ -43,6 +43,7 @@ public:
         string problemString;
         string solutionString;
         vector<State<T>*> solution;
+        Searchable<T>* problem;
         clientInput = readFromClient(socket);
         ssize_t n;
         while (clientInput != END) {
@@ -50,11 +51,14 @@ public:
             problemString += SEPERATOR;
             clientInput = readFromClient(socket);
         }
+
+
         if (this->cacheManager->isSolutionExist(problemString)) {
             solutionString = this->cacheManager->popSolution(problemString);
         } else {
-            solution = this->problemSolver->solver(this->problemCreator->createProblem(problemString));
-            solutionString = this->problemSolver->solutionToString(solution);
+            problem = this->problemCreator->createProblem(problemString);
+            solution = this->problemSolver->solver(problem);
+            solutionString = this->problemSolver->solutionToString(problem, solution);
             this->cacheManager->saveSolution(problemString, solutionString);
         }
         n = write(socket, solutionString.c_str(),solutionString.size());

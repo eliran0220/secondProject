@@ -28,7 +28,7 @@ public:
      * @param solution given solution
      * @return string
      */
-    virtual string solutionToString(S solution) = 0;
+    virtual string solutionToString(P problem, S solution) = 0;
 
     /**
      * Function name: ~Solver

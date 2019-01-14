@@ -42,7 +42,7 @@ bool FileCacheManager::isSolutionExist(string problem) {
 }
 
 string FileCacheManager::popSolution(string problem) {
-    //lock_guard<mutex> lock(this->mtx);
+    lock_guard<mutex> lock(this->mtx);
     return this->mapProblemToSolution[problem];
 }
 

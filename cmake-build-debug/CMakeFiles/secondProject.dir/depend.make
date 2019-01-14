@@ -38,6 +38,7 @@ CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/Searchable.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/SearchableMatrix.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/Searcher.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/State.h
+CMakeFiles/secondProject.dir/main.cpp.o: ../serverPackage/MyParralelServer.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../serverPackage/MySerialServer.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../serverPackage/Server.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../solverPackage/Solver.h
@@ -56,6 +57,17 @@ CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o: ../searchPackag
 CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o: ../searchPackage/State.h
 CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o: ../utils/MyUnorderedSet.h
 CMakeFiles/secondProject.dir/problemPackage/MatrixProblem.cpp.o: ../utils/Point.h
+
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o: ../cachePackage/CacheManager.h
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o: ../cachePackage/FileCacheManager.h
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o: ../clientPackage/ClientHandler.h
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o: ../clientPackage/MyTestClientHandler.h
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o: ../serverPackage/MyParralelServer.cpp
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o: ../serverPackage/MyParralelServer.h
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o: ../serverPackage/MySerialServer.h
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o: ../serverPackage/Server.h
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o: ../solverPackage/Solver.h
+CMakeFiles/secondProject.dir/serverPackage/MyParralelServer.cpp.o: ../solverPackage/StringReverser.h
 
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../cachePackage/CacheManager.h
 CMakeFiles/secondProject.dir/serverPackage/MySerialServer.cpp.o: ../cachePackage/FileCacheManager.h

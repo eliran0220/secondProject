@@ -13,6 +13,8 @@ MyParralelServer::~MyParralelServer() {
 }
 
 void MyParralelServer::open(int port, ClientHandler &clientHandler) {
+    //struct timeval tv;
+    //tv.tv_sec = 1;
     int sockfd = server_side::Server::runServer(port, this);
     //thread t =  thread(sockfd, &clientHandler);
     int clilen, newsockfd;

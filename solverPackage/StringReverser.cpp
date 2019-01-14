@@ -8,7 +8,7 @@ string StringReverser::solver(string problem) {
 }
 
 
-string StringReverser::solutionToString(string solution) {
+string StringReverser::solutionToString(string problem, string solution) {
     return solution;
 }
 
