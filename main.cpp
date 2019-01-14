@@ -76,7 +76,7 @@ void serverCheck(int argc, char *argv[]) {
     MyClientHandler<Point *> *clientHandler = new MyClientHandler<Point *>(
             solver, cacheManager, problemCreator);
     server->open(atoi(argv[1]), *clientHandler);
-    sleep(10);
+    sleep(30);
     delete (server);
     delete (solver);
     delete (searcher);

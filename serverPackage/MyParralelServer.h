@@ -68,6 +68,8 @@ public:
 
     static void communicate(int sockfd, ClientHandler *clientHandler);
 
+    static void openMainServerThread(int sockfd, ClientHandler *clientHandler, MyParralelServer* server);
+
 };
 
 

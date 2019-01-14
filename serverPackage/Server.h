@@ -64,13 +64,13 @@ namespace server_side {
                                 exit(1);
                         }
 
-                        // set timeout 100 s
-                        struct timeval tv;
-                        tv.tv_sec = 100;
-                        setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO,
-                                   (struct timeval *) &tv,
-                                   sizeof(struct timeval));
-
+                        // set timeout 10 s
+                        //struct timeval tv;
+                        //tv.tv_sec = 10;
+                        //setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO,
+                          //         (struct timeval *) &tv,
+                         //sizeof(struct timeval));
+                         //settimeout(1,0,sockfd);
                         /* Initialize socket structure */
                         bzero((char *) &serv_addr, sizeof(serv_addr));
 
@@ -95,6 +95,19 @@ namespace server_side {
          * that the server needs to end his work)
          */
         virtual void closeServer() = 0;
+
+        static void settimeout(int sec, int usec, int socket)
+        {
+            timeval timeout;
+            timeout.tv_sec = sec;
+            timeout.tv_usec = usec;
+
+            // setting socket option for recieve timeout
+            if (setsockopt(socket, SOL_SOCKET, SO_RCVTIMEO,
+                           (char *)&timeout, sizeof(timeout)) == -1)	{
+                throw std::system_error(std::error_code(errno, std::generic_category()), "failure on setsockopt");
+            }
+        }
 
         /**
          * Function name: ~Server

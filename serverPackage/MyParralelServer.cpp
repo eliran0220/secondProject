@@ -13,13 +13,20 @@ MyParralelServer::~MyParralelServer() {
 }
 
 void MyParralelServer::open(int port, ClientHandler &clientHandler) {
-    //struct timeval tv;
-    //tv.tv_sec = 1;
+    //this->serverThreads.emplace_back(thread(MyParralelServer::openMainServerThread, port, clientHandler,this));
+    //MyParralelServer::openMainServerThread(port, clientHandler, this);
     int sockfd = server_side::Server::runServer(port, this);
-    //thread t =  thread(sockfd, &clientHandler);
+    this->serverThreads.emplace_back(thread(MyParralelServer::openMainServerThread, sockfd, &clientHandler,this));
+    //thread(MyParralelServer::openMainServerThread, sockfd, &clientHandler,this);
+}
+
+void MyParralelServer::openMainServerThread(int sockfd,
+                                            ClientHandler *clientHandler,
+                                            MyParralelServer* server) {
     int clilen, newsockfd;
     struct sockaddr_in cli_addr;
-    while (!this->shouldStop()) {
+    server_side::Server::settimeout(0,2,sockfd);
+    while (!server->shouldStop()) {
         /* Now start listening for the clients, here process will
                * go in sleep mode and will wait for the incoming connection
             */
@@ -27,10 +34,14 @@ void MyParralelServer::open(int port, ClientHandler &clientHandler) {
         clilen = sizeof(cli_addr);
         newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr,
                            (socklen_t *) &clilen);
+
+        server_side::Server::settimeout(0,0,newsockfd);
         if (newsockfd >= 0) {
-            this->serverThreads.emplace_back(thread(MyParralelServer::communicate,newsockfd, &clientHandler));
+            server->serverThreads.emplace_back(thread(MyParralelServer::communicate,newsockfd, clientHandler));
+            //thread(MyParralelServer::communicate,newsockfd, &clientHandler);
         }
     }
+    close(sockfd);
 }
 
 void MyParralelServer::communicate(int sockfd, ClientHandler *clientHandler) {
