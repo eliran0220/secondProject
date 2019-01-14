@@ -47,7 +47,7 @@ public:
      * @param clientHandler given clientHandler
      * @param mySerialServer given MySerialServer
      */
-    static void runServer(int port, ClientHandler *clientHandler, MySerialServer *mySerialServer);
+    //static void runServer(int port, ClientHandler *clientHandler, MySerialServer *mySerialServer);
 
     /**
      * Function name: shouldStop
@@ -68,6 +68,7 @@ public:
      */
     void setStop() { this->stop = false; }
 
+    static void communicate(server_side::Server* server, int sockfd, ClientHandler *clientHandler);
 };
 
 

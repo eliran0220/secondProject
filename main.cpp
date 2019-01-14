@@ -16,6 +16,7 @@
 #include "clientPackage/MyClientHandler.h"
 #include "utils/SearchSolver.h"
 #include "problemPackage/MatrixProblem.h"
+#include "serverPackage/MyParralelServer.h"
 
 
 void check(int argc, char *argv[]) {
@@ -66,7 +67,7 @@ void check(int argc, char *argv[]) {
 
 
 void serverCheck(int argc, char *argv[]) {
-    server_side::Server *server = new MySerialServer();
+    server_side::Server *server = new MyParralelServer();
     Searcher<Point *> *searcher = new BestFirstSearch<Point *>();
     Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
             searcher);

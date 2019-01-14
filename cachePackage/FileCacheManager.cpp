@@ -19,6 +19,7 @@ FileCacheManager::~FileCacheManager() {
 }
 
 bool FileCacheManager::isSolutionExist(string problem) {
+    lock_guard<mutex> lock(this->mtx);
     if (this->mapProblemToSolution.count(problem) > 0) {
         return true;
     }
@@ -41,11 +42,13 @@ bool FileCacheManager::isSolutionExist(string problem) {
 }
 
 string FileCacheManager::popSolution(string problem) {
+    //lock_guard<mutex> lock(this->mtx);
     return this->mapProblemToSolution[problem];
 }
 
 
 void FileCacheManager::saveSolution(string problem, string solution) {
+    lock_guard<mutex> lock(this->mtx);
     this->mapProblemToSolution[problem] = solution;
     this->updateFile[problem] = solution;
 }

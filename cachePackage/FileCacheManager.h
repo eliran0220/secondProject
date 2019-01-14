@@ -8,6 +8,7 @@ using namespace std;
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <mutex>
 #include "CacheManager.h"
 
 #define SEPRATE "$"
@@ -20,6 +21,7 @@ class FileCacheManager : public CacheManager<string, string> {
     fstream *fileOutput;
     map<string, string> mapProblemToSolution;
     map<string, string> updateFile;
+    mutex mtx;
 
 public:
 

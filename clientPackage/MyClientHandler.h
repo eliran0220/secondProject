@@ -10,10 +10,12 @@
 
 #include <strings.h>
 #include <cstring>
+#include <mutex>
 
 #define END "end"
 #define BUFFER_SIZE 1
 #define SEPERATOR ":"
+
 
 /**
  * MyClientHandler class, implements ClientHandler
@@ -60,6 +62,7 @@ public:
             perror("ERROR writing to socket");
             exit(1);
         }
+        close(socket);
     }
 
     /**
