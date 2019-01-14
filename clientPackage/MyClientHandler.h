@@ -7,7 +7,6 @@
 #include "../solverPackage/Solver.h"
 #include "../searchPackage/Searchable.h"
 #include "../problemPackage/ProblemCreator.h"
-
 #include <strings.h>
 #include <cstring>
 #include <mutex>
@@ -58,8 +57,13 @@ public:
         } else {
             problem = this->problemCreator->createProblem(problemString);
             solution = this->problemSolver->solver(problem);
-            solutionString = this->problemSolver->solutionToString(problem, solution);
-            this->cacheManager->saveSolution(problemString, solutionString);
+            if (solution.empty()) {
+                solutionString = "-1";
+                this->cacheManager->saveSolution(problemString, solutionString);
+            } else {
+                solutionString = this->problemSolver->solutionToString(problem, solution);
+                this->cacheManager->saveSolution(problemString, solutionString);
+            }
         }
         n = write(socket, solutionString.c_str(),solutionString.size());
         if(n < 0){

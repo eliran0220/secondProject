@@ -17,6 +17,7 @@
 #include "utils/SearchSolver.h"
 #include "problemPackage/MatrixProblem.h"
 #include "serverPackage/MyParralelServer.h"
+#include "searchPackage/Searchable.h"
 
 
 void check(int argc, char *argv[]) {
@@ -76,12 +77,14 @@ void serverCheck(int argc, char *argv[]) {
     MyClientHandler<Point *> *clientHandler = new MyClientHandler<Point *>(
             solver, cacheManager, problemCreator);
     server->open(atoi(argv[1]), *clientHandler);
+
     sleep(30);
     delete (server);
     delete (solver);
     delete (searcher);
     delete (cacheManager);
     delete (clientHandler);
+
 }
 
 
@@ -106,11 +109,80 @@ void checkUnorder() {
     set.contains(p);
 }
 
+string createStringForMatrix(ifstream &file) {
+    vector<string> lines;
+    string line = "";
+    string prob;
+    while (getline(file, line)) {
+        if (line[line.length() - 1] == '\r') {
+            line = line.substr(0, line.length() - 1);
+        }
+        if (line == "$")
+            break;
+        line.erase(remove(line.begin(), line.end(), ' '), line.end());
+        prob += line + ":";
+
+
+    }
+    return prob;
+}
+
+vector<vector<string>> createMatrix(string matrixString) {
+    string row;
+    string index;
+    stringstream ssRow(matrixString);
+    vector<vector<string>> matrix;
+    vector<string> splitRow;
+    while (getline(ssRow,row,SEP_ROW)) {
+        stringstream ssCol(row);
+        while (getline(ssCol,index,SEP_COL)) {
+            splitRow.push_back(index);
+        }
+        matrix.push_back(splitRow);
+        splitRow.clear();
+    }
+    return matrix;
+}
+
+
 int main(int argc, char *argv[]) {
 
     //check(argc, argv);
     //matrixDomainCheck();
     //checkUnorder();
-    serverCheck(argc,argv);
+   // serverCheck(argc,argv);
+
+
+    int countMatrix = 0;
+    vector<vector<string>> matrix;
+    vector<State<Point *> *> v;
+    ifstream fileG("graphsTest");
+    ofstream fileS("solutions");
+    string test;
+    int count = 0;
+    while (countMatrix<10) {
+        Searcher<Point *> *searcher = new AStar<Point *>();
+        Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
+                searcher);
+        CacheManager<string, string> *cacheManager = new FileCacheManager(argv[2]);
+        ProblemCreator<Searchable<Point *> *> *problemCreator = new MatrixProblem();
+        vector<vector<string>> matrix;
+        vector<State<Point *> *> v;
+        test = createStringForMatrix(fileG);
+        if (test == "")
+            break;
+        matrix = createMatrix(test);
+        auto *m = new SearchableMatrix(matrix);
+        v = solver->solver(m);
+        fileS << v[v.size() - 1]->getCost() << ", " << v.size() -1  << endl;
+        count++;
+    }
+    fileG.close();
+    fileS.close();
+
 
 }
+
+
+
+
