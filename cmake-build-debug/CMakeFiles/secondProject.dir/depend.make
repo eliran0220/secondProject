@@ -31,9 +31,6 @@ CMakeFiles/secondProject.dir/main.cpp.o: ../main.cpp
 CMakeFiles/secondProject.dir/main.cpp.o: ../problemPackage/MatrixProblem.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../problemPackage/ProblemCreator.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/AStar.h
-CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/BFS.h
-CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/BestFirstSearch.h
-CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/DFS.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/Searchable.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/SearchableMatrix.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../searchPackage/Searcher.h
@@ -43,7 +40,6 @@ CMakeFiles/secondProject.dir/main.cpp.o: ../serverPackage/MySerialServer.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../serverPackage/Server.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../solverPackage/Solver.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../solverPackage/StringReverser.h
-CMakeFiles/secondProject.dir/main.cpp.o: ../test/MatrixDomain.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MyPriorQueue.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/MyUnorderedSet.h
 CMakeFiles/secondProject.dir/main.cpp.o: ../utils/Point.h

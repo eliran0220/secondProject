@@ -13,6 +13,7 @@ using namespace std;
 #include "CacheManager.h"
 
 #define SEPRATE "$"
+#define FILE_NAME "cacheSolution.txt"
 
 /**
  * FileCacheManager class, implements CacheManager
@@ -29,9 +30,8 @@ public:
     /**
      * Function name: FileCacheManager
      * The function operation: constructs a new FileCacheManager
-     * @param file given string
      */
-    FileCacheManager(string file);
+    FileCacheManager();
 
     /**
      * Function name: ~FileCacheManager

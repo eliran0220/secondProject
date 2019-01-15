@@ -38,7 +38,7 @@ public:
      * @param port given port
      * @param clientHandler given clientHanlder
      */
-    void open(int port, ClientHandler &clientHandler) override;
+    void open(int port, ClientHandler &clientHandler, thread& serverThread) override;
 
     /**
      * Function name: runServer

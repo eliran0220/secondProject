@@ -10,10 +10,10 @@ MySerialServer::~MySerialServer() {
     this->serverThread.join();
 }
 
-void MySerialServer::open(int port, ClientHandler &clientHandler) {
+void MySerialServer::open(int port, ClientHandler &clientHandler,  thread& serverThread) {
     //struct timeval tv;
     //tv.tv_sec = 100;
-    int sockfd = server_side::Server::runServer(port, this);
+    int sockfd = server_side::Server::createSocket(port, this);
     this->serverThread = thread(MySerialServer::communicate,this, sockfd, &clientHandler);
 }
 

@@ -1,13 +1,13 @@
 
 #include "FileCacheManager.h"
 
-FileCacheManager::FileCacheManager(string file) {
-    this->fileInput = ofstream(file, ios_base::app);
-    this->fileOutput = fstream(file);
+FileCacheManager::FileCacheManager() {
+    this->fileInput = ofstream(FILE_NAME, ios_base::app);
+    this->fileOutput = fstream(FILE_NAME);
 }
 
 FileCacheManager::~FileCacheManager() {
-    map<string, string>::iterator it = this->updateFile.begin();
+    auto it = this->updateFile.begin();
     while (it != this->updateFile.end()) {
         (this->fileInput) << it->first + SEPRATE + it->second << endl;
         it++;
@@ -22,7 +22,7 @@ bool FileCacheManager::isSolutionExist(string problem) {
     lock_guard<mutex> lock(this->mtx);
     string temp = problem;
     temp.erase(std::remove(temp.begin(), temp.end(), ' '), temp.end());
-    if (this->mapProblemToSolution.count(problem) > 0) {
+    if (this->mapProblemToSolution.count(temp) > 0) {
         return true;
     }
     string line;
@@ -33,9 +33,9 @@ bool FileCacheManager::isSolutionExist(string problem) {
         stringstream ss(line);
         getline(ss, tempProblem, '$');
         getline(ss, tempSolution, '$');
-        if (tempProblem != "" && tempSolution != "") {
+        if (!tempProblem.empty() && !tempSolution.empty()) {
             this->mapProblemToSolution[tempProblem] = tempSolution;
-            if (problem == tempProblem) {
+            if (temp == tempProblem) {
                 return true;
             }
         }
@@ -45,12 +45,16 @@ bool FileCacheManager::isSolutionExist(string problem) {
 
 string FileCacheManager::popSolution(string problem) {
     lock_guard<mutex> lock(this->mtx);
-    return this->mapProblemToSolution[problem];
+    string temp = problem;
+    temp.erase(std::remove(temp.begin(), temp.end(), ' '), temp.end());
+    return this->mapProblemToSolution[temp];
 }
 
 
 void FileCacheManager::saveSolution(string problem, string solution) {
     lock_guard<mutex> lock(this->mtx);
-    this->mapProblemToSolution[problem] = solution;
-    this->updateFile[problem] = solution;
+    string temp = problem;
+    temp.erase(std::remove(temp.begin(), temp.end(), ' '), temp.end());
+    this->mapProblemToSolution[temp] = solution;
+    this->updateFile[temp] = solution;
 }

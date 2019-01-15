@@ -6,7 +6,7 @@
 #define SECONDPROJECT_MYPARRALELSERVER_H
 
 
-#include <thread>
+
 #include <vector>
 #include "Server.h"
 
@@ -36,7 +36,7 @@ public:
      * @param port given port
      * @param clientHandler given clientHanlder
      */
-    void open(int port, ClientHandler &clientHandler) override;
+    void open(int port, ClientHandler &clientHandler, thread& serverThread) override;
 
     /**
      * Function name: runServer

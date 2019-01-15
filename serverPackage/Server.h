@@ -6,7 +6,7 @@
 
 #include <netinet/in.h>
 #include <strings.h>
-#include <pthread.h>
+#include <thread>
 #include <cstring>
 #include <iostream>
 #include <unistd.h>
@@ -30,7 +30,7 @@ namespace server_side {
          * @param port given port
          * @param clientHandler given clientHandler
          */
-        virtual void open(int port, ClientHandler &clientHandler) = 0;
+        virtual void open(int port, ClientHandler &clientHandler, thread& serverThread) = 0;
 
         /**
          * Function name: shouldStop
@@ -52,7 +52,7 @@ namespace server_side {
          * @param clientHandler given clientHandler
          * @param mySerialServer given MySerialServer
         */
-        static int runServer(int port, server_side::Server *mySerialServer) {
+        static int createSocket(int port, server_side::Server *mySerialServer) {
                 int sockfd;
                 struct sockaddr_in serv_addr;
                 if (!mySerialServer->shouldStop()) {
