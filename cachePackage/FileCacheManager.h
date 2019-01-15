@@ -6,6 +6,7 @@ using namespace std;
 #include <string>
 #include <map>
 #include <fstream>
+#include <algorithm>
 #include <iostream>
 #include <sstream>
 #include <mutex>
@@ -17,8 +18,8 @@ using namespace std;
  * FileCacheManager class, implements CacheManager
  */
 class FileCacheManager : public CacheManager<string, string> {
-    ofstream *fileInput;
-    fstream *fileOutput;
+    ofstream fileInput;
+    fstream fileOutput;
     map<string, string> mapProblemToSolution;
     map<string, string> updateFile;
     mutex mtx;

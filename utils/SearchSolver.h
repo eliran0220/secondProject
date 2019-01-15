@@ -36,6 +36,7 @@ public:
     vector<State<T> *> solver(Searchable<T> *problem) override {
         vector<State<T> *> solutionPath = searcher->search(problem);
         //this->solution = problem->pathToString(solutionPath);
+        this->searcher->initialize();
         return solutionPath;
     }
 

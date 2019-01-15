@@ -19,6 +19,8 @@ public:
      * @return P
      */
     virtual P createProblem(string problem) = 0;
+
+    virtual ~ProblemCreator() = default;
 };
 
 #endif

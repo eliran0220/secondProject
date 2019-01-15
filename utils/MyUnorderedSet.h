@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <unordered_set>
+#include <vector>
 
 #include "../searchPackage/State.h"
 
@@ -16,6 +17,7 @@ using std::iterator;
 template<class T>
 
 class MyUnorderedSet : public unordered_set<State<T>*,statePHash<T>, stateComp<T>> {
+    std::vector<State<T>*> states;
 
 public:
     bool contains(State<T> *state) const {
@@ -31,11 +33,19 @@ public:
 
     void insertState(State<T>* state) {
         this->insert(state);
+        this->states.push_back(state);
     }
 
     void remove(State<T>* state) {
         this->erase(state);
     }
+
+    void initialize() {
+        this->clear();
+        this->states.clear();
+    }
+
+    std::vector<State<T>*> getPointersStates() { return this->states;}
 };
 
 #endif //SECONDPROJECT_MYUNORDEREDSET_H

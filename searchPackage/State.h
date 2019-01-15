@@ -30,7 +30,7 @@ public:
         this->pathCost = cost;
     }
 
-    T getData() {
+    T& getData() {
         return this->data;
     }
 

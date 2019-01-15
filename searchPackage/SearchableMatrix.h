@@ -20,8 +20,6 @@ class SearchableMatrix : public Searchable<Point*> {
     MyUnorderedSet<Point*> set;
     vector<string> initialState;
     vector<string> goalState;
-    Point * goal;
-    Point * ini;
     int row;
     int col;
 
@@ -34,9 +32,6 @@ private:
         if (cost >= 0) {
             Point* position = new Point(x, y);
             state = new State<Point*>(position, cost);
-            if (*position == *goal || *position == *ini) {
-                int x = 8;
-            }
             if (set.contains(state)) {
                 State<Point*> *temp = state;
                 state = set.getState(temp);
@@ -93,11 +88,38 @@ private:
     }
 
     void deleteState() {
-        for(State<Point*>* state: set) {
+        vector<State<Point*>*> states = this->set.getPointersStates();
+        int x = states.size();
+        int y = this->set.size();
+        for(State<Point*>* state: states) {
+            //states.push_back(state);
+
             delete (state->getData());
             delete(state);
+            //state1 = state;
+        }
+        this->set.initialize();
+
+        //State<Point*>* state1;
+        /*
+        vector<State<Point*>*> states;
+        set.swap(set);
+        for(State<Point*>* state: set) {
+            //states.push_back(state);
+
+            delete (state->getData());
+            delete(state);
+            //state1 = state;
         }
         this->set.clear();
+         */
+        /*
+        for (int i = 0; i < (int)states.size(); ++i) {
+            delete (states[i]->getData());
+            delete(states[i]);
+        }
+         */
+
     }
 
     void initializeMembers(vector<vector<string>> &matrix) {
@@ -125,7 +147,6 @@ public:
         State<Point*> *initialState = new State<Point*>(position,
                                                           stod(matrix[position->getX()][position->getY()]));
         this->set.insertState(initialState);
-        this->ini = position;
         return initialState;
     }
 
@@ -135,7 +156,6 @@ public:
         State<Point*> *goalState = new State<Point*>(position,
                                                           stod(matrix[position->getX()][position->getY()]));
         this->set.insertState(goalState);
-        this->goal = position;
         return goalState;
     }
 

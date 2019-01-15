@@ -1,198 +1,28 @@
 #include <iostream>
-#include "solverPackage/Solver.h"
-#include "cachePackage/CacheManager.h"
-#include "serverPackage/Server.h"
-#include "serverPackage/MySerialServer.h"
-#include "solverPackage/StringReverser.h"
 #include "cachePackage/FileCacheManager.h"
-#include "clientPackage/MyTestClientHandler.h"
-#include "searchPackage/Searcher.h"
-#include "searchPackage/State.h"
-#include "test/MatrixDomain.h"
-#include "searchPackage/BestFirstSearch.h"
-#include "searchPackage/BFS.h"
-#include "searchPackage/DFS.h"
 #include "searchPackage/AStar.h"
 #include "clientPackage/MyClientHandler.h"
 #include "utils/SearchSolver.h"
 #include "problemPackage/MatrixProblem.h"
 #include "serverPackage/MyParralelServer.h"
-#include "searchPackage/Searchable.h"
 
 
-void check(int argc, char *argv[]) {
-    vector<vector<string>> matrix;
-    vector<string> temp;
-    temp.push_back("1");
-    temp.push_back("2");
-    temp.push_back("3");
-    matrix.push_back(temp);
-    temp.clear();
-    temp.push_back("0");
-    temp.push_back("0");
-    temp.push_back("0");
-    matrix.push_back(temp);
-    temp.clear();
-    temp.push_back("1");
-    temp.push_back("1");
-    temp.push_back("1");
-    matrix.push_back(temp);
-    temp.clear();
-    temp.push_back("0");
-    temp.push_back("0");
-    matrix.push_back(temp);
-    temp.clear();
-    temp.push_back("2");
-    temp.push_back("2");
-    matrix.push_back(temp);
-    temp.clear();
-
-
-    SearchableMatrix *m = new SearchableMatrix(matrix);
-    Searcher<Point *> *searcher = new DFS<Point *>();
-    Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
-            searcher);
-    vector<State<Point *> *> v = solver->solver(m);
-    cout << v[v.size() - 1]->getCost();
-}
-
-
-void serverCheck(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
     server_side::Server *server = new MyParralelServer();
-    Searcher<Point *> *searcher = new BestFirstSearch<Point *>();
+    Searcher<Point *> *searcher = new AStar<Point *>();
     Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
             searcher);
     CacheManager<string, string> *cacheManager = new FileCacheManager(argv[2]);
     ProblemCreator<Searchable<Point *> *> *problemCreator = new MatrixProblem();
-    MyClientHandler<Point *> *clientHandler = new MyClientHandler<Point *>(
+    auto *clientHandler = new MyClientHandler<Point *>(
             solver, cacheManager, problemCreator);
     server->open(atoi(argv[1]), *clientHandler);
-
-    sleep(30);
     delete (server);
     delete (solver);
     delete (searcher);
+    delete(problemCreator);
     delete (cacheManager);
     delete (clientHandler);
-
-}
-
-
-void matrixDomainCheck() {
-    MatrixDomain *m = new MatrixDomain();
-    BestFirstSearch<Point *> *bestFirstSearch = new BestFirstSearch<Point *>();
-    bestFirstSearch->search(m);
-}
-
-
-void checkUnorder() {
-    MyUnorderedSet<Point *> set;
-    State<Point *> *p = new State<Point *>(new Point(1, 2), 3);
-    set.insertState(p);
-    p = new State<Point *>(new Point(1, 3), 3);
-    set.insertState(p);
-    p = new State<Point *>(new Point(1, 4), 3);
-    set.insertState(p);
-    p = new State<Point *>(new Point(1, 5), 3);
-    set.insertState(p);
-    p = new State<Point *>(new Point(1, 7), 3);
-    set.contains(p);
-}
-
-string createStringForMatrix(ifstream &file) {
-    vector<string> lines;
-    string line = "";
-    string prob;
-    while (getline(file, line)) {
-        if (line[line.length() - 1] == '\r') {
-            line = line.substr(0, line.length() - 1);
-        }
-        if (line == "$")
-            break;
-        line.erase(remove(line.begin(), line.end(), ' '), line.end());
-        prob += line + ":";
-
-
-    }
-    return prob;
-}
-
-vector<vector<string>> createMatrix(string matrixString) {
-    string row;
-    string index;
-    stringstream ssRow(matrixString);
-    vector<vector<string>> matrix;
-    vector<string> splitRow;
-    while (getline(ssRow,row,SEP_ROW)) {
-        stringstream ssCol(row);
-        while (getline(ssCol,index,SEP_COL)) {
-            splitRow.push_back(index);
-        }
-        matrix.push_back(splitRow);
-        splitRow.clear();
-    }
-    return matrix;
-}
-
-
-void gra(Searcher<Point *> *searcher, ofstream &fileS,char *argv[]) {
-    int countMatrix = 0;
-    vector<vector<string>> matrix;
-    vector<State<Point *> *> v;
-    string test;
-    int count = 0;
-    ifstream fileG("graphsTest.txt");
-    while (countMatrix<10) {
-        Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
-                searcher);
-        CacheManager<string, string> *cacheManager = new FileCacheManager(argv[2]);
-        ProblemCreator<Searchable<Point *> *> *problemCreator = new MatrixProblem();
-        vector<vector<string>> matrix;
-        vector<State<Point *> *> v;
-        test = createStringForMatrix(fileG);
-        if (test.empty())
-            break;
-        matrix = createMatrix(test);
-        auto *m = new SearchableMatrix(matrix);
-        v = solver->solver(m);
-        int x = v.size();
-        int y = v[v.size() - 1]->getCost();
-        int t = searcher->getNumberOfNodesEvaluated();
-        fileS << v[v.size() - 1]->getCost() << "," << searcher->getNumberOfNodesEvaluated()  << endl;
-        count++;
-        delete (m);
-        delete (cacheManager);
-        delete (problemCreator);
-        delete (solver);
-        searcher->initialize();
-    }
-    fileS << "$"<<endl;
-    fileG.close();
-}
-
-int main(int argc, char *argv[]) {
-
-    //check(argc, argv);
-    //matrixDomainCheck();
-    //checkUnorder();
-   // serverCheck(argc,argv);
-
-    ofstream fileS("solutions.txt");
-    Searcher<Point *> *searcherDFS = new DFS<Point *>();
-    Searcher<Point *> *searcherBFS = new BFS<Point *>();
-    Searcher<Point *> *searcherBest = new BestFirstSearch<Point *>();
-    Searcher<Point *> *searcherAstar = new AStar<Point *>();
-    gra(searcherBest, fileS,argv);
-    gra(searcherDFS, fileS, argv);
-    gra(searcherBFS, fileS, argv);
-    gra(searcherAstar, fileS, argv);
-    delete (searcherBest);
-    delete (searcherDFS);
-    delete (searcherBFS);
-    delete (searcherAstar);
-
-    fileS.close();
-    //check(argc,argv);
 }
 
 

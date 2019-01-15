@@ -39,7 +39,7 @@ public:
      * Function name: ~CacheManager
      * The function operation: destructs the CacheManager
      */
-    virtual ~CacheManager(){};
+    virtual ~CacheManager() = default;
 };
 
 #endif
