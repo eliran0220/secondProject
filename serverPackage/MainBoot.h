@@ -5,8 +5,15 @@
 #ifndef SECONDPROJECT_MAINBOOT_H
 #define SECONDPROJECT_MAINBOOT_H
 
-#include "Server.h"
 #include "MySerialServer.h"
+#include "../cachePackage/FileCacheManager.h"
+#include "../searchPackage/AStar.h"
+#include "../clientPackage/MyClientHandler.h"
+#include "../utils/SearchSolver.h"
+#include "../problemPackage/MatrixProblem.h"
+
+
+#define ERROR "Missing port number"
 
 namespace server_side {
     namespace boot {
@@ -17,18 +24,28 @@ namespace server_side {
 class server_side::boot::Main {
 public:
     int main(int argc, char *argv[]) {
-        Server *server = new MySerialServer();
-        Solver<string, string> *solver = new StringReverser();
-        CacheManager<string, string> *cacheManager = new FileCacheManager(
-                "a.txt");
-        ClientHandler *clientHandler = new MyTestClientHandler(solver, cacheManager);
-        server->open(atoi(argv[1]), *clientHandler);
-        sleep(20);
-        delete (server);
-        delete (solver);
-        delete (cacheManager);
-        delete (clientHandler);
+            if ( argc <= 1)  {
+                    cout << ERROR << endl;
+                    return 0;
+            }
+            thread serverThread;
+            server_side::Server *server = new MySerialServer();
+            Searcher<Point *> *searcher = new AStar<Point *>();
+            Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
+                    searcher);
+            CacheManager<string, string> *cacheManager = new FileCacheManager();
+            ProblemCreator<Searchable<Point *> *> *problemCreator = new MatrixProblem();
+            auto *clientHandler = new MyClientHandler<Point *>(
+                    solver, cacheManager, problemCreator);
+            server->open(atoi(argv[1]), *clientHandler, serverThread);
+            serverThread.join();
+            delete (server);
+            delete (solver);
+            delete (searcher);
+            delete(problemCreator);
+            delete (cacheManager);
+            delete (clientHandler);
     }
 };
 
-#endif //SECONDPROJECT_MAINBOOT_H
+#endif

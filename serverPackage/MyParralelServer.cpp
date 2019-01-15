@@ -7,7 +7,6 @@ MyParralelServer::MyParralelServer() {
 
 MyParralelServer::~MyParralelServer() {
     this->closeServer();
-    int x = 0;
     for (thread & th : this->serverThreads) {
         th.join();
     }
@@ -35,7 +34,7 @@ void MyParralelServer::openMainServerThread(int sockfd,
         server->serverThreads.emplace_back(thread(MyParralelServer::communicate,newsockfd, clientHandler));
     }
 
-    server_side::Server::settimeout(1,0,sockfd);
+    server_side::Server::settimeout(10,0,sockfd);
     while (true) {
         /* Now start listening for the clients, here process will
                * go in sleep mode and will wait for the incoming connection

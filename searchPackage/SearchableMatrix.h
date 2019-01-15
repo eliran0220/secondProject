@@ -89,8 +89,6 @@ private:
 
     void deleteState() {
         vector<State<Point*>*> states = this->set.getPointersStates();
-        int x = states.size();
-        int y = this->set.size();
         for(State<Point*>* state: states) {
             //states.push_back(state);
 

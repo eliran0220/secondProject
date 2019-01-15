@@ -56,7 +56,7 @@ public:
         return this->pathCost;
     }
 
-    double setHeuristicCost(double cost) {
+    void setHeuristicCost(double cost) {
         this->heuristicCost = cost;
     }
 

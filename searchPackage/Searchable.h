@@ -19,6 +19,7 @@ public:
     virtual State<T>* getGoalState() =0;
     virtual vector<State<T>*> getAllPossibleStates(State<T>* state) = 0;
     virtual string pathToString(vector<State<T>*> path) = 0;
+    virtual ~Searchable() = default;
 
 };
 #endif //SECONDPROJECT_SEARCHABLE_H
