@@ -5,11 +5,8 @@
 void MyTestClientHandler::handleClient(int socket) {
     ssize_t n;
     char buffer[1];
-    string clientInput = "";
-    //P problem;
-    //S solution;
+    string clientInput;
     string solutionString;
-
     // read the first line
     n = read(socket, buffer, 1);
     while (strcmp(buffer, "\n") != 0) {
@@ -29,9 +26,6 @@ void MyTestClientHandler::handleClient(int socket) {
         } else {
             solutionString = this->solver->solver(clientInput);
             this->cacheManager->saveSolution(clientInput,solutionString);
-            //problem = this->solver->stringToProblem(clientInput);
-            //solution = this->solver->solver(problem);
-            //solutionString = this->solver->solutionToString(solution);
         }
         n = write(socket, solutionString.c_str(),solutionString.size());
         if(n < 0){

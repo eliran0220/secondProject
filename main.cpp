@@ -5,10 +5,28 @@
 #include "utils/SearchSolver.h"
 #include "problemPackage/MatrixProblem.h"
 #include "serverPackage/MyParralelServer.h"
+#include "serverPackage/MainBoot.h"
 
 #define ERROR_PORT "Missing port number"
 
 int main(int argc, char *argv[]) {
+
+    if ( argc <= 1)  {
+        cout << ERROR << endl;
+        return 0;
+    }
+    thread serverThread;
+    server_side::Server *server = new MySerialServer();
+    Solver<string, string> *solver = new StringReverser();
+    CacheManager<string, string> *cacheManager = new FileCacheManager();
+    auto *clientHandler = new MyTestClientHandler(solver, cacheManager);
+    server->open(atoi(argv[1]), *clientHandler, serverThread);
+    //serverThread.join();
+    delete (server);
+    delete (solver);
+    delete (cacheManager);
+    delete (clientHandler);
+    /*
     if ( argc <= 1)  {
         cout << ERROR_PORT << endl;
         return 0;
@@ -30,6 +48,7 @@ int main(int argc, char *argv[]) {
     delete(problemCreator);
     delete (cacheManager);
     delete (clientHandler);
+     */
 }
 
 

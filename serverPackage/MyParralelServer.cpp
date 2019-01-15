@@ -15,7 +15,6 @@ MyParralelServer::~MyParralelServer() {
 void MyParralelServer::open(int port, ClientHandler &clientHandler, thread& serverThread) {
     int sockfd = server_side::Server::createSocket(port, this);
     serverThread = thread(MyParralelServer::openMainServerThread, sockfd, &clientHandler,this);
-    //openMainServerThread(sockfd, &clientHandler,this);
 }
 
 void MyParralelServer::openMainServerThread(int sockfd,
@@ -37,10 +36,8 @@ void MyParralelServer::openMainServerThread(int sockfd,
     server_side::Server::settimeout(10,0,sockfd);
     while (true) {
         /* Now start listening for the clients, here process will
-               * go in sleep mode and will wait for the incoming connection
-            */
-        //listen(sockfd, 5);
-        //clilen = sizeof(cli_addr);
+         * go in sleep mode and will wait for the incoming connection
+         */
         newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr,
                            (socklen_t *) &clilen);
 

@@ -30,19 +30,13 @@ public:
             }
             thread serverThread;
             server_side::Server *server = new MySerialServer();
-            Searcher<Point *> *searcher = new AStar<Point *>();
-            Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
-                    searcher);
+            Solver<string, string> *solver = new StringReverser();
             CacheManager<string, string> *cacheManager = new FileCacheManager();
-            ProblemCreator<Searchable<Point *> *> *problemCreator = new MatrixProblem();
-            auto *clientHandler = new MyClientHandler<Point *>(
-                    solver, cacheManager, problemCreator);
+            auto *clientHandler = new MyTestClientHandler(solver, cacheManager);
             server->open(atoi(argv[1]), *clientHandler, serverThread);
             serverThread.join();
             delete (server);
             delete (solver);
-            delete (searcher);
-            delete(problemCreator);
             delete (cacheManager);
             delete (clientHandler);
     }
