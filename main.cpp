@@ -26,22 +26,8 @@ void check(int argc, char *argv[]) {
     temp.push_back("1");
     temp.push_back("2");
     temp.push_back("3");
-    temp.push_back("4");
     matrix.push_back(temp);
     temp.clear();
-    temp.push_back("0");
-    temp.push_back("0");
-    temp.push_back("0");
-    temp.push_back("0");
-    matrix.push_back(temp);
-    temp.clear();
-    temp.push_back("1");
-    temp.push_back("1");
-    temp.push_back("1");
-    temp.push_back("1");
-    matrix.push_back(temp);
-    temp.clear();
-    temp.push_back("0");
     temp.push_back("0");
     temp.push_back("0");
     temp.push_back("0");
@@ -49,21 +35,25 @@ void check(int argc, char *argv[]) {
     temp.clear();
     temp.push_back("1");
     temp.push_back("1");
+    temp.push_back("1");
     matrix.push_back(temp);
     temp.clear();
-    temp.push_back("3");
-    temp.push_back("3");
+    temp.push_back("0");
+    temp.push_back("0");
+    matrix.push_back(temp);
+    temp.clear();
+    temp.push_back("2");
+    temp.push_back("2");
     matrix.push_back(temp);
     temp.clear();
 
 
     SearchableMatrix *m = new SearchableMatrix(matrix);
-    Searcher<Point *> *searcher = new AStar<Point *>();
+    Searcher<Point *> *searcher = new DFS<Point *>();
     Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
             searcher);
     vector<State<Point *> *> v = solver->solver(m);
-    //cout << solver->solutionToString(v) << endl;
-    //cout << v[v.size() - 1]->getCost();
+    cout << v[v.size() - 1]->getCost();
 }
 
 
@@ -152,7 +142,7 @@ int main(int argc, char *argv[]) {
     //checkUnorder();
    // serverCheck(argc,argv);
 
-
+    /*
     int countMatrix = 0;
     vector<vector<string>> matrix;
     vector<State<Point *> *> v;
@@ -161,24 +151,30 @@ int main(int argc, char *argv[]) {
     string test;
     int count = 0;
     while (countMatrix<10) {
-        Searcher<Point *> *searcher = new AStar<Point *>();
+        Searcher<Point *> *searcher = new DFS<Point *>();
         Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
                 searcher);
         CacheManager<string, string> *cacheManager = new FileCacheManager(argv[2]);
         ProblemCreator<Searchable<Point *> *> *problemCreator = new MatrixProblem();
+        MatrixDomain *matrixDomain = new MatrixDomain();
         vector<vector<string>> matrix;
         vector<State<Point *> *> v;
         test = createStringForMatrix(fileG);
-        if (test == "")
+        if (test.empty())
             break;
         matrix = createMatrix(test);
         auto *m = new SearchableMatrix(matrix);
         v = solver->solver(m);
-        fileS << v[v.size() - 1]->getCost() << ", " << v.size() -1  << endl;
+        int x = v.size();
+        fileS << searcher->calculatePathCost(v) << ", " << searcher->getNumberOfNodesEvaluated()  << endl;
         count++;
     }
     fileG.close();
     fileS.close();
+     */
+
+
+    check(argc,argv);
 
 
 }

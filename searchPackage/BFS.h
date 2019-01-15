@@ -40,7 +40,6 @@ public:
             if (topInQueue->Equals(goalState)) {
                 path = this->backTrace(topInQueue);
                 this->calculateEvaluatedNodes(this->statesInOpenList, path, closed);
-
                 return path;
             }
             vector<State<T> *> successors = searchable->getAllPossibleStates(topInQueue);
