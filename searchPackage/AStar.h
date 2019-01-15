@@ -38,15 +38,23 @@ public:
         return temp;
     }
 
+    void initialize() {
+        this->openList.clear();
+        this->evaluatedNodes = 0;
+    }
+
     vector<State<T> *> search(Searchable<T> *searchable) {
         State<T> *initialState = searchable->getInitialState();
         this->openList.pushState(initialState); // push the initial state
         MyUnorderedSet<T> closed;
         State<T> *goalState = searchable->getGoalState();
+        vector<State<T> *> path;
         while (!this->openList.empty()) {
             State<T> *topInQueue = this->popOpenList();
             if (topInQueue->Equals(goalState)) {
-                return this->backTrace(topInQueue);
+                path = this->backTrace(topInQueue);
+                //this->initialize();
+                return path;
             }
             if (closed.contains(topInQueue)) {
                 continue;
@@ -65,6 +73,8 @@ public:
             }
             closed.insertState(topInQueue);
         }
+        //this->initialize();
+        return path;
     }
 };
 

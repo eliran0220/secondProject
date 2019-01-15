@@ -100,13 +100,8 @@ public:
         temp += statesInOpenList.size();
         this->evaluatedNodes = temp;
     }
-    int calculatePathCost(vector<State<T>*> vec){
-        int sum = 0;
-        for (State<T> *state : vec) {
-            sum += state->getCost();
-        }
-        return sum;
-    }
+
+    virtual void initialize() = 0;
 };
 
 #endif

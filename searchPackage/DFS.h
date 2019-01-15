@@ -36,6 +36,14 @@ public:
     }
 
 
+    void initialize() {
+        while (!this->openList.empty()) {
+            this->openList.pop();
+        }
+        this->statesInOpenList.clear();
+        this->evaluatedNodes = 0;
+    }
+
     vector<State<T>*> search(Searchable<T>* searchable) {
         State<T> *initialState = searchable->getInitialState();
         pushState(initialState); // push the initial state
@@ -51,6 +59,7 @@ public:
             if (topInStack->Equals(goalState)) {
                 path = this->backTrace(topInStack);
                 this->calculateEvaluatedNodes(this->statesInOpenList, path, closed);
+                //this->initialize();
                 return path;
             }
             vector<State<T> *> successors = searchable->getAllPossibleStates(topInStack);
@@ -58,10 +67,14 @@ public:
                 // אם הוא לא נמצא ב closed וגם ב open
                 if (!closed.contains(state)&& !this->statesInOpenList.contains(state)) {
                     state->setCameFrom(topInStack);
+                    state->setCostPath(
+                            topInStack->getCost() + state->getPositionCost());
                     pushState(state);
                 }
             }
         }
+        //this->initialize();
+        return path;
     }
 };
 #endif //SECONDPROJECT_DFS_H

@@ -28,6 +28,11 @@ public:
         return temp;
     }
 
+    void initialize() {
+        this->openList.clear();
+        this->evaluatedNodes = 0;
+    }
+
     vector<State<T> *> search(Searchable<T> *searchable) {
         State<T> *initialState = searchable->getInitialState();
         vector<State<T> *> path;
@@ -42,6 +47,7 @@ public:
             if (topInQueue->Equals(goalState)) {
                 path = this->backTrace(topInQueue);
                 this->calculateEvaluatedNodes(this->openList.getSetInQueue(),path, closed);
+                //this->initialize();
                 return path;
             }
             vector<State<T> *> successors = searchable->getAllPossibleStates(
@@ -66,7 +72,9 @@ public:
                     }
                 }
             }
+            //this->initialize();
         }
+        return path;
     }
 };
 

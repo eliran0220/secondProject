@@ -98,6 +98,13 @@ public:
         return this->set;
     }
 
+    void clear() {
+        while (!this->empty()) {
+            this->pop();
+        }
+        this->set.clear();
+    }
+
 };
 
 

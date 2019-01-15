@@ -135,28 +135,18 @@ vector<vector<string>> createMatrix(string matrixString) {
 }
 
 
-int main(int argc, char *argv[]) {
-
-    //check(argc, argv);
-    //matrixDomainCheck();
-    //checkUnorder();
-   // serverCheck(argc,argv);
-
-    /*
+void gra(Searcher<Point *> *searcher, ofstream &fileS,char *argv[]) {
     int countMatrix = 0;
     vector<vector<string>> matrix;
     vector<State<Point *> *> v;
-    ifstream fileG("graphsTest");
-    ofstream fileS("solutions");
     string test;
     int count = 0;
+    ifstream fileG("graphsTest.txt");
     while (countMatrix<10) {
-        Searcher<Point *> *searcher = new DFS<Point *>();
         Solver<Searchable<Point *> *, vector<State<Point *> *>> *solver = new SearchSolver<Point *>(
                 searcher);
         CacheManager<string, string> *cacheManager = new FileCacheManager(argv[2]);
         ProblemCreator<Searchable<Point *> *> *problemCreator = new MatrixProblem();
-        MatrixDomain *matrixDomain = new MatrixDomain();
         vector<vector<string>> matrix;
         vector<State<Point *> *> v;
         test = createStringForMatrix(fileG);
@@ -166,17 +156,43 @@ int main(int argc, char *argv[]) {
         auto *m = new SearchableMatrix(matrix);
         v = solver->solver(m);
         int x = v.size();
-        fileS << searcher->calculatePathCost(v) << ", " << searcher->getNumberOfNodesEvaluated()  << endl;
+        int y = v[v.size() - 1]->getCost();
+        int t = searcher->getNumberOfNodesEvaluated();
+        fileS << v[v.size() - 1]->getCost() << "," << searcher->getNumberOfNodesEvaluated()  << endl;
         count++;
+        delete (m);
+        delete (cacheManager);
+        delete (problemCreator);
+        delete (solver);
+        searcher->initialize();
     }
+    fileS << "$"<<endl;
     fileG.close();
+}
+
+int main(int argc, char *argv[]) {
+
+    //check(argc, argv);
+    //matrixDomainCheck();
+    //checkUnorder();
+   // serverCheck(argc,argv);
+
+    ofstream fileS("solutions.txt");
+    Searcher<Point *> *searcherDFS = new DFS<Point *>();
+    Searcher<Point *> *searcherBFS = new BFS<Point *>();
+    Searcher<Point *> *searcherBest = new BestFirstSearch<Point *>();
+    Searcher<Point *> *searcherAstar = new AStar<Point *>();
+    gra(searcherBest, fileS,argv);
+    gra(searcherDFS, fileS, argv);
+    gra(searcherBFS, fileS, argv);
+    gra(searcherAstar, fileS, argv);
+    delete (searcherBest);
+    delete (searcherDFS);
+    delete (searcherBFS);
+    delete (searcherAstar);
+
     fileS.close();
-     */
-
-
-    check(argc,argv);
-
-
+    //check(argc,argv);
 }
 
 

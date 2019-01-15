@@ -22,6 +22,14 @@ public:
         return temp;
     }
 
+    void initialize() {
+        while (!this->openList.empty()) {
+            this->openList.pop();
+        }
+        this->statesInOpenList.clear();
+        this->evaluatedNodes = 0;
+    }
+
      void pushState(State <T>* state) {
         this->statesInOpenList.insertState(state);
         this->openList.push(state);
@@ -40,16 +48,21 @@ public:
             if (topInQueue->Equals(goalState)) {
                 path = this->backTrace(topInQueue);
                 this->calculateEvaluatedNodes(this->statesInOpenList, path, closed);
+                //this->initialize();
                 return path;
             }
             vector<State<T> *> successors = searchable->getAllPossibleStates(topInQueue);
             for (State<T> *state : successors) {
                 if (!closed.contains(state)&& !this->statesInOpenList.contains(state)) {
                     state->setCameFrom(topInQueue);
+                    state->setCostPath(
+                            topInQueue->getCost() + state->getPositionCost());
                     pushState(state);
                 }
             }
         }
+        //this->initialize();
+        return path;
     }
 };
 
