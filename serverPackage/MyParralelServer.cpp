@@ -38,7 +38,7 @@ void MyParralelServer::openMainServerThread(int sockfd,
                        clientHandler));
     }
     // set the time-out to 1.
-    server_side::Server::settimeout(10, 0, sockfd);
+    server_side::Server::settimeout(1, 0, sockfd);
     while (true) {
         /* Now start listening for the clients, here process will
          * go in sleep mode and will wait for the incoming connection

@@ -5,7 +5,6 @@
 #include "utils/SearchSolver.h"
 #include "problemPackage/MatrixProblem.h"
 #include "serverPackage/MyParralelServer.h"
-#include "serverPackage/MainBoot.h"
 
 #define ERROR_PORT "Missing port number"
 
