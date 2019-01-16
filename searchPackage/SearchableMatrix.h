@@ -1,23 +1,24 @@
-//
-// Created by afik on 1/13/19.
-//
-
-#ifndef SECONDPROJECT_SEARCHABLEMATRIX_H
-#define SECONDPROJECT_SEARCHABLEMATRIX_H
+#ifndef SEARCHABLEMATRIX_H
+#define SEARCHABLEMATRIX_H
 
 #include "../utils/Point.h"
 #include "Searchable.h"
 #include "../utils/MyUnorderedSet.h"
 
+/**
+ * Used as the directions
+ */
 enum POSITION {
     LEFT, RIGHT, UP, DOWN
 };
 using std::vector;
 
-
-class SearchableMatrix : public Searchable<Point*> {
+/**
+ * SearchableMatrix class, implements Searchable
+ */
+class SearchableMatrix : public Searchable<Point *> {
     vector<vector<string>> matrix;
-    MyUnorderedSet<Point*> set;
+    MyUnorderedSet<Point *> set;
     vector<string> initialState;
     vector<string> goalState;
     int row;
@@ -25,18 +26,26 @@ class SearchableMatrix : public Searchable<Point*> {
 
 private:
 
-    State<Point*>*createState(int x, int y) {
+    /**
+     * Function name: createState
+     * The function operation: given x and y coordinates , creates a new
+     * Point which will be considered state.
+     * @param x given x
+     * @param y given y
+     * @return State<Point*>*
+     */
+    State<Point *> *createState(int x, int y) {
         double cost = stod(matrix[x][y]);
-        State<Point*> *state = nullptr;
+        State<Point *> *state = nullptr;
         // if cost != -1
         if (cost >= 0) {
-            Point* position = new Point(x, y);
-            state = new State<Point*>(position, cost);
+            Point *position = new Point(x, y);
+            state = new State<Point *>(position, cost);
             if (set.contains(state)) {
-                State<Point*> *temp = state;
+                State<Point *> *temp = state;
                 state = set.getState(temp);
                 delete (temp->getData());
-                delete(temp);
+                delete (temp);
             } else {
                 set.insertState(state);
             }
@@ -44,6 +53,14 @@ private:
         return state;
     }
 
+    /**
+     * Function name: getNeighbors
+     * The function operation: given x and y coordinates, the function
+     * returns all the legal neighbors of those cooridnates.
+     * @param x given x
+     * @param y given y
+     * @return vecor<POSITION>
+     */
     vector<POSITION> getNeighbors(int &x, int &y) {
         vector<POSITION> neighbors;
         if (x == 0 && y == 0) {
@@ -87,39 +104,30 @@ private:
         return neighbors;
     }
 
+    /**
+     * Function name: deleteState
+     * The function operation: releases all the data, by deleting the
+     * pointers (first their data, and then they are deleted)
+     * finally, initializes the set to 0
+     */
     void deleteState() {
-        vector<State<Point*>*> states = this->set.getPointersStates();
-        for(State<Point*>* state: states) {
-            //states.push_back(state);
+        vector<State<Point *> *> states = this->set.getPointersStates();
+        for (State<Point *> *state: states) {
 
             delete (state->getData());
-            delete(state);
-            //state1 = state;
+            delete (state);
         }
         this->set.initialize();
 
-        //State<Point*>* state1;
-        /*
-        vector<State<Point*>*> states;
-        set.swap(set);
-        for(State<Point*>* state: set) {
-            //states.push_back(state);
-
-            delete (state->getData());
-            delete(state);
-            //state1 = state;
-        }
-        this->set.clear();
-         */
-        /*
-        for (int i = 0; i < (int)states.size(); ++i) {
-            delete (states[i]->getData());
-            delete(states[i]);
-        }
-         */
-
     }
 
+    /**
+     * Function name: initializeMembers
+     * The function operation: given vector of vector of strings,
+     * this function is used as a "reuse", initializes the members so we could
+     * use the object for another matrix
+     * @param matrix given vector<vector<strings>>
+     */
     void initializeMembers(vector<vector<string>> &matrix) {
         this->goalState = matrix[(int) matrix.size() - 1];
         matrix.pop_back();
@@ -129,47 +137,72 @@ private:
         this->col = (int) matrix[0].size() - 1;
         this->matrix = matrix;
     }
+
 public:
+    /**
+     * Function name: SearchableMatrix
+     * The function operation: constructor
+     * @param matrix
+     */
     SearchableMatrix(vector<vector<string>> &matrix) {
         initializeMembers(matrix);
     }
 
+    /**
+     * Function name: ~SearchableMatrix
+     * The function operation: destructor
+     */
     ~SearchableMatrix() {
         deleteState();
     }
 
 
-    State<Point*> *getInitialState() {
-        Point* position = new Point((int) stod(initialState[0]),
+    /**
+     * Function name: getInitialState
+     * The function operation: returns the initial state
+     * @return State<Point *>*
+     */
+    State<Point *> *getInitialState() {
+        Point *position = new Point((int) stod(initialState[0]),
                                     (int) stod(initialState[1]));
-        State<Point*> *initialState = new State<Point*>(position,
-                                                          stod(matrix[position->getX()][position->getY()]));
+        State<Point *> *initialState = new State<Point *>(position,
+                             stod(matrix[position->getX()][position->getY()]));
         this->set.insertState(initialState);
         return initialState;
     }
 
-    State<Point*> *getGoalState() {
-        Point* position = new Point((int) stod(goalState[0]),
+    /**
+     * Function name: getGoalState
+     * The function operation: returns the goal state
+     * @return State<Point *>*
+     */
+    State<Point *> *getGoalState() {
+        Point *position = new Point((int) stod(goalState[0]),
                                     (int) stod(goalState[1]));
-        State<Point*> *goalState = new State<Point*>(position,
-                                                          stod(matrix[position->getX()][position->getY()]));
+        State<Point *> *goalState = new State<Point *>(position,
+                     stod(matrix[position->getX()][position->getY()]));
         this->set.insertState(goalState);
         return goalState;
     }
 
-
-
-    vector<State<Point*> *> getAllPossibleStates(State<Point*> *state) {
-        vector<State<Point*> *> possibleNeighbors;
-        Point* data = state->getData();
-        State<Point*>* tempState = nullptr;
+    /**
+     * Function name: getAllPossibleStates
+     * The function operation: the function returns all the possible states
+     * that could be the neighbors of the given state
+     * @param state given state
+     * @return vector<vector<Point *> *>
+     */
+    vector<State<Point *> *> getAllPossibleStates(State<Point *> *state) {
+        vector<State<Point *> *> possibleNeighbors;
+        Point *data = state->getData();
+        State<Point *> *tempState = nullptr;
         int x = data->getX();
         int y = data->getY();
         vector<POSITION> neighbors = getNeighbors(x, y);
         for (POSITION position : neighbors) {
             switch (position) {
                 case LEFT : {
-                    tempState = createState(x, y-1);
+                    tempState = createState(x, y - 1);
                     break;
                 }
                 case RIGHT: {
@@ -195,12 +228,17 @@ public:
         return possibleNeighbors;
     }
 
-
-    string pathToString(vector<State<Point*>*> path) {
+    /**
+     * Function name: pathToString
+     * The function operation: given a path, it converts it to a string
+     * @param path given path
+     * @return string
+     */
+    string pathToString(vector<State<Point *> *> path) {
         string pathString = "{";
-        Point* prev;
-        Point* current;
-        for (int i = 1; i < (int)path.size(); ++i) {
+        Point *prev;
+        Point *current;
+        for (int i = 1; i < (int) path.size(); ++i) {
             current = path[i]->getData();
             prev = path[i]->getCameFrom()->getData();
             if (current->getX() > prev->getX()) {
@@ -213,18 +251,19 @@ public:
                 pathString += "Left,";
             }
         }
-        pathString[pathString.size() -1] = '}';
+        pathString[pathString.size() - 1] = '}';
         return pathString;
     }
 
-
+    /**
+     * Function name: setAndInitialize
+     * The function operation: given a matrix, initializes it.
+     * @param matrix given vector<vector<string>>
+     */
     void setAndInitialize(vector<vector<string>> &matrix) {
         initializeMembers(matrix);
         this->deleteState();
-
     }
-
-
 };
 
-#endif //SECONDPROJECT_SEARCHABLEMATRIX_H
+#endif

@@ -3,9 +3,9 @@
 
 #include <queue>
 #include <set>
+
 #include "../searchPackage/State.h"
 #include "MyUnorderedSet.h"
-
 
 using namespace std;
 
@@ -16,7 +16,8 @@ using namespace std;
  * @tparam compare given compare value to determine the queue type
  */
 template<class T, class compare>
-class MyPriorQueue : public priority_queue<State<T> *, vector<State<T> *>, compare> {
+class MyPriorQueue
+        : public priority_queue<State<T> *, vector<State<T> *>, compare> {
     MyUnorderedSet<T> set;
 
 public:
@@ -41,7 +42,8 @@ public:
 
     /**
      * Function name: poll
-     * The function operation: pops an element from the queue and removes it from the set
+     * The function operation: pops an element from the queue and removes
+     * it from the set
      * @return State<T>*
      */
 
@@ -57,7 +59,8 @@ public:
 
     /**
      * Function name: contains
-     * The function operation: checks if the element exists in the set, if so, returns true
+     * The function operation: checks if the element exists in the set,
+     * if so, returns true
      * else returns false
      * @return bool
      * param state
@@ -73,9 +76,11 @@ public:
 
     /**
      * Function name: eraseAndPush
-     * The function operation: keeps popping elements untill the given element equals to the one
+     * The function operation: keeps popping elements untill the given
+     * element equals to the one
      * we popped. then we push all those elements back to the queue.
-     * Used when a value was changed, so it's position in the priority queue might be changed.
+     * Used when a value was changed, so it's position in the priority
+     * queue might be changed.
      * @param state a given state
      */
     void eraseAndPush(State<T> *state) {
@@ -94,10 +99,19 @@ public:
         }
     }
 
+    /**
+     * Function name: getSetInQueue
+     * Function operation : returns all the pointers inside the set.
+     * @return
+     */
     MyUnorderedSet<T> getSetInQueue() {
         return this->set;
     }
 
+    /**
+     * Function name: clear
+     * Function operation : clear the set.
+     */
     void clear() {
         while (!this->empty()) {
             this->pop();
@@ -106,6 +120,5 @@ public:
     }
 
 };
-
 
 #endif

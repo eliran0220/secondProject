@@ -12,7 +12,8 @@ public:
 
     /**
      * Function name: isSolutionExist
-     * The function operation: given a problem, checks if soltution exists, if so returns true
+     * The function operation: given a problem, checks if soltution
+     * exists, if so returns true
      * else returns false
      * @param problem given problem
      * @return bool
@@ -29,11 +30,12 @@ public:
 
     /**
      * Function name: saveSolution
-     * The function operation: given a problem and it's solution, save it to the cache
+     * The function operation: given a problem and it's solution,
+     * save it to the cache
      * @param problem given problem
      * @param solution given solution
      */
-    virtual void saveSolution(P problem,S solution) = 0;
+    virtual void saveSolution(P problem, S solution) = 0;
 
     /**
      * Function name: ~CacheManager

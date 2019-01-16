@@ -16,7 +16,8 @@ public:
 
     /**
      * Function name: solver
-     * The function operation: given a problem, it solves it and returns a solution
+     * The function operation: given a problem, it solves it and returns
+     * a solution
      * @param problem a given problem
      * @return S solution
      */
@@ -24,7 +25,8 @@ public:
 
     /**
      * Function name: solutionToString
-     * The function operation: given a solution, covnerts it to string and returns it
+     * The function operation: given a solution, covnerts it to string
+     * and returns it
      * @param solution given solution
      * @return string
      */

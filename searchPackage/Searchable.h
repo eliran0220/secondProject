@@ -1,9 +1,5 @@
-//
-// Created by eliran on 1/8/19.
-//
-
-#ifndef SECONDPROJECT_SEARCHABLE_H
-#define SECONDPROJECT_SEARCHABLE_H
+#ifndef SEARCHABLE_H
+#define SEARCHABLE_H
 
 using namespace std;
 
@@ -13,13 +9,46 @@ using namespace std;
 
 using std::string;
 
-template <class T> class Searchable  {
+template<class T>
+class Searchable {
 public:
-    virtual State<T>* getInitialState() =0;
-    virtual State<T>* getGoalState() =0;
-    virtual vector<State<T>*> getAllPossibleStates(State<T>* state) = 0;
-    virtual string pathToString(vector<State<T>*> path) = 0;
+    /**
+     * Function name: getInitialState
+     * The function operation: returns the initial state
+     * @return State<T>*
+     */
+    virtual State<T> *getInitialState() = 0;
+
+    /**
+     * Function nname: getGoalState
+     * The function oepration: returns the goal state
+     * @return State<T>*
+     */
+    virtual State<T> *getGoalState() = 0;
+
+    /**
+     * Function name: getAllPossibleStates
+     * The function operation: the function returns all the possible states
+     * that could be the neighbors of the given state
+     * @param state given state
+     * @return vector<vector<Point *> *>
+     */
+    virtual vector<State<T> *> getAllPossibleStates(State<T> *state) = 0;
+
+    /**
+     * Function name: pathToString
+     * The function operation: given a path, it converts it to a string
+     * @param path given path
+     * @return string
+     */
+    virtual string pathToString(vector<State<T> *> path) = 0;
+
+    /**
+     * Function name: ~Searchable
+     * The function operation: destructor
+     */
     virtual ~Searchable() = default;
 
 };
-#endif //SECONDPROJECT_SEARCHABLE_H
+
+#endif

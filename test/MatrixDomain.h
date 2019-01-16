@@ -54,9 +54,7 @@ string matrix[SIZE + 1][SIZE + 1]{
 
 
 public:
-    MatrixDomain() {
-
-    }
+    MatrixDomain() = default
 
 
     State<Point *> *getInitialState() {

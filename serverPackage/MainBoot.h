@@ -1,9 +1,5 @@
-//
-// Created by eliran on 1/14/19.
-//
-
-#ifndef SECONDPROJECT_MAINBOOT_H
-#define SECONDPROJECT_MAINBOOT_H
+#ifndef MAINBOOT_H
+#define MAINBOOT_H
 
 #include "MySerialServer.h"
 #include "../cachePackage/FileCacheManager.h"
@@ -17,29 +13,29 @@
 
 namespace server_side {
     namespace boot {
-        class Main;
-    }
-}
-
-class server_side::boot::Main {
-public:
-    int main(int argc, char *argv[]) {
-            if ( argc <= 1)  {
+        class Main {
+        public:
+            int main(int argc, char *argv[]) {
+                if (argc <= 1) {
                     cout << ERROR << endl;
                     return 0;
+                }
+                thread serverThread;
+                server_side::Server *server = new MySerialServer();
+                Solver<string, string> *solver = new StringReverser();
+                CacheManager<string, string> *cacheManager =
+                        new FileCacheManager();
+                auto *clientHandler = new MyTestClientHandler(solver,
+                                                              cacheManager);
+                server->open(atoi(argv[1]), *clientHandler, serverThread);
+                serverThread.join();
+                delete (server);
+                delete (solver);
+                delete (cacheManager);
+                delete (clientHandler);
             }
-            thread serverThread;
-            server_side::Server *server = new MySerialServer();
-            Solver<string, string> *solver = new StringReverser();
-            CacheManager<string, string> *cacheManager = new FileCacheManager();
-            auto *clientHandler = new MyTestClientHandler(solver, cacheManager);
-            server->open(atoi(argv[1]), *clientHandler, serverThread);
-            serverThread.join();
-            delete (server);
-            delete (solver);
-            delete (cacheManager);
-            delete (clientHandler);
+        };
     }
-};
+}
 
 #endif

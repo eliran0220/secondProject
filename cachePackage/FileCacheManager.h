@@ -57,13 +57,13 @@ public:
 
     /**
      * Function name: saveSolution
-     * The function operation: given a problem and it's solution, save it in the cache
+     * The function operation: given a problem and it's solution,
+     * save it in the cache
      * @param problem given problem
      * @param solution given solution
      */
     void saveSolution(string problem, string solution);
 
 };
-
 
 #endif

@@ -75,7 +75,8 @@ public:
      * @param path given vector<State>*>
      * @param closedList given UnOrderedSet
      */
-    void calculateEvaluatedNodes(MyUnorderedSet<T> statesInOpenList, vector<State<T> *> path,
+    void calculateEvaluatedNodes(MyUnorderedSet<T> statesInOpenList,
+                                 vector<State<T> *> path,
                                  MyUnorderedSet<T> closedList) {
         int temp = 0;
         bool containInSet = false;
@@ -101,6 +102,10 @@ public:
         this->evaluatedNodes = temp;
     }
 
+    /**
+     * Function name: initialize
+     * The function operation: initializes the members of each searcher
+     */
     virtual void initialize() = 0;
 };
 

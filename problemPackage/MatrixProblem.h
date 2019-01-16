@@ -1,7 +1,3 @@
-//
-// Created by afik on 1/13/19.
-//
-
 #ifndef SECONDPROJECT_MATRIXPROBLEM_H
 #define SECONDPROJECT_MATRIXPROBLEM_H
 
@@ -12,32 +8,43 @@
 #define SEP_ROW ':'
 #define SEP_COL ','
 
-
+/**
+ * MatrixProblem class.
+ */
 class MatrixProblem : public ProblemCreator<Searchable<Point*> *> {
     SearchableMatrix *searchable;
 
 public:
+    /**
+     * constructor.
+     */
     MatrixProblem() {
         this->searchable = nullptr;
     }
 
-    ~MatrixProblem() {
+    ~MatrixProblem() override{
         if (searchable != nullptr) {
             delete (searchable);
         }
     }
 
+    /**
+     * Function operation - Given a concreted string, it creates a matrix in the
+     * form of vector of vector of strings. each vector, is a row of the matrix,
+     * and the last two vectors contain the initial state and the goal
+     * state by order.
+     * @param matrixString
+     * @return
+     */
     vector<vector<string>> createMatrix(string matrixString);
 
-    Searchable<Point*> *createProblem(string problem) override{
-        vector<vector<string>> matrix = createMatrix(problem);
-        if (searchable == nullptr) {
-            this->searchable = new SearchableMatrix(matrix);
-        } else {
-            searchable->setAndInitialize(matrix);
-        }
-        return this->searchable;
-    }
+    /**
+     * Function name: createProblem
+     * The function operation: creates a problem from a given string
+     * @param problem given problem
+     * @return P
+     */
+    Searchable<Point *> *createProblem(string problem) override;
 };
 
-#endif //SECONDPROJECT_MATRIXPROBLEM_H
+#endif

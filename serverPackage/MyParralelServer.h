@@ -1,10 +1,5 @@
-//
-// Created by eliran on 1/13/19.
-//
-
-#ifndef SECONDPROJECT_MYPARRALELSERVER_H
-#define SECONDPROJECT_MYPARRALELSERVER_H
-
+#ifndef MYPARRALELSERVER_H
+#define MYPARRALELSERVER_H
 
 
 #include <vector>
@@ -12,7 +7,10 @@
 
 using std::vector;
 
-class MyParralelServer : public server_side::Server{
+/**
+ * MyParralelServer, implements server_side::Server
+ */
+class MyParralelServer : public server_side::Server {
     bool stop;
     vector<thread> serverThreads;
 
@@ -36,7 +34,8 @@ public:
      * @param port given port
      * @param clientHandler given clientHanlder
      */
-    void open(int port, ClientHandler &clientHandler, thread& serverThread) override;
+    void
+    open(int port, ClientHandler &clientHandler, thread &serverThread) override;
 
     /**
      * Function name: runServer
@@ -66,11 +65,25 @@ public:
      */
     void setStop() { this->stop = false; }
 
+    /**
+     * creates the connection between the client and the server.
+     *
+     * @param sockfd
+     * @param clientHandler
+     */
     static void communicate(int sockfd, ClientHandler *clientHandler);
 
-    static void openMainServerThread(int sockfd, ClientHandler *clientHandler, MyParralelServer* server);
+    /**
+     * the function operation : opens the main thread of the server
+     *
+     * @param sockfd
+     * @param clientHandler
+     * @param server
+     */
+    static void openMainServerThread(int sockfd, ClientHandler *clientHandler,
+                                     MyParralelServer *server);
 
 };
 
 
-#endif //SECONDPROJECT_MYPARRALELSERVER_H
+#endif

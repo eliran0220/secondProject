@@ -17,7 +17,8 @@ public:
 
     /**
      * Function name: solver
-     * The function operation: given a problem which is a string, the function reverses the
+     * The function operation: given a problem which is a string, the
+     * function reverses the
      * string
      * @param problem given problem
      * @return string

@@ -1,7 +1,6 @@
 #ifndef MYCLIENTHANDLER_H
 #define MYCLIENTHANDLER_H
 
-
 #include "ClientHandler.h"
 #include "../cachePackage/CacheManager.h"
 #include "../solverPackage/Solver.h"
@@ -14,35 +13,50 @@
 #define END "end"
 #define BUFFER_SIZE 1
 #define SEPERATOR ":"
-
+#define NO_PATH "-1"
 
 /**
  * MyClientHandler class, implements ClientHandler
  * @tparam T a generic State
  */
-template <class T>
+template<class T>
 class MyClientHandler : public ClientHandler {
 
 private:
-    CacheManager<string, string>* cacheManager;
-    Solver<Searchable<T>*, vector<State<T>*>>* problemSolver;
-    ProblemCreator<Searchable<T>*>* problemCreator;
+    CacheManager<string, string> *cacheManager;
+    Solver<Searchable<T> *, vector<State<T> *>> *problemSolver;
+    ProblemCreator<Searchable<T> *> *problemCreator;
 
 public:
-
-    MyClientHandler(Solver<Searchable<T>*,  vector<State<Point*>*>> *problemSolver, CacheManager<string, string> *cacheManager,ProblemCreator<Searchable<T>*>* problemCreator) {
+    /**
+     * Constructor
+     * @param problemSolver
+     * @param cacheManager
+     * @param problemCreator
+     */
+    MyClientHandler(
+            Solver<Searchable<T> *, vector<State<Point *> *>> *problemSolver,
+            CacheManager<string, string> *cacheManager,
+            ProblemCreator<Searchable<T> *> *problemCreator) {
         this->problemSolver = problemSolver;
         this->cacheManager = cacheManager;
         this->problemCreator = problemCreator;
     }
 
-
+    /**
+     * handleClient takes care of the client's requests. the client gives an
+     * information about the matrix. first he types each row, and in the end he
+     * types the initial state and the goal state. lastly, it takes care of it's
+     * requests, tries to find a solution, if no solution is found, it creates
+     * one, saves it, and forwards it to the client.
+     * @param socket
+     */
     void handleClient(int socket) override {
         string clientInput;
         string problemString;
         string solutionString;
-        vector<State<T>*> solution;
-        Searchable<T>* problem;
+        vector<State<T> *> solution;
+        Searchable<T> *problem;
         clientInput = readFromClient(socket);
         ssize_t n;
         while (clientInput != END) {
@@ -50,23 +64,24 @@ public:
             problemString += SEPERATOR;
             clientInput = readFromClient(socket);
         }
-
-
         if (this->cacheManager->isSolutionExist(problemString)) {
             solutionString = this->cacheManager->popSolution(problemString);
         } else {
             problem = this->problemCreator->createProblem(problemString);
             solution = this->problemSolver->solver(problem);
+            // if there is no path
             if (solution.empty()) {
-                solutionString = "-1";
+                solutionString = NO_PATH;
                 this->cacheManager->saveSolution(problemString, solutionString);
             } else {
-                solutionString = this->problemSolver->solutionToString(problem, solution);
+                solutionString = this->problemSolver->solutionToString(problem,
+                                                                      solution);
                 this->cacheManager->saveSolution(problemString, solutionString);
             }
         }
-        n = write(socket, solutionString.c_str(),solutionString.size());
-        if(n < 0){
+        // send the solution
+        n = write(socket, solutionString.c_str(), solutionString.size());
+        if (n < 0) {
             perror("ERROR writing to socket");
             exit(1);
         }
@@ -75,7 +90,8 @@ public:
 
     /**
      * Function name: readFromClient
-     * The function operation: constructs a string from the data given by user each line,
+     * The function operation: constructs a string from the data given by
+     * user each line,
      * and returns it
      * @param socket a given socket
      * @return string
@@ -100,6 +116,5 @@ public:
         return clientInput;
     }
 };
-
 
 #endif

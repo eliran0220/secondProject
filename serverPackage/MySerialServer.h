@@ -1,7 +1,6 @@
 #ifndef MYSERIALSERVER_H
 #define MYSERIALSERVER_H
 
-
 #include <netinet/in.h>
 #include <strings.h>
 #include <pthread.h>
@@ -19,7 +18,6 @@ class MySerialServer : public server_side::Server {
     thread serverThread;
 
 public:
-
     /**
      * Function name: MySerialServer
      * The function operation: constructs a new MySerialServer
@@ -38,16 +36,8 @@ public:
      * @param port given port
      * @param clientHandler given clientHanlder
      */
-    void open(int port, ClientHandler &clientHandler, thread& serverThread) override;
-
-    /**
-     * Function name: runServer
-     * The function operation: runs the server
-     * @param port given port
-     * @param clientHandler given clientHandler
-     * @param mySerialServer given MySerialServer
-     */
-    //static void runServer(int port, ClientHandler *clientHandler, MySerialServer *mySerialServer);
+    void
+    open(int port, ClientHandler &clientHandler, thread &serverThread) override;
 
     /**
      * Function name: shouldStop
@@ -68,8 +58,15 @@ public:
      */
     void setStop() { this->stop = false; }
 
-    static void communicate(server_side::Server* server, int sockfd, ClientHandler *clientHandler);
+    /**
+     * Function name: communicate
+     * The function operation : opens the main thread of the server
+     * @param server
+     * @param sockfd
+     * @param clientHandler
+     */
+    static void communicate(server_side::Server *server, int sockfd,
+                            ClientHandler *clientHandler);
 };
-
 
 #endif

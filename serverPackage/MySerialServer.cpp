@@ -1,6 +1,5 @@
 #include "MySerialServer.h"
 
-
 MySerialServer::MySerialServer() {
     setStop();
 }
@@ -10,11 +9,12 @@ MySerialServer::~MySerialServer() {
     this->serverThread.join();
 }
 
-void MySerialServer::open(int port, ClientHandler &clientHandler, thread& serverThread) {
+void MySerialServer::open(int port, ClientHandler &clientHandler,
+                          thread &serverThread) {
     int sockfd = server_side::Server::createSocket(port, this);
-    this->serverThread = thread(MySerialServer::communicate,this, sockfd, &clientHandler);
+    this->serverThread = thread(MySerialServer::communicate, this, sockfd,
+                                &clientHandler);
 }
-
 
 void MySerialServer::communicate(server_side::Server *server, int sockfd,
                                  ClientHandler *clientHandler) {
@@ -25,20 +25,18 @@ void MySerialServer::communicate(server_side::Server *server, int sockfd,
     newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr,
                        (socklen_t *) &clilen);
     if (newsockfd >= 0) {
-        server_side::Server::settimeout(0,0,newsockfd);
+        server_side::Server::settimeout(0, 0, newsockfd);
         clientHandler->handleClient(newsockfd);
     }
-    server_side::Server::settimeout(1,0,sockfd);
+    server_side::Server::settimeout(1, 0, sockfd);
     while (!server->shouldStop()) {
         /* Now start listening for the clients, here process will
          * go in sleep mode and will wait for the incoming connection
          */
         if (newsockfd >= 0) {
-            server_side::Server::settimeout(0,0,newsockfd);
+            server_side::Server::settimeout(0, 0, newsockfd);
             clientHandler->handleClient(newsockfd);
         }
     }
     close(sockfd);
 }
-
-
